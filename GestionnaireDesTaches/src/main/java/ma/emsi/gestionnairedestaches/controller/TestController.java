@@ -28,6 +28,9 @@ public class TestController {
     @GetMapping(path="/userProfileEdit")
     public String userProfileEdit(Model model){ return "user-profile-edit"; }
 
+    @GetMapping(path="/navbar")
+    public String navbar(Model model){ return "navbar"; }
+
 
 
 
