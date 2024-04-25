@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class TestController {
 
     @GetMapping(path="/SignIn")
-    public String SignIn(Model model){ return "auth-sign-in"; }
+    public String SignIn(Model model){ return "login"; }
 
     @GetMapping(path="/SignUp")
-    public String SignUp(Model model){ return "auth-sign-up"; }
+    public String SignUp(Model model){ return "register"; }
 
     @GetMapping(path="/error500")
     public String error500(Model model){ return "pages-error-500"; }
