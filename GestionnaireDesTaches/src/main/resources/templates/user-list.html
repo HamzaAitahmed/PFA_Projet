@@ -51,7 +51,7 @@
                           </a>
                       </li>
                       <li class="">
-                          <a th:href="@{/templates/NotDone/page-project.html}" class="svg-icon">
+                          <a th:href="@{/templates/page-project.html}" class="svg-icon">
                               <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                   <polyline points="6 9 6 2 18 2 18 9"></polyline>
                                   <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
@@ -70,7 +70,7 @@
                           </a>
                       </li>
                       <li class="">
-                          <a th:href="@{/templates/NotDone/page-employee.html}" class="svg-icon">
+                          <a th:href="@{/templates/page-team.html}" class="svg-icon">
                               <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle>
                               </svg>
@@ -87,7 +87,7 @@
                           </a>
                       </li>
                       <li class="">
-                          <a th:href="@{/templates/NotDone/page-calender.html}" class="svg-icon">
+                          <a th:href="@{/templates/}" class="svg-icon">
                               <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
                               </svg>
@@ -115,7 +115,7 @@
                                       </a>
                                       <ul id="user" class="iq-submenu collapse" data-parent="#otherpage">
                                               <li class="">
-                                                  <a th:href="@{/templates/NotDone/user-profile.html}">
+                                                  <a th:href="@{/templates/}">
                                                       <i class="las la-minus"></i><span>User Profile</span>
                                                   </a>
                                               </li>
@@ -423,12 +423,12 @@
                                       </a>
                                       <ul id="pages-error" class="iq-submenu collapse" data-parent="#otherpage">
                                               <li class="">
-                                                  <a th:href="@{/templates/NotDone/pages-error.html}">
+                                                  <a th:href="@{/templates/pages-error.html}">
                                                       <i class="las la-minus"></i><span>Error 404</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/templates/NotDone/pages-error-500.html}">
+                                                  <a th:href="@{/templates/pages-error-500.html}">
                                                       <i class="las la-minus"></i><span>Error 500</span>
                                                   </a>
                                               </li>
@@ -683,13 +683,13 @@
                                           <svg class="svg-icon mr-0 text-primary" id="h-01-p" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                           </svg>
-                                          <a th:href="@{/templates/NotDone/user-profile.html}">My Profile</a>
+                                          <a th:href="@{/templates/}">My Profile</a>
                                       </li>
                                       <li class="dropdown-item d-flex svg-icon">
                                           <svg class="svg-icon mr-0 text-primary" id="h-02-p" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                           </svg>
-                                          <a th:href="@{/templates/NotDone/user-profile-edit.html}">Edit Profile</a>
+                                          <a th:href="@{/templates/user-profile-edit.html}">Edit Profile</a>
                                       </li>
                                       <li class="dropdown-item d-flex svg-icon">
                                           <svg class="svg-icon mr-0 text-primary" id="h-03-p" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -771,8 +771,9 @@
                      </thead>
                      <tbody>
                         <tr>
-                           <td class="text-center"><img class="rounded img-fluid avatar-40"
-                                 th:src="@{images/user/01.jpg}" alt="profile"></td>
+                           <td class="text-center">
+                               <img class="rounded img-fluid avatar-40" th:src="@{images/user/01.jpg}" alt="profile">
+                           </td>
                            <td>Anna Sthesia</td>
                            <td>(760) 756 7568</td>
                            <td>annasthesia@gmail.com</td>
@@ -792,8 +793,9 @@
                            </td>
                         </tr>
                         <tr>
-                           <td class="text-center"><img class="rounded img-fluid avatar-40"
-                                 th:src="@{images/user/02.jpg}" alt="profile"></td>
+                           <td class="text-center">
+                               <img class="rounded img-fluid avatar-40" th:src="@{images/user/02.jpg}" alt="profile">
+                           </td>
                            <td>Brock Lee</td>
                            <td>+62 5689 458 658</td>
                            <td>brocklee@gmail.com</td>
@@ -813,8 +815,9 @@
                            </td>
                         </tr>
                         <tr>
-                           <td class="text-center"><img class="rounded img-fluid avatar-40"
-                                 th:src="@{images/user/03.jpg}" alt="profile"></td>
+                           <td class="text-center">
+                               <img class="rounded img-fluid avatar-40" th:src="@{images/user/03.jpg}" alt="profile">
+                           </td>
                            <td>Dan Druff</td>
                            <td>+55 6523 456 856</td>
                            <td>dandruff@gmail.com</td>

@@ -7,15 +7,15 @@
       <title>Webkit | Responsive Bootstrap 4 Admin Dashboard Template</title>
       
       <!-- Favicon -->
-      <link rel="shortcut icon" href="../../../../../../../Webkit/Webkit/html/assets/images/favicon.ico" />
-      <link rel="stylesheet" href="../../../../../../../Webkit/Webkit/html/assets/css/backend-plugin.min.css">
-      <link rel="stylesheet" href="../../../../../../../Webkit/Webkit/html/assets/css/backend.css?v=1.0.0">
-      <link rel="stylesheet" href="../../../../../../../Webkit/Webkit/html/assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
-      <link rel="stylesheet" href="../../../../../../../Webkit/Webkit/html/assets/vendor/remixicon/fonts/remixicon.css">
+      <link rel="shortcut icon" th:href="@{images/favicon.ico}" />
+      <link rel="stylesheet" th:href="@{css/backend-plugin.min.css}">
+      <link rel="stylesheet" th:href="@{css/backend.css}">
+      <link rel="stylesheet" th:href="@{vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css}">
+      <link rel="stylesheet" th:href="@{vendor/remixicon/fonts/remixicon.css}">
       
-      <link rel="stylesheet" href="../../../../../../../Webkit/Webkit/html/assets/vendor/tui-calendar/tui-calendar/dist/tui-calendar.css">
-      <link rel="stylesheet" href="../../../../../../../Webkit/Webkit/html/assets/vendor/tui-calendar/tui-date-picker/dist/tui-date-picker.css">
-      <link rel="stylesheet" href="../../../../../../../Webkit/Webkit/html/assets/vendor/tui-calendar/tui-time-picker/dist/tui-time-picker.css">  </head>
+      <link rel="stylesheet" th:href="@{vendor/tui-calendar/tui-calendar/dist/tui-calendar.css}">
+      <link rel="stylesheet" th:href="@{vendor/tui-calendar/tui-date-picker/dist/tui-date-picker.css}">
+      <link rel="stylesheet" th:href="@{vendor/tui-calendar/tui-time-picker/dist/tui-time-picker.css}">  </head>
   <body class="  ">
     <!-- loader Start -->
     <div id="loading">
@@ -28,8 +28,8 @@
       
       <div class="iq-sidebar  sidebar-default ">
           <div class="iq-sidebar-logo d-flex align-items-center">
-              <a href="../../../../../../../Webkit/Webkit/html/backend/index.html" class="header-logo">
-                  <img src="../../../../../../../Webkit/Webkit/html/assets/images/logo.svg" alt="logo">
+              <a th:href="@{index.html}" class="header-logo">
+                  <img th:src="@{images/logo.svg}" alt="logo">
                   <h3 class="logo-title light-logo">Webkit</h3>
               </a>
               <div class="iq-menu-bt-sidebar ml-0">
@@ -40,7 +40,7 @@
               <nav class="iq-sidebar-menu">
                   <ul id="iq-sidebar-toggle" class="iq-menu">
                       <li class="">
-                          <a href="../../../../../../../Webkit/Webkit/html/backend/index.html" class="svg-icon">
+                          <a th:href="@{index.html}" class="svg-icon">
                               <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                                   <polyline points="9 22 9 12 15 12 15 22"></polyline>
@@ -48,8 +48,8 @@
                               <span class="ml-4">Dashboards</span>
                           </a>
                       </li>
-                      <li class="active">
-                          <a href="../backend/page-project.html" class="svg-icon">                        
+                      <li class="">
+                          <a th:href="@{../page-project.html}" class="svg-icon">
                               <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                   <polyline points="6 9 6 2 18 2 18 9"></polyline>
                                   <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
@@ -59,7 +59,7 @@
                           </a>
                       </li>
                       <li class="">
-                          <a href="../../../../../../../Webkit/Webkit/html/backend/page-task.html" class="svg-icon">
+                          <a th:href="@{page-task.html}" class="svg-icon">
                               <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                   <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
                                   <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
@@ -68,7 +68,7 @@
                           </a>
                       </li>
                       <li class="">
-                          <a href="../backend/page-employee.html" class="svg-icon">                        
+                          <a th:href="@{../page-team.html}" class="svg-icon">
                               <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle>
                               </svg>
@@ -76,7 +76,7 @@
                           </a>
                       </li>
                       <li class="">
-                          <a href="page-desk.html" class="svg-icon">
+                          <a th:href="@{../NotDone/page-desk.html}" class="svg-icon">
                               <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                   <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
                                   <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>
@@ -84,8 +84,8 @@
                               <span class="ml-4">Desk</span>
                           </a>
                       </li>
-                      <li class="">
-                          <a href="page-calender.html" class="svg-icon">
+                      <li class="active">
+                          <a th:href="@{page-calender.html}" class="svg-icon">
                               <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
                               </svg>
@@ -113,17 +113,17 @@
                                       </a>
                                       <ul id="user" class="iq-submenu collapse" data-parent="#otherpage">
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/app/user-profile.html">
+                                                  <a th:href="@{..}">
                                                       <i class="las la-minus"></i><span>User Profile</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/app/user-add.html">
+                                                  <a th:href="@{user-add.html}">
                                                       <i class="las la-minus"></i><span>User Add</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/app/user-list.html">
+                                                  <a th:href="@{../user-list.html}">
                                                       <i class="las la-minus"></i><span>User List</span>
                                                   </a>
                                               </li>
@@ -140,122 +140,122 @@
                                       </a>
                                       <ul id="ui" class="iq-submenu collapse" data-parent="#otherpage">
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-avatars.html">
+                                                  <a th:href="@{ui-avatars.html}">
                                                       <i class="las la-minus"></i><span>Avatars</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-alerts.html">
+                                                  <a th:href="@{ui-alerts.html}">
                                                       <i class="las la-minus"></i><span>Alerts</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-badges.html">
+                                                  <a th:href="@{ui-badges.html}">
                                                       <i class="las la-minus"></i><span>Badges</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-breadcrumb.html">
+                                                  <a th:href="@{ui-breadcrumb.html}">
                                                       <i class="las la-minus"></i><span>Breadcrumb</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-buttons.html">
+                                                  <a th:href="@{ui-buttons.html}">
                                                       <i class="las la-minus"></i><span>Buttons</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-buttons-group.html">
+                                                  <a th:href="@{ui-buttons-group.html}">
                                                       <i class="las la-minus"></i><span>Buttons Group</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-boxshadow.html">
+                                                  <a th:href="@{ui-boxshadow.html}">
                                                       <i class="las la-minus"></i><span>Box Shadow</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-colors.html">
+                                                  <a th:href="@{ui-colors.html}">
                                                       <i class="las la-minus"></i><span>Colors</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-cards.html">
+                                                  <a th:href="@{ui-cards.html}">
                                                       <i class="las la-minus"></i><span>Cards</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-carousel.html">
+                                                  <a th:href="@{ui-carousel.html}">
                                                       <i class="las la-minus"></i><span>Carousel</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-grid.html">
+                                                  <a th:href="@{ui-grid.html}">
                                                       <i class="las la-minus"></i><span>Grid</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-helper-classes.html">
+                                                  <a th:href="@{ui-helper-classes.html}">
                                                       <i class="las la-minus"></i><span>Helper classes</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-images.html">
+                                                  <a th:href="@{ui-images.html}">
                                                       <i class="las la-minus"></i><span>Images</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-list-group.html">
+                                                  <a th:href="@{ui-list-group.html}">
                                                       <i class="las la-minus"></i><span>list Group</span>
                                                   </a>
                                               </li>
                                               <li  class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-media-object.html">
+                                                  <a th:href="@{ui-media-object.html}">
                                                       <i class="las la-minus"></i><span>Media</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-modal.html">
+                                                  <a th:href="@{ui-modal.html}">
                                                       <i class="las la-minus"></i><span>Modal</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-notifications.html">
+                                                  <a th:href="@{ui-notifications.html}">
                                                       <i class="las la-minus"></i><span>Notifications</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-pagination.html">
+                                                  <a th:href="@{ui-pagination.html}">
                                                       <i class="las la-minus"></i><span>Pagination</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-popovers.html">
+                                                  <a th:href="@{ui-popovers.html}">
                                                       <i class="las la-minus"></i><span>Popovers</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-progressbars.html">
+                                                  <a th:href="@{ui-progressbars.html}">
                                                       <i class="las la-minus"></i><span>Progressbars</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-typography.html">
+                                                  <a th:href="@{ui-typography.html}">
                                                       <i class="las la-minus"></i><span>Typography</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-tabs.html">
+                                                  <a th:href="@{ui-tabs.html}">
                                                       <i class="las la-minus"></i><span>Tabs</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-tooltips.html">
+                                                  <a th:href="@{ui-tooltips.html}">
                                                       <i class="las la-minus"></i><span>Tooltips</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/ui-embed-video.html">
+                                                  <a th:href="@{ui-embed-video.html}">
                                                       <i class="las la-minus"></i><span>Video</span>
                                                   </a>
                                               </li>
@@ -272,27 +272,27 @@
                                       </a>
                                       <ul id="auth" class="iq-submenu collapse" data-parent="#otherpage">
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/auth-sign-in.html">
+                                                  <a th:href="@{../login.html}">
                                                       <i class="las la-minus"></i><span>Login</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/auth-sign-up.html">
+                                                  <a th:href="@{../register.html}">
                                                       <i class="las la-minus"></i><span>Register</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/auth-recoverpw.html">
+                                                  <a th:href="@{auth-recoverpw.html}">
                                                       <i class="las la-minus"></i><span>Recover Password</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/auth-confirm-mail.html">
+                                                  <a th:href="@{auth-confirm-mail.html}">
                                                       <i class="las la-minus"></i><span>Confirm Mail</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/auth-lock-screen.html">
+                                                  <a th:href="@{../NotDone/auth-lock-screen.html}">
                                                       <i class="las la-minus"></i><span>Lock Screen</span>
                                                   </a>
                                               </li>
@@ -309,37 +309,37 @@
                                       </a>
                                       <ul id="form" class="iq-submenu collapse" data-parent="#otherpage">
                                           <li class="">
-                                              <a href="../../../../../../../Webkit/Webkit/html/backend/form-layout.html">
+                                              <a th:href="@{form-layout.html}">
                                                   <i class="las la-minus"></i><span class="">Form Elements</span>
                                               </a>
                                           </li>
                                           <li class="">
-                                              <a href="../../../../../../../Webkit/Webkit/html/backend/form-input-group.html" class="svg-icon">
+                                              <a th:href="@{form-input-group.html}" class="svg-icon">
                                                  <i class="las la-minus"></i><span class="">Form Input</span>
                                               </a>
                                           </li>
                                           <li class="">
-                                              <a href="../../../../../../../Webkit/Webkit/html/backend/form-validation.html" class="svg-icon">
+                                              <a th:href="@{form-validation.html}" class="svg-icon">
                                                   <i class="las la-minus"></i><span class="">Form Validation</span>
                                               </a>
                                           </li>
                                           <li class="">
-                                              <a href="../../../../../../../Webkit/Webkit/html/backend/form-switch.html" class="svg-icon">
+                                              <a th:href="@{form-switch.html}" class="svg-icon">
                                                   <i class="las la-minus"></i><span class="">Form Switch</span>
                                               </a>
                                           </li>
                                           <li class="">
-                                              <a href="../../../../../../../Webkit/Webkit/html/backend/form-chechbox.html" class="svg-icon">
+                                              <a th:href="@{form-chechbox.html}" class="svg-icon">
                                                   <i class="las la-minus"></i><span class="">Form Checkbox</span>
                                               </a>
                                           </li>
                                           <li class="">
-                                              <a href="../../../../../../../Webkit/Webkit/html/backend/form-radio.html" class="svg-icon">
+                                              <a th:href="@{form-radio.html}" class="svg-icon">
                                                   <i class="las la-minus"></i><span class="">Form Radio</span>
                                               </a>
                                           </li>
                                           <li class="">
-                                              <a href="../../../../../../../Webkit/Webkit/html/backend/form-textarea.html" class="svg-icon">
+                                              <a th:href="@{form-textarea.html}" class="svg-icon">
                                                   <i class="las la-minus"></i><span class="">Form Textarea</span>
                                               </a>
                                           </li>
@@ -356,17 +356,17 @@
                                       </a>
                                       <ul id="table" class="iq-submenu collapse" data-parent="#otherpage">
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/tables-basic.html">
+                                                  <a th:href="@{tables-basic.html}">
                                                       <i class="las la-minus"></i><span>Basic Tables</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/table-data.html">
+                                                  <a th:href="@{table-data.html}">
                                                       <i class="las la-minus"></i><span>Data Table</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/table-tree.html">
+                                                  <a th:href="@{table-tree.html}">
                                                       <i class="las la-minus"></i><span>Table Tree</span>
                                                   </a>
                                               </li>
@@ -383,19 +383,19 @@
                                       </a>
                                       <ul id="pricing" class="iq-submenu collapse" data-parent="#otherpage">
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/pricing.html">
+                                                  <a th:href="@{pricing.html}">
                                                       <i class="las la-minus"></i><span>Pricing 1</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/pricing-2.html">
+                                                  <a th:href="@{pricing-2.html}">
                                                       <i class="las la-minus"></i><span>Pricing 2</span>
                                                   </a>
                                               </li>
                                       </ul>
                                   </li>
                                   <li class="">
-                                      <a href="../../../../../../../Webkit/Webkit/html/backend/timeline.html" class="svg-icon">
+                                      <a th:href="@{timeline.html}" class="svg-icon">
                                           <svg class="svg-icon" id="p-dash016" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                           <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
                                           </svg>
@@ -403,7 +403,7 @@
                                       </a>
                                   </li>
                                   <li class="">
-                                      <a href="../../../../../../../Webkit/Webkit/html/backend/pages-invoice.html" class="svg-icon">
+                                      <a th:href="@{pages-invoice.html}" class="svg-icon">
                                           <svg class="svg-icon" id="p-dash07" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline>
                                           </svg>
@@ -421,19 +421,19 @@
                                       </a>
                                       <ul id="pages-error" class="iq-submenu collapse" data-parent="#otherpage">
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/pages-error.html">
+                                                  <a th:href="@{../pages-error.html}">
                                                       <i class="las la-minus"></i><span>Error 404</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a href="../../../../../../../Webkit/Webkit/html/backend/pages-error-500.html">
+                                                  <a th:href="@{../pages-error-500.html}">
                                                       <i class="las la-minus"></i><span>Error 500</span>
                                                   </a>
                                               </li>
                                       </ul>
                                   </li>
                                   <li class="">
-                                          <a href="../../../../../../../Webkit/Webkit/html/backend/pages-blank-page.html">
+                                          <a th:href="@{pages-blank-page.html}">
                                               <svg class="svg-icon" id="p-dash18" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                   <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
                                               </svg>
@@ -441,7 +441,7 @@
                                           </a>
                                   </li>
                                   <li class="">
-                                          <a href="../../../../../../../Webkit/Webkit/html/backend/pages-maintenance.html">
+                                          <a th:href="@{pages-maintenance.html}">
                                               <svg class="svg-icon" id="p-dash19" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                   <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
                                               </svg>
@@ -477,7 +477,7 @@
               <nav class="navbar navbar-expand-lg navbar-light p-0">
                   <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
                       <i class="ri-menu-line wrapper-menu"></i>
-                      <a href="../../../../../../../Webkit/Webkit/html/backend/index.html" class="header-logo">
+                      <a th:href="@{index.html}" class="header-logo">
                           <h4 class="logo-title text-uppercase">Webkit</h4>
       
                       </a>
@@ -543,7 +543,7 @@
                                                       <div class="media align-items-center cust-card py-3 border-bottom">
                                                           <div class="">
                                                               <img class="avatar-50 rounded-small"
-                                                                   src="../../../../../../../Webkit/Webkit/html/assets/images/user/01.jpg" alt="01">
+                                                                   th:src="@{images/user/01.jpg}" alt="01">
                                                           </div>
                                                           <div class="media-body ml-3">
                                                               <div class="d-flex align-items-center justify-content-between">
@@ -558,7 +558,7 @@
                                                       <div class="media align-items-center cust-card py-3 border-bottom">
                                                           <div class="">
                                                               <img class="avatar-50 rounded-small"
-                                                                   src="../../../../../../../Webkit/Webkit/html/assets/images/user/02.jpg" alt="02">
+                                                                   th:src="@{images/user/02.jpg}" alt="02">
                                                           </div>
                                                           <div class="media-body ml-3">
                                                               <div class="d-flex align-items-center justify-content-between">
@@ -573,7 +573,7 @@
                                                       <div class="media align-items-center cust-card py-3">
                                                           <div class="">
                                                               <img class="avatar-50 rounded-small"
-                                                                   src="../../../../../../../Webkit/Webkit/html/assets/images/user/03.jpg" alt="03">
+                                                                   th:src="@{images/user/03.jpg}" alt="03">
                                                           </div>
                                                           <div class="media-body ml-3">
                                                               <div class="d-flex align-items-center justify-content-between">
@@ -618,7 +618,7 @@
                                                       <div class="media align-items-center cust-card py-3 border-bottom">
                                                           <div class="">
                                                               <img class="avatar-50 rounded-small"
-                                                                   src="../../../../../../../Webkit/Webkit/html/assets/images/user/01.jpg" alt="01">
+                                                                   th:src="@{images/user/01.jpg}" alt="01">
                                                           </div>
                                                           <div class="media-body ml-3">
                                                               <div class="d-flex align-items-center justify-content-between">
@@ -633,7 +633,7 @@
                                                       <div class="media align-items-center cust-card py-3 border-bottom">
                                                           <div class="">
                                                               <img class="avatar-50 rounded-small"
-                                                                   src="../../../../../../../Webkit/Webkit/html/assets/images/user/02.jpg" alt="02">
+                                                                   th:src="@{images/user/02.jpg}" alt="02">
                                                           </div>
                                                           <div class="media-body ml-3">
                                                               <div class="d-flex align-items-center justify-content-between">
@@ -648,7 +648,7 @@
                                                       <div class="media align-items-center cust-card py-3">
                                                           <div class="">
                                                               <img class="avatar-50 rounded-small"
-                                                                   src="../../../../../../../Webkit/Webkit/html/assets/images/user/03.jpg" alt="03">
+                                                                   th:src="@{images/user/03.jpg}" alt="03">
                                                           </div>
                                                           <div class="media-body ml-3">
                                                               <div class="d-flex align-items-center justify-content-between">
@@ -671,7 +671,7 @@
                               <li class="nav-item nav-icon dropdown caption-content">
                                   <a href="#" class="search-toggle dropdown-toggle  d-flex align-items-center" id="dropdownMenuButton4"
                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      <img src="../../../../../../../Webkit/Webkit/html/assets/images/user/1.jpg" class="img-fluid rounded-circle" alt="user">
+                                      <img th:src="@{images/user/1.jpg}" class="img-fluid rounded-circle" alt="user">
                                       <div class="caption ml-3">
                                           <h6 class="mb-0 line-height">Savannah Nguyen<i class="las la-angle-down ml-2"></i></h6>
                                       </div>
@@ -681,32 +681,32 @@
                                           <svg class="svg-icon mr-0 text-primary" id="h-01-p" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                           </svg>
-                                          <a href="../../../../../../../Webkit/Webkit/html/app/user-profile.html">My Profile</a>
+                                          <a th:href="@{..}">My Profile</a>
                                       </li>
                                       <li class="dropdown-item d-flex svg-icon">
                                           <svg class="svg-icon mr-0 text-primary" id="h-02-p" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                           </svg>
-                                          <a href="../../../../../../../Webkit/Webkit/html/app/user-profile-edit.html">Edit Profile</a>
+                                          <a th:href="@{../user-profile-edit.html}">Edit Profile</a>
                                       </li>
                                       <li class="dropdown-item d-flex svg-icon">
                                           <svg class="svg-icon mr-0 text-primary" id="h-03-p" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                           </svg>
-                                          <a href="../../../../../../../Webkit/Webkit/html/app/user-account-setting.html">Account Settings</a>
+                                          <a th:href="@{user-account-setting.html}">Account Settings</a>
                                       </li>
                                       <li class="dropdown-item d-flex svg-icon">
                                           <svg class="svg-icon mr-0 text-primary" id="h-04-p" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                                           </svg>
-                                          <a href="../../../../../../../Webkit/Webkit/html/app/user-privacy-setting.html">Privacy Settings</a>
+                                          <a th:href="@{user-privacy-setting.html}">Privacy Settings</a>
                                       </li>
                                       <li class="dropdown-item  d-flex svg-icon border-top">
                                           <svg class="svg-icon mr-0 text-primary" id="h-05-p" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                                           </svg>
-                                          <a href="../../../../../../../Webkit/Webkit/html/backend/auth-sign-in.html">Logout</a>
+                                          <a th:href="@{../login.html}">Logout</a>
                                       </li>
                                   </ul>
                               </li>
@@ -721,729 +721,84 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <div class="d-flex flex-wrap align-items-center justify-content-between breadcrumb-content">
-                            <h5>Your Projects</h5>
-                            <div class="d-flex flex-wrap align-items-center justify-content-between">
-                                <div class="dropdown status-dropdown mr-3">
-                                    <div class="dropdown-toggle" id="dropdownMenuButton03" data-toggle="dropdown">
-                                    <div class="btn bg-body"><span class="h6">Status :</span> In Progress<i class="ri-arrow-down-s-line ml-2 mr-0"></i></div>
-                                    </div>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton03">
-                                        <a class="dropdown-item" href="#"><i class="ri-mic-line mr-2"></i>In Progress</a>
-                                        <a class="dropdown-item" href="#"><i class="ri-attachment-line mr-2"></i>Priority</a>
-                                        <a class="dropdown-item" href="#"><i class="ri-file-copy-line mr-2"></i>Category</a> 
-                                    </div>
-                                </div>
-                                <div class="list-grid-toggle d-flex align-items-center mr-3">
-                                    <div data-toggle-extra="tab" data-target-extra="#grid" class="active">
-                                        <div class="grid-icon mr-3">
-                                            <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                <rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div data-toggle-extra="tab" data-target-extra="#list">
-                                        <div class="grid-icon">
-                                            <svg  width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                <line x1="21" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="21" y1="18" x2="3" y2="18"></line>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pl-3 border-left btn-new">
-                                    <a href="#" class="btn btn-primary" data-target="#new-project-modal" data-toggle="modal">New Project</a>
-                                </div>
+                        <div class="d-flex align-items-center justify-content-between breadcrumb-content">
+                            <h5>Calender</h5>
+                            <div>
+                                <a href="#" class="btn btn-primary" data-target="#new-create-modal" data-toggle="modal">Create New</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="grid" class="item-content animate__animated animate__fadeIn active" data-toggle-extra="tab-content">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-block card-stretch card-height">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div id="circle-progress-01" class="circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="25" data-type="percent"></div>
-                                <i class="ri-star-fill m-0 text-warning"></i>
+            <div class="col-xl-8">
+                <div class="card card-block card-stretch card-height">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <h5 class="mr-3">20 Nov, Friday</h5>
+                            <div class="mt-1">
+                                <a href="#" id="cal-prev" class="text-dark mr-2 font-size-18"><i class="las la-chevron-circle-left m-0"></i></a>
+                                <a href="#" id="cal-next" class="text-dark font-size-18"><i class="las la-chevron-circle-right m-0"></i></a>
                             </div>
-                            <h5 class="mb-1">Theme development</h5>
-                            <p class="mb-3">Preparing framework of block-based WordPress Theme.</p>
-                            <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-                                <div class="iq-media-group">
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/05.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/06.jpg" alt="">
-                                    </a>
-                                </div>
-                                <a class="btn btn-white text-primary link-shadow">High</a>
-                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <select name="cal_type" class="selectpicker calender-select" id="cal-type">
+                                <option value="day">Day</option>
+                                <option value="week">Week</option>
+                                <option value="month">Month</option>
+                            </select>
+                            <a href="#" class="btn btn-primary btn-new"><i class="ri-add-line"></i>New</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-block card-stretch card-height">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div id="circle-progress-02" class="circle-progress circle-progress-secondary" data-min-value="0" data-max-value="100" data-value="30" data-type="percent"></div>
-                                <i class="ri-star-fill m-0 text-warning"></i>
-                            </div>
-                            <h5 class="mb-1">Vuetify Dashboard in Admin</h5>
-                            <p class="mb-3">Start development server and check Vue project in browser.</p>
-                            <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-                                <div class="iq-media-group">
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/07.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/02.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/04.jpg" alt="">
-                                    </a>                                                
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/08.jpg" alt="">
-                                    </a>
-                                </div>
-                                <a class="btn btn-white text-secondary link-shadow">Medium</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-block card-stretch card-height">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div id="circle-progress-03" class="circle-progress circle-progress-warning" data-min-value="0" data-max-value="100" data-value="15" data-type="percent"></div>
-                                <i class="ri-star-fill m-0 text-warning"></i>
-                            </div>
-                            <h5 class="mb-1">Wordpress Dashboard Plugins</h5>
-                            <p class="mb-3">Customize your WordPress with smart WordPress plugins.</p>
-                            <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-                                <div class="iq-media-group">
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/01.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/02.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/03.jpg" alt="">
-                                    </a>
-                                </div>
-                                <a class="btn btn-white text-warning link-shadow">Low</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-block card-stretch card-height">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div id="circle-progress-04" class="circle-progress circle-progress-success" data-min-value="0" data-max-value="100" data-value="40" data-type="percent"></div>
-                                <i class="ri-star-fill m-0 text-warning"></i>
-                            </div>
-                            <h5 class="mb-1">Hotel Management App</h5>
-                            <p class="mb-3">Build a Cloud-based Hotel Management Theme.</p>
-                            <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-                                <div class="iq-media-group">
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/05.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/06.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/07.jpg" alt="">
-                                    </a>
-                                </div>
-                                <a class="btn btn-white text-success link-shadow">High</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-block card-stretch card-height">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div id="circle-progress-05" class="circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="25" data-type="percent"></div>
-                                <i class="ri-star-fill m-0 text-warning"></i>
-                            </div>
-                            <h5 class="mb-1">Video Streaming Theme</h5>
-                            <p class="mb-3">Launch OTT and media streaming theme.</p>
-                            <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-                                <div class="iq-media-group">
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/05.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/06.jpg" alt="">
-                                    </a>
-                                </div>
-                                <a class="btn btn-white text-primary link-shadow">High</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-block card-stretch card-height">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div id="circle-progress-06" class="circle-progress circle-progress-secondary" data-min-value="0" data-max-value="100" data-value="30" data-type="percent"></div>
-                                <i class="ri-star-fill m-0 text-warning"></i>
-                            </div>
-                            <h5 class="mb-1">Medical Clinic Theme</h5>
-                            <p class="mb-3">Hospital and private clinic doctor's theme.</p>
-                            <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-                                <div class="iq-media-group">
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/07.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/02.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/04.jpg" alt="">
-                                    </a>                                                
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/08.jpg" alt="">
-                                    </a>
-                                </div>
-                                <a class="btn btn-white text-secondary link-shadow">Medium</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-block card-stretch card-height">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div id="circle-progress-07" class="circle-progress circle-progress-warning" data-min-value="0" data-max-value="100" data-value="15" data-type="percent"></div>
-                                <i class="ri-star-fill m-0 text-warning"></i>
-                            </div>
-                            <h5 class="mb-1">Social Media Dashboard</h5>
-                            <p class="mb-3">Leverage data with Social Media Dashboard.</p>
-                            <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-                                <div class="iq-media-group">
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/01.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/02.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/03.jpg" alt="">
-                                    </a>
-                                </div>
-                                <a class="btn btn-white text-warning link-shadow">Low</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-block card-stretch card-height">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div id="circle-progress-08" class="circle-progress circle-progress-success" data-min-value="0" data-max-value="100" data-value="40" data-type="percent"></div>
-                                <i class="ri-star-fill m-0 text-warning"></i>
-                            </div>
-                            <h5 class="mb-1">Cloud Service Theme</h5>
-                            <p class="mb-3">Exclusively for cloud-based/ Startup theme.</p>
-                            <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-                                <div class="iq-media-group">
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/05.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/06.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/07.jpg" alt="">
-                                    </a>
-                                </div>
-                                <a class="btn btn-white text-success link-shadow">High</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-block card-stretch card-height">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div id="circle-progress-09" class="circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="25" data-type="percent"></div>
-                                <i class="ri-star-fill m-0 text-warning"></i>
-                            </div>
-                            <h5 class="mb-1">Automotive WordPress Theme</h5>
-                            <p class="mb-3">Dealership-based business WordPress theme.</p>
-                            <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-                                <div class="iq-media-group">
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/05.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/06.jpg" alt="">
-                                    </a>
-                                </div>
-                                <a class="btn btn-white text-primary link-shadow">High</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-block card-stretch card-height">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div id="circle-progress-10" class="circle-progress circle-progress-secondary" data-min-value="0" data-max-value="100" data-value="30" data-type="percent"></div>
-                                <i class="ri-star-fill m-0 text-warning"></i>
-                            </div>
-                            <h5 class="mb-1">Online Education Template</h5>
-                            <p class="mb-3">Remote students and teachers dashboard.</p>
-                            <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-                                <div class="iq-media-group">
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/07.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/02.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/04.jpg" alt="">
-                                    </a>                                                
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/08.jpg" alt="">
-                                    </a>
-                                </div>
-                                <a class="btn btn-white text-secondary link-shadow">Medium</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-block card-stretch card-height">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div id="circle-progress-11" class="circle-progress circle-progress-warning" data-min-value="0" data-max-value="100" data-value="15" data-type="percent"></div>
-                                <i class="ri-star-fill m-0 text-warning"></i>
-                            </div>
-                            <h5 class="mb-1">Blog/Magazine Theme</h5>
-                            <p class="mb-3">Launch visually appealing Blog theme.</p>
-                            <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-                                <div class="iq-media-group">
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/01.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/02.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/03.jpg" alt="">
-                                    </a>
-                                </div>
-                                <a class="btn btn-white text-warning link-shadow">Low</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card card-block card-stretch card-height">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div id="circle-progress-12" class="circle-progress circle-progress-success" data-min-value="0" data-max-value="100" data-value="40" data-type="percent"></div>
-                                <i class="ri-star-fill m-0 text-warning"></i>
-                            </div>
-                            <h5 class="mb-1">XAMIN: AI Theme</h5>
-                            <p class="mb-3">Artificial Intelligence inspired WordPress theme.</p>
-                            <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-                                <div class="iq-media-group">
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/05.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/06.jpg" alt="">
-                                    </a>
-                                    <a href="#" class="iq-media">
-                                        <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/07.jpg" alt="">
-                                    </a>
-                                </div>
-                                <a class="btn btn-white text-success link-shadow">High</a>
-                            </div>
-                        </div>
+                    <div class="card-body">
+                        <div id="calendar" style="height: 640px;"></div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="list" class="item-content animate__animated animate__fadeIn" data-toggle-extra="tab-content">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <div class="d-flex align-items-center">
-                                        <div id="circle-progress-13" class="circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="25" data-type="percent"></div>
-                                        <div class="ml-3">
-                                            <h5 class="mb-1">Theme development</h5>
-                                            <p class="mb-0">Preparing framework of block-based WordPress Theme.</p>
-                                        </div>
+            <div class="col-xl-4">
+                <div class="card card-block card-stretch card-height">
+                    <div class="card-body">
+                        <div class="card border-bottom">
+                            <div class="card-body text-center inln-date flet-datepickr">
+                                <input type="text" id="inline-date" class="date-input basicFlatpickr d-none" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="card card-list">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <svg class="svg-icon text-secondary mr-3" width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                    <div class="pl-3 border-left">
+                                        <h5>Direct Development</h5>
+                                        <p class="mb-0">Unveling the design system</p>
                                     </div>
-                                </div>
-                                <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                    <div class="iq-media-group">
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/05.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/06.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <a class="btn btn-white text-primary link-shadow">High</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <div class="d-flex align-items-center">
-                                        <div id="circle-progress-14" class="circle-progress-01 circle-progress circle-progress-secondary" data-min-value="0" data-max-value="100" data-value="30" data-type="percent"></div>
-                                        <div class="ml-3">
-                                            <h5 class="mb-1">Theme development</h5>
-                                            <p class="mb-0">Start development server and check Vue project in browser.</p>
-                                        </div>
+                        <div class="card card-list">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <svg class="svg-icon text-primary mr-3" width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
+                                        <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
+                                    </svg>
+                                    <div class="pl-3 border-left">
+                                        <h5>action point assigned</h5>
+                                        <p class="mb-0">Unveling the design system</p>
                                     </div>
-                                </div>
-                                <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                    <div class="iq-media-group">
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/07.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/02.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/04.jpg" alt="">
-                                        </a>                                                
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/08.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <a class="btn btn-white text-secondary link-shadow">Medium</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <div class="d-flex align-items-center">
-                                        <div id="circle-progress-15" class="circle-progress-01 circle-progress circle-progress-warning" data-min-value="0" data-max-value="100" data-value="15" data-type="percent"></div>
-                                        <div class="ml-3">
-                                            <h5 class="mb-1">Vuetify Dashboard</h5>
-                                            <p class="mb-0">Customize your WordPress with smart WordPress plugins.</p>
-                                        </div>
+                        <div class="card card-list mb-0">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <svg class="svg-icon text-warning mr-3" width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                    <div class="pl-3 border-left">
+                                        <h5>Private Notes</h5>
+                                        <p class="mb-0">Unveling the design system</p>
                                     </div>
-                                </div>
-                                <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                    <div class="iq-media-group">
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/01.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/02.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/03.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <a class="btn btn-white text-warning link-shadow">Low</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <div class="d-flex align-items-center">
-                                        <div id="circle-progress-16" class="circle-progress-01 circle-progress circle-progress-success" data-min-value="0" data-max-value="100" data-value="40" data-type="percent"></div>
-                                        <div class="ml-3">
-                                            <h5 class="mb-1">WordPress Dashboard</h5>
-                                            <p class="mb-0">Build a Cloud-based Hotel Management Theme.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                    <div class="iq-media-group">
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/05.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/06.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/07.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <a class="btn btn-white text-success link-shadow">High</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <div class="d-flex align-items-center">
-                                        <div id="circle-progress-17" class="circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="25" data-type="percent"></div>
-                                        <div class="ml-3">
-                                            <h5 class="mb-1">Hotel Management App</h5>
-                                            <p class="mb-0">Build a Cloud-based Hotel Management Theme.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                    <div class="iq-media-group">
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/05.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/06.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <a class="btn btn-white text-primary link-shadow">High</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <div class="d-flex align-items-center">
-                                        <div id="circle-progress-18" class="circle-progress-01 circle-progress circle-progress-secondary" data-min-value="0" data-max-value="100" data-value="30" data-type="percent"></div>
-                                        <div class="ml-3">
-                                            <h5 class="mb-1">Video Streaming Theme</h5>
-                                            <p class="mb-0">Launch OTT and media streaming theme.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                    <div class="iq-media-group">
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/07.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/02.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/04.jpg" alt="">
-                                        </a>                                                
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/08.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <a class="btn btn-white text-secondary link-shadow">Medium</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <div class="d-flex align-items-center">
-                                        <div id="circle-progress-19" class="circle-progress-01 circle-progress circle-progress-warning" data-min-value="0" data-max-value="100" data-value="15" data-type="percent"></div>
-                                        <div class="ml-3">
-                                            <h5 class="mb-1">Medical Clinic Theme</h5>
-                                            <p class="mb-0">Hospital and private clinic doctor's theme.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                    <div class="iq-media-group">
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/01.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/02.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/03.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <a class="btn btn-white text-warning link-shadow">Low</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <div class="d-flex align-items-center">
-                                        <div id="circle-progress-20" class="circle-progress-01 circle-progress circle-progress-success" data-min-value="0" data-max-value="100" data-value="40" data-type="percent"></div>
-                                        <div class="ml-3">
-                                            <h5 class="mb-1">Social Media Dashboard</h5>
-                                            <p class="mb-0">Leverage data with Social Media Dashboard.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                    <div class="iq-media-group">
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/05.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/06.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/07.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <a class="btn btn-white text-success link-shadow">High</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <div class="d-flex align-items-center">
-                                        <div id="circle-progress-21" class="circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="25" data-type="percent"></div>
-                                        <div class="ml-3">
-                                            <h5 class="mb-1">Cloud Service Theme</h5>
-                                            <p class="mb-0">Exclusively for cloud-based/ Startup theme.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                    <div class="iq-media-group">
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/05.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/06.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <a class="btn btn-white text-primary link-shadow">High</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <div class="d-flex align-items-center">
-                                        <div id="circle-progress-22" class="circle-progress-01 circle-progress circle-progress-secondary" data-min-value="0" data-max-value="100" data-value="30" data-type="percent"></div>
-                                        <div class="ml-3">
-                                            <h5 class="mb-1">Automotive WordPress</h5>
-                                            <p class="mb-0">Dealership-based business WordPress theme.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                    <div class="iq-media-group">
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/07.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/02.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/04.jpg" alt="">
-                                        </a>                                                
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/08.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <a class="btn btn-white text-secondary link-shadow">Medium</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <div class="d-flex align-items-center">
-                                        <div id="circle-progress-23" class="circle-progress-01 circle-progress circle-progress-warning" data-min-value="0" data-max-value="100" data-value="15" data-type="percent"></div>
-                                        <div class="ml-3">
-                                            <h5 class="mb-1">Online Education</h5>
-                                            <p class="mb-0">Remote students and teachers dashboard.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                    <div class="iq-media-group">
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/01.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/02.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/03.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <a class="btn btn-white text-warning link-shadow">Low</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <div class="d-flex align-items-center">
-                                        <div id="circle-progress-24" class="circle-progress-01 circle-progress circle-progress-success" data-min-value="0" data-max-value="100" data-value="40" data-type="percent"></div>
-                                        <div class="ml-3">
-                                            <h5 class="mb-1">Blog/Magazine Theme</h5>
-                                            <p class="mb-0">Launch visually appealing Blog theme.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                    <div class="iq-media-group">
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/05.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/06.jpg" alt="">
-                                        </a>
-                                        <a href="#" class="iq-media">
-                                            <img class="img-fluid avatar-40 rounded-circle" src="../../../../../../../Webkit/Webkit/html/assets/images/user/07.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <a class="btn btn-white text-success  link-shadow">High</a>
                                 </div>
                             </div>
                         </div>
@@ -1723,8 +1078,8 @@
             <div class="row">
                 <div class="col-lg-6">
                     <ul class="list-inline mb-0">
-                        <li class="list-inline-item"><a href="../../../../../../../Webkit/Webkit/html/backend/privacy-policy.html">Privacy Policy</a></li>
-                        <li class="list-inline-item"><a href="../../../../../../../Webkit/Webkit/html/backend/terms-of-service.html">Terms of Use</a></li>
+                        <li class="list-inline-item"><a th:href="@{privacy-policy.html}">Privacy Policy</a></li>
+                        <li class="list-inline-item"><a th:href="@{terms-of-service.html}">Terms of Use</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-6 text-right">
@@ -1734,22 +1089,27 @@
         </div>
     </footer>
     <!-- Backend Bundle JavaScript -->
-    <script src="../../../../../../../Webkit/Webkit/html/assets/js/backend-bundle.min.js"></script>
+    <script th:src="@{js/backend-bundle.min.js}"></script>
     
     <!-- Table Treeview JavaScript -->
-    <script src="../../../../../../../Webkit/Webkit/html/assets/js/table-treeview.js"></script>
+    <script th:src="@{js/table-treeview.js}"></script>
     
     <!-- Chart Custom JavaScript -->
-    <script src="../../../../../../../Webkit/Webkit/html/assets/js/customizer.js"></script>
+    <script th:src="@{js/customizer.js}"></script>
     
     <!-- Chart Custom JavaScript -->
-    <script async src="../../../../../../../Webkit/Webkit/html/assets/js/chart-custom.js"></script>
+    <script async th:src="@{js/chart-custom.js}"></script>
     <!-- Chart Custom JavaScript -->
-    <script async src="../../../../../../../Webkit/Webkit/html/assets/js/slider.js"></script>
+    <script async th:src="@{js/slider.js}"></script>
     
     <!-- app JavaScript -->
-    <script src="../../../../../../../Webkit/Webkit/html/assets/js/app.js"></script>
+    <script th:src="@{js/app.js}"></script>
     
-    <script src="../../../../../../../Webkit/Webkit/html/assets/vendor/moment.min.js"></script>
+    <script th:src="@{vendor/moment.min.js}"></script>
+<script th:src="@{vendor/tui-calendar/tui-code-snippet/dist/tui-code-snippet.js}"></script>
+<script th:src="@{vendor/tui-calendar/tui-time-picker/dist/tui-time-picker.min.js}"></script>
+<script th:src="@{vendor/tui-calendar/tui-date-picker/dist/tui-date-picker.min.js}"></script>
+<script th:src="@{vendor/tui-calendar/tui-calendar/dist/tui-calendar.min.js}"></script>
+<script th:src="@{js/calendar.js}"></script>
   </body>
 </html>
