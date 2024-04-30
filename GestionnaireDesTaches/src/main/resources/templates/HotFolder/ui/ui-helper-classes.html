@@ -1,23 +1,22 @@
+
+
 <!doctype html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" >
+<html lang="en">
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title>Webkit | Responsive Bootstrap 4 Admin Dashboard Template</title>
       
       <!-- Favicon -->
-      <link rel="shortcut icon" th:href="@{/images/favicon.ico}" />
-      <link rel="stylesheet" th:href="@{/css/backend-plugin.min.css}">
-      <link rel="stylesheet" th:href="@{/css/backend.css}">
-      <link rel="stylesheet" th:href="@{/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css}">
-      <link rel="stylesheet" th:href="@{/vendor/remixicon/fonts/remixicon.css}">
-
-      <link rel="stylesheet" th:href="@{/vendor/tui-calendar/tui-calendar/dist/tui-calendar.css}">
-      <link rel="stylesheet" th:href="@{/vendor/tui-calendar/tui-date-picker/dist/tui-date-picker.css}">
-      <link rel="stylesheet" th:href="@{/vendor/tui-calendar/tui-time-picker/dist/tui-time-picker.css}">
-  </head>
+      <link rel="shortcut icon" href="../assets/images/favicon.ico" />
+      <link rel="stylesheet" href="../assets/css/backend-plugin.min.css">
+      <link rel="stylesheet" href="../assets/css/backend.css?v=1.0.0">
+      <link rel="stylesheet" href="../assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
+      <link rel="stylesheet" href="../assets/vendor/remixicon/fonts/remixicon.css">
+      
+      <link rel="stylesheet" href="../assets/vendor/tui-calendar/tui-calendar/dist/tui-calendar.css">
+      <link rel="stylesheet" href="../assets/vendor/tui-calendar/tui-date-picker/dist/tui-date-picker.css">
+      <link rel="stylesheet" href="../assets/vendor/tui-calendar/tui-time-picker/dist/tui-time-picker.css">  </head>
   <body class="  ">
     <!-- loader Start -->
     <div id="loading">
@@ -30,8 +29,8 @@
       
       <div class="iq-sidebar  sidebar-default ">
           <div class="iq-sidebar-logo d-flex align-items-center">
-              <a th:href="@{/index.html}" class="header-logo">
-                  <img th:src="@{images/logo.svg}" alt="logo">
+              <a href="../backend/index.html" class="header-logo">
+                  <img src="../assets/images/logo.svg" alt="logo">
                   <h3 class="logo-title light-logo">Webkit</h3>
               </a>
               <div class="iq-menu-bt-sidebar ml-0">
@@ -42,7 +41,7 @@
               <nav class="iq-sidebar-menu">
                   <ul id="iq-sidebar-toggle" class="iq-menu">
                       <li class="">
-                          <a th:href="@{/index.html}" class="svg-icon">                        
+                          <a href="../backend/index.html" class="svg-icon">                        
                               <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                                   <polyline points="9 22 9 12 15 12 15 22"></polyline>
@@ -51,7 +50,7 @@
                           </a>
                       </li>
                       <li class="">
-                          <a th:href="@{/templates/page-project.html}" class="svg-icon">
+                          <a href="../backend/page-project.html" class="svg-icon">                        
                               <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                   <polyline points="6 9 6 2 18 2 18 9"></polyline>
                                   <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
@@ -61,7 +60,7 @@
                           </a>
                       </li>
                       <li class="">
-                          <a th:href="@{/page-task.html}" class="svg-icon">                        
+                          <a href="../backend/page-task.html" class="svg-icon">                        
                               <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                   <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
                                   <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
@@ -70,7 +69,7 @@
                           </a>
                       </li>
                       <li class="">
-                          <a th:href="@{/templates/page-team.html}" class="svg-icon">
+                          <a href="../backend/page-employee.html" class="svg-icon">                        
                               <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle>
                               </svg>
@@ -78,7 +77,7 @@
                           </a>
                       </li>
                       <li class="">
-                          <a th:href="@{/templates/NotDone/page-desk.html}" class="svg-icon">
+                          <a href="../backend/page-desk.html" class="svg-icon">                        
                               <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                   <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
                                   <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>
@@ -87,7 +86,7 @@
                           </a>
                       </li>
                       <li class="">
-                          <a th:href="@{/templates/}" class="svg-icon">
+                          <a href="../backend/page-calender.html" class="svg-icon">                        
                               <svg class="svg-icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
                               </svg>
@@ -115,17 +114,17 @@
                                       </a>
                                       <ul id="user" class="iq-submenu collapse" data-parent="#otherpage">
                                               <li class="">
-                                                  <a th:href="@{/templates/}">
+                                                  <a href="../app/user-profile.html">
                                                       <i class="las la-minus"></i><span>User Profile</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/user-add.html}">
+                                                  <a href="../app/user-add.html">
                                                       <i class="las la-minus"></i><span>User Add</span>
                                                   </a>
                                               </li>
-                                              <li class="active">
-                                                  <a th:href="@{/templates/user-list.html}">
+                                              <li class="">
+                                                  <a href="../app/user-list.html">
                                                       <i class="las la-minus"></i><span>User List</span>
                                                   </a>
                                               </li>
@@ -142,122 +141,122 @@
                                       </a>
                                       <ul id="ui" class="iq-submenu collapse" data-parent="#otherpage">
                                               <li class="">
-                                                  <a th:href="@{/ui-avatars.html}">
+                                                  <a href="../backend/ui-avatars.html">
                                                       <i class="las la-minus"></i><span>Avatars</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-alerts.html}">
+                                                  <a href="../backend/ui-alerts.html">
                                                       <i class="las la-minus"></i><span>Alerts</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-badges.html}">
+                                                  <a href="../backend/ui-badges.html">
                                                       <i class="las la-minus"></i><span>Badges</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-breadcrumb.html}">
+                                                  <a href="../backend/ui-breadcrumb.html">
                                                       <i class="las la-minus"></i><span>Breadcrumb</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-buttons.html}">
+                                                  <a href="../backend/ui-buttons.html">
                                                       <i class="las la-minus"></i><span>Buttons</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-buttons-group.html}">
+                                                  <a href="../backend/ui-buttons-group.html">
                                                       <i class="las la-minus"></i><span>Buttons Group</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-boxshadow.html}">
+                                                  <a href="../backend/ui-boxshadow.html">
                                                       <i class="las la-minus"></i><span>Box Shadow</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-colors.html}">
+                                                  <a href="../backend/ui-colors.html">
                                                       <i class="las la-minus"></i><span>Colors</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-cards.html}">
+                                                  <a href="../backend/ui-cards.html">
                                                       <i class="las la-minus"></i><span>Cards</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-carousel.html}">
+                                                  <a href="../backend/ui-carousel.html">
                                                       <i class="las la-minus"></i><span>Carousel</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-grid.html}">
+                                                  <a href="../backend/ui-grid.html">
                                                       <i class="las la-minus"></i><span>Grid</span>
                                                   </a>
                                               </li>
-                                              <li class="">
-                                                  <a th:href="@{/ui-helper-classes.html}">
+                                              <li class="active">
+                                                  <a href="../backend/ui-helper-classes.html">
                                                       <i class="las la-minus"></i><span>Helper classes</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-images.html}">
+                                                  <a href="../backend/ui-images.html">
                                                       <i class="las la-minus"></i><span>Images</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-list-group.html}">
+                                                  <a href="../backend/ui-list-group.html">
                                                       <i class="las la-minus"></i><span>list Group</span>
                                                   </a>
                                               </li>
                                               <li  class="">
-                                                  <a th:href="@{/ui-media-object.html}">
+                                                  <a href="../backend/ui-media-object.html">
                                                       <i class="las la-minus"></i><span>Media</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-modal.html}">
+                                                  <a href="../backend/ui-modal.html">
                                                       <i class="las la-minus"></i><span>Modal</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-notifications.html}">
+                                                  <a href="../backend/ui-notifications.html">
                                                       <i class="las la-minus"></i><span>Notifications</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-pagination.html}">
+                                                  <a href="../backend/ui-pagination.html">
                                                       <i class="las la-minus"></i><span>Pagination</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-popovers.html}">
+                                                  <a href="../backend/ui-popovers.html">
                                                       <i class="las la-minus"></i><span>Popovers</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-progressbars.html}">
+                                                  <a href="../backend/ui-progressbars.html">
                                                       <i class="las la-minus"></i><span>Progressbars</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-typography.html}">
+                                                  <a href="../backend/ui-typography.html">
                                                       <i class="las la-minus"></i><span>Typography</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-tabs.html}">
+                                                  <a href="../backend/ui-tabs.html">
                                                       <i class="las la-minus"></i><span>Tabs</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-tooltips.html}">
+                                                  <a href="../backend/ui-tooltips.html">
                                                       <i class="las la-minus"></i><span>Tooltips</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/ui-embed-video.html}">
+                                                  <a href="../backend/ui-embed-video.html">
                                                       <i class="las la-minus"></i><span>Video</span>
                                                   </a>
                                               </li>
@@ -274,27 +273,27 @@
                                       </a>
                                       <ul id="auth" class="iq-submenu collapse" data-parent="#otherpage">
                                               <li class="">
-                                                  <a th:href="@{/templates/login.html}">
+                                                  <a href="../backend/auth-sign-in.html">
                                                       <i class="las la-minus"></i><span>Login</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/templates/register.html}">
+                                                  <a href="../backend/auth-sign-up.html">
                                                       <i class="las la-minus"></i><span>Register</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/auth-recoverpw.html}">
+                                                  <a href="../backend/auth-recoverpw.html">
                                                       <i class="las la-minus"></i><span>Recover Password</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/auth-confirm-mail.html}">
+                                                  <a href="../backend/auth-confirm-mail.html">
                                                       <i class="las la-minus"></i><span>Confirm Mail</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/templates/NotDone/auth-lock-screen.html}">
+                                                  <a href="../backend/auth-lock-screen.html">
                                                       <i class="las la-minus"></i><span>Lock Screen</span>
                                                   </a>
                                               </li>
@@ -311,37 +310,37 @@
                                       </a>
                                       <ul id="form" class="iq-submenu collapse" data-parent="#otherpage">
                                           <li class="">
-                                              <a th:href="@{/form-layout.html}">
+                                              <a href="../backend/form-layout.html">
                                                   <i class="las la-minus"></i><span class="">Form Elements</span>
                                               </a>
                                           </li>
                                           <li class="">
-                                              <a th:href="@{/form-input-group.html}" class="svg-icon">
+                                              <a href="../backend/form-input-group.html" class="svg-icon">
                                                  <i class="las la-minus"></i><span class="">Form Input</span>
                                               </a>
                                           </li>
                                           <li class="">
-                                              <a th:href="@{/form-validation.html}" class="svg-icon">
+                                              <a href="../backend/form-validation.html" class="svg-icon">
                                                   <i class="las la-minus"></i><span class="">Form Validation</span>
                                               </a>
                                           </li>
                                           <li class="">
-                                              <a th:href="@{/form-switch.html}" class="svg-icon">
+                                              <a href="../backend/form-switch.html" class="svg-icon">
                                                   <i class="las la-minus"></i><span class="">Form Switch</span>
                                               </a>
                                           </li>
                                           <li class="">
-                                              <a th:href="@{/form-chechbox.html}" class="svg-icon">
+                                              <a href="../backend/form-chechbox.html" class="svg-icon">
                                                   <i class="las la-minus"></i><span class="">Form Checkbox</span>
                                               </a>
                                           </li>
                                           <li class="">
-                                              <a th:href="@{/form-radio.html}" class="svg-icon">
+                                              <a href="../backend/form-radio.html" class="svg-icon">
                                                   <i class="las la-minus"></i><span class="">Form Radio</span>
                                               </a>
                                           </li>
                                           <li class="">
-                                              <a th:href="@{/form-textarea.html}" class="svg-icon">
+                                              <a href="../backend/form-textarea.html" class="svg-icon">
                                                   <i class="las la-minus"></i><span class="">Form Textarea</span>
                                               </a>
                                           </li>
@@ -358,17 +357,17 @@
                                       </a>
                                       <ul id="table" class="iq-submenu collapse" data-parent="#otherpage">
                                               <li class="">
-                                                  <a th:href="@{/tables-basic.html}">
+                                                  <a href="../backend/tables-basic.html">
                                                       <i class="las la-minus"></i><span>Basic Tables</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/table-data.html}">
+                                                  <a href="../backend/table-data.html">
                                                       <i class="las la-minus"></i><span>Data Table</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/table-tree.html}">
+                                                  <a href="../backend/table-tree.html">
                                                       <i class="las la-minus"></i><span>Table Tree</span>
                                                   </a>
                                               </li>
@@ -385,19 +384,19 @@
                                       </a>
                                       <ul id="pricing" class="iq-submenu collapse" data-parent="#otherpage">
                                               <li class="">
-                                                  <a th:href="@{/pricing.html}">
+                                                  <a href="../backend/pricing.html">
                                                       <i class="las la-minus"></i><span>Pricing 1</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/pricing-2.html}">
+                                                  <a href="../backend/pricing-2.html">
                                                       <i class="las la-minus"></i><span>Pricing 2</span>
                                                   </a>
                                               </li>
                                       </ul>
                                   </li>
                                   <li class="">
-                                      <a th:href="@{/timeline.html}" class="svg-icon">
+                                      <a href="../backend/timeline.html" class="svg-icon">
                                           <svg class="svg-icon" id="p-dash016" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                           <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
                                           </svg>
@@ -405,7 +404,7 @@
                                       </a>
                                   </li>
                                   <li class="">
-                                      <a th:href="@{/pages-invoice.html}" class="svg-icon">
+                                      <a href="../backend/pages-invoice.html" class="svg-icon">
                                           <svg class="svg-icon" id="p-dash07" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline>
                                           </svg>
@@ -423,19 +422,19 @@
                                       </a>
                                       <ul id="pages-error" class="iq-submenu collapse" data-parent="#otherpage">
                                               <li class="">
-                                                  <a th:href="@{/templates/pages-error.html}">
+                                                  <a href="../backend/pages-error.html">
                                                       <i class="las la-minus"></i><span>Error 404</span>
                                                   </a>
                                               </li>
                                               <li class="">
-                                                  <a th:href="@{/templates/pages-error-500.html}">
+                                                  <a href="../backend/pages-error-500.html">
                                                       <i class="las la-minus"></i><span>Error 500</span>
                                                   </a>
                                               </li>
                                       </ul>
                                   </li>
                                   <li class="">
-                                          <a th:href="@{/pages-blank-page.html}">
+                                          <a href="../backend/pages-blank-page.html">
                                               <svg class="svg-icon" id="p-dash18" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                   <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
                                               </svg>
@@ -443,7 +442,7 @@
                                           </a>
                                   </li>
                                   <li class="">
-                                          <a th:href="@{/pages-maintenance.html}">
+                                          <a href="../backend/pages-maintenance.html">
                                               <svg class="svg-icon" id="p-dash19" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                   <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
                                               </svg>
@@ -479,7 +478,7 @@
               <nav class="navbar navbar-expand-lg navbar-light p-0">
                   <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
                       <i class="ri-menu-line wrapper-menu"></i>
-                      <a th:href="@{/index.html}" class="header-logo">
+                      <a href="../backend/index.html" class="header-logo">
                           <h4 class="logo-title text-uppercase">Webkit</h4>
       
                       </a>
@@ -545,7 +544,7 @@
                                                       <div class="media align-items-center cust-card py-3 border-bottom">
                                                           <div class="">
                                                               <img class="avatar-50 rounded-small"
-                                                                  th:src="@{images/user/01.jpg}" alt="01">
+                                                                  src="../assets/images/user/01.jpg" alt="01">
                                                           </div>
                                                           <div class="media-body ml-3">
                                                               <div class="d-flex align-items-center justify-content-between">
@@ -560,7 +559,7 @@
                                                       <div class="media align-items-center cust-card py-3 border-bottom">
                                                           <div class="">
                                                               <img class="avatar-50 rounded-small"
-                                                                  th:src="@{images/user/02.jpg}" alt="02">
+                                                                  src="../assets/images/user/02.jpg" alt="02">
                                                           </div>
                                                           <div class="media-body ml-3">
                                                               <div class="d-flex align-items-center justify-content-between">
@@ -575,7 +574,7 @@
                                                       <div class="media align-items-center cust-card py-3">
                                                           <div class="">
                                                               <img class="avatar-50 rounded-small"
-                                                                  th:src="@{images/user/03.jpg}" alt="03">
+                                                                  src="../assets/images/user/03.jpg" alt="03">
                                                           </div>
                                                           <div class="media-body ml-3">
                                                               <div class="d-flex align-items-center justify-content-between">
@@ -620,7 +619,7 @@
                                                       <div class="media align-items-center cust-card py-3 border-bottom">
                                                           <div class="">
                                                               <img class="avatar-50 rounded-small"
-                                                                  th:src="@{images/user/01.jpg}" alt="01">
+                                                                  src="../assets/images/user/01.jpg" alt="01">
                                                           </div>
                                                           <div class="media-body ml-3">
                                                               <div class="d-flex align-items-center justify-content-between">
@@ -635,7 +634,7 @@
                                                       <div class="media align-items-center cust-card py-3 border-bottom">
                                                           <div class="">
                                                               <img class="avatar-50 rounded-small"
-                                                                  th:src="@{images/user/02.jpg}" alt="02">
+                                                                  src="../assets/images/user/02.jpg" alt="02">
                                                           </div>
                                                           <div class="media-body ml-3">
                                                               <div class="d-flex align-items-center justify-content-between">
@@ -650,7 +649,7 @@
                                                       <div class="media align-items-center cust-card py-3">
                                                           <div class="">
                                                               <img class="avatar-50 rounded-small"
-                                                                  th:src="@{images/user/03.jpg}" alt="03">
+                                                                  src="../assets/images/user/03.jpg" alt="03">
                                                           </div>
                                                           <div class="media-body ml-3">
                                                               <div class="d-flex align-items-center justify-content-between">
@@ -673,7 +672,7 @@
                               <li class="nav-item nav-icon dropdown caption-content">
                                   <a href="#" class="search-toggle dropdown-toggle  d-flex align-items-center" id="dropdownMenuButton4"
                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      <img th:src="@{images/user/1.jpg}" class="img-fluid rounded-circle" alt="user">
+                                      <img src="../assets/images/user/1.jpg" class="img-fluid rounded-circle" alt="user">
                                       <div class="caption ml-3">
                                           <h6 class="mb-0 line-height">Savannah Nguyen<i class="las la-angle-down ml-2"></i></h6>
                                       </div>
@@ -683,32 +682,32 @@
                                           <svg class="svg-icon mr-0 text-primary" id="h-01-p" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                           </svg>
-                                          <a th:href="@{/templates/}">My Profile</a>
+                                          <a href="../app/user-profile.html">My Profile</a>
                                       </li>
                                       <li class="dropdown-item d-flex svg-icon">
                                           <svg class="svg-icon mr-0 text-primary" id="h-02-p" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                           </svg>
-                                          <a th:href="@{/templates/user-profile-edit.html}">Edit Profile</a>
+                                          <a href="../app/user-profile-edit.html">Edit Profile</a>
                                       </li>
                                       <li class="dropdown-item d-flex svg-icon">
                                           <svg class="svg-icon mr-0 text-primary" id="h-03-p" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                           </svg>
-                                          <a th:href="@{/user-account-setting.html}">Account Settings</a>
+                                          <a href="../app/user-account-setting.html">Account Settings</a>
                                       </li>
                                       <li class="dropdown-item d-flex svg-icon">
                                           <svg class="svg-icon mr-0 text-primary" id="h-04-p" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                                           </svg>
-                                          <a th:href="@{/user-privacy-setting.html}">Privacy Settings</a>
+                                          <a href="../app/user-privacy-setting.html">Privacy Settings</a>
                                       </li>
                                       <li class="dropdown-item  d-flex svg-icon border-top">
                                           <svg class="svg-icon mr-0 text-primary" id="h-05-p" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                                           </svg>
-                                          <a th:href="@{/templates/login.html}">Logout</a>
+                                          <a href="../backend/auth-sign-in.html">Logout</a>
                                       </li>
                                   </ul>
                               </li>
@@ -718,278 +717,587 @@
               </nav>
           </div>
       </div>      <div class="content-page">
-<div class="container-fluid">
-   <div class="row">
-      <div class="col-sm-12">
-         <div class="card">
-            <div class="card-header d-flex justify-content-between">
-               <div class="header-title">
-                  <h4 class="card-title">User List</h4>
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-lg-4 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Padding</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> 
+                     <pre class="iq-helper-classes m-0">
+.p-0 { padding: 0 !important; }
+.p-1 { padding: .25rem !important; }
+.p-2 { padding: .5rem !important; }
+.p-3 { padding: 1rem !important; }
+.p-4 { padding: 1.5rem !important; }
+.p-5 { padding: 3rem !important; }</pre>
+                  </div>
                </div>
             </div>
-            <div class="card-body">
-               <div class="table-responsive">
-                  <div class="row justify-content-between">
-                     <div class="col-sm-6 col-md-6">
-                        <div id="user_list_datatable_info" class="dataTables_filter">
-                           <form class="mr-3 position-relative">
-                              <div class="form-group mb-0">
-                                 <input type="search" class="form-control" id="exampleInputSearch" placeholder="Search"
-                                    aria-controls="user-list-table">
-                              </div>
-                           </form>
-                        </div>
+            <div class="col-lg-4 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Padding Left</h4>
                      </div>
-<!--                     <div class="col-sm-6 col-md-6">-->
-<!--                        <div class="user-list-files d-flex">-->
-<!--                           <a class="bg-primary" href="javascript:void();">-->
-<!--                              Print-->
-<!--                           </a>-->
-<!--                           <a class="bg-primary" href="javascript:void();">-->
-<!--                              Excel-->
-<!--                           </a>-->
-<!--                           <a class="bg-primary" href="javascript:void();">-->
-<!--                              Pdf-->
-<!--                           </a>-->
-<!--                        </div>-->
-<!--                     </div>-->
                   </div>
-                  <table id="user-list-table" class="table table-striped dataTable mt-4" role="grid"
-                     aria-describedby="user-list-page-info">
-                     <thead>
-                        <tr class="ligth">
-                           <th>Profile</th>
-                           <th>Name</th>
-                           <th>Contact</th>
-                           <th>Email</th>
-                           <th>Country</th>
-                           <th>Status</th>
-                           <th>Company</th>
-                           <th>Join Date</th>
-                           <th style="min-width: 100px">Action</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td class="text-center">
-                               <img class="rounded img-fluid avatar-40" th:src="@{images/user/01.jpg}" alt="profile">
-                           </td>
-                           <td>Anna Sthesia</td>
-                           <td>(760) 756 7568</td>
-                           <td>annasthesia@gmail.com</td>
-                           <td>USA</td>
-                           <td><span class="badge bg-primary">Active</span></td>
-                           <td>Acme Corporation</td>
-                           <td>2019/12/01</td>
-                           <td>
-                              <div class="flex align-items-center list-user-action">
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Add" href="#"><i class="ri-user-add-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Edit" href="#"><i class="ri-pencil-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Delete" href="#"><i class="ri-delete-bin-line mr-0"></i></a>
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="text-center">
-                               <img class="rounded img-fluid avatar-40" th:src="@{images/user/02.jpg}" alt="profile">
-                           </td>
-                           <td>Brock Lee</td>
-                           <td>+62 5689 458 658</td>
-                           <td>brocklee@gmail.com</td>
-                           <td>Indonesia</td>
-                           <td><span class="badge bg-primary">Active</span></td>
-                           <td>Soylent Corp</td>
-                           <td>2019/12/01</td>
-                           <td>
-                              <div class="flex align-items-center list-user-action">
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Add" href="#"><i class="ri-user-add-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Edit" href="#"><i class="ri-pencil-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Delete" href="#"><i class="ri-delete-bin-line mr-0"></i></a>
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="text-center">
-                               <img class="rounded img-fluid avatar-40" th:src="@{images/user/03.jpg}" alt="profile">
-                           </td>
-                           <td>Dan Druff</td>
-                           <td>+55 6523 456 856</td>
-                           <td>dandruff@gmail.com</td>
-                           <td>Brazil</td>
-                           <td><span class="badge bg-warning-light">Pending</span></td>
-                           <td>Umbrella Corporation</td>
-                           <td>2019/12/01</td>
-                           <td>
-                              <div class="flex align-items-center list-user-action">
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Add" href="#"><i class="ri-user-add-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Edit" href="#"><i class="ri-pencil-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Delete" href="#"><i class="ri-delete-bin-line mr-0"></i></a>
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="text-center"><img class="rounded img-fluid avatar-40"
-                                 th:src="@{images/user/04.jpg}" alt="profile"></td>
-                           <td>Hans Olo</td>
-                           <td>+91 2586 253 125</td>
-                           <td>hansolo@gmail.com</td>
-                           <td>India</td>
-                           <td><span class="badge bg-danger-light">Inactive</span></td>
-                           <td>Vehement Capital</td>
-                           <td>2019/12/01</td>
-                           <td>
-                              <div class="flex align-items-center list-user-action">
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Add" href="#"><i class="ri-user-add-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Edit" href="#"><i class="ri-pencil-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Delete" href="#"><i class="ri-delete-bin-line mr-0"></i></a>
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="text-center"><img class="rounded img-fluid avatar-40"
-                                 th:src="@{images/user/05.jpg}" alt="profile"></td>
-                           <td>Lynn Guini</td>
-                           <td>+27 2563 456 589</td>
-                           <td>lynnguini@gmail.com</td>
-                           <td>Africa</td>
-                           <td><span class="badge bg-primary">Active</span></td>
-                           <td>Massive Dynamic</td>
-                           <td>2019/12/01</td>
-                           <td>
-                              <div class="flex align-items-center list-user-action">
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Add" href="#"><i class="ri-user-add-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Edit" href="#"><i class="ri-pencil-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Delete" href="#"><i class="ri-delete-bin-line mr-0"></i></a>
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="text-center"><img class="rounded img-fluid avatar-40"
-                                 th:src="@{images/user/06.jpg}" alt="profile"></td>
-                           <td>Eric Shun</td>
-                           <td>+55 25685 256 589</td>
-                           <td>ericshun@gmail.com</td>
-                           <td>Brazil</td>
-                           <td><span class="badge bg-warning-light">Pending</span></td>
-                           <td>Globex Corporation</td>
-                           <td>2019/12/01</td>
-                           <td>
-                              <div class="flex align-items-center list-user-action">
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Add" href="#"><i class="ri-user-add-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Edit" href="#"><i class="ri-pencil-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Delete" href="#"><i class="ri-delete-bin-line mr-0"></i></a>
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="text-center"><img class="rounded img-fluid avatar-40"
-                                 th:src="@{images/user/07.jpg}" alt="profile"></td>
-                           <td>aaronottix</td>
-                           <td>(760) 765 2658</td>
-                           <td>budwiser@ymail.com</td>
-                           <td>USA</td>
-                           <td><span class="badge bg-info-light">Hold</span></td>
-                           <td>Acme Corporation</td>
-                           <td>2019/12/01</td>
-                           <td>
-                              <div class="flex align-items-center list-user-action">
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Add" href="#"><i class="ri-user-add-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Edit" href="#"><i class="ri-pencil-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Delete" href="#"><i class="ri-delete-bin-line mr-0"></i></a>
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="text-center"><img class="rounded img-fluid avatar-40"
-                                 th:src="@{images/user/08.jpg}" alt="profile"></td>
-                           <td>Marge Arita</td>
-                           <td>+27 5625 456 589</td>
-                           <td>margearita@gmail.com</td>
-                           <td>Africa</td>
-                           <td><span class="badge bg-success-light">Complite</span></td>
-                           <td>Vehement Capital</td>
-                           <td>2019/12/01</td>
-                           <td>
-                              <div class="flex align-items-center list-user-action">
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Add" href="#"><i class="ri-user-add-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Edit" href="#"><i class="ri-pencil-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Delete" href="#"><i class="ri-delete-bin-line mr-0"></i></a>
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="text-center"><img class="rounded img-fluid avatar-40"
-                                 th:src="@{images/user/09.jpg}" alt="profile"></td>
-                           <td>Bill Dabear</td>
-                           <td>+55 2563 456 589</td>
-                           <td>billdabear@gmail.com</td>
-                           <td>Brazil</td>
-                           <td><span class="badge bg-primary">active</span></td>
-                           <td>Massive Dynamic</td>
-                           <td>2019/12/01</td>
-                           <td>
-                              <div class="flex align-items-center list-user-action">
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Add" href="#"><i class="ri-user-add-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Edit" href="#"><i class="ri-pencil-line mr-0"></i></a>
-                                 <a class="btn btn-sm bg-primary" data-toggle="tooltip" data-placement="top" title=""
-                                    data-original-title="Delete" href="#"><i class="ri-delete-bin-line mr-0"></i></a>
-                              </div>
-                           </td>
-                        </tr>
-                     </tbody>
-                  </table>
+                  <div class="card-body">
+                      <pre class="iq-helper-classes m-0">
+.pl-0 { padding: 0 !important; }
+.pl-1 { padding: .25rem !important; }
+.pl-2 { padding: .5rem !important; }
+.pl-3 { padding: 1rem !important; }
+.pl-4 { padding: 1.5rem !important; }
+.pl-5 { padding: 3rem !important; }</pre>
+                  </div>
                </div>
-               <div class="row justify-content-between mt-3">
-                  <div id="user-list-page-info" class="col-md-6">
-                     <span>Showing 1 to 5 of 5 entries</span>
+            </div>
+            <div class="col-lg-4 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Padding right</h4>
+                     </div>
                   </div>
-                  <div class="col-md-6">
-                     <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-end mb-0">
-                           <li class="page-item disabled">
-                              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                           </li>
-                           <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                           <li class="page-item"><a class="page-link" href="#">2</a></li>
-                           <li class="page-item"><a class="page-link" href="#">3</a></li>
-                           <li class="page-item">
-                              <a class="page-link" href="#">Next</a>
-                           </li>
-                        </ul>
-                     </nav>
+                  <div class="card-body"> 
+                     <pre class="iq-helper-classes m-0">
+.pr-0 { padding: 0 !important; }
+.pr-1 { padding: .25rem !important; }
+.pr-2 { padding: .5rem !important; }
+.pr-3 { padding: 1rem !important; }
+.pr-4 { padding: 1.5rem !important; }
+.pr-5 { padding: 3rem !important; }</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Padding Top</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> <pre class="iq-helper-classes m-0">
+.pt-0 { padding: 0 !important; }
+.pt-1 { padding: .25rem !important; }
+.pt-2 { padding: .5rem !important; }
+.pt-3 { padding: 1rem !important; }
+.pt-4 { padding: 1.5rem !important; }
+.pt-5 { padding: 3rem !important; }</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Padding Bottom</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> <pre class="iq-helper-classes m-0">
+.pb-0 { padding: 0 !important; }
+.pb-1 { padding: .25rem !important; }
+.pb-2 { padding: .5rem !important; }
+.pb-3 { padding: 1rem !important; }
+.pb-4 { padding: 1.5rem !important; }
+.pb-5 { padding: 3rem !important; }</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Margin</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> <pre class="iq-helper-classes mb-0">
+.m-0 { margin: 0 !important; }
+.m-1 { margin: .25rem !important; }
+.m-2 { margin: .5rem !important; }
+.m-3 { margin: 1rem !important; }
+.m-4 { margin: 1.5rem !important; }
+.m-5 { margin: 3rem !important; }</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Margin Left</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> <pre class="iq-helper-classes m-0">
+.ml-0 { margin: 0 !important; }
+.ml-1 { margin: .25rem !important; }
+.ml-2 { margin: .5rem !important; }
+.ml-3 { margin: 1rem !important; }
+.ml-4 { margin: 1.5rem !important; }
+.ml-5 { margin: 3rem !important; }</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Margin Right</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> <pre class="iq-helper-classes m-0">
+.mr-0 { margin: 0 !important; }
+.mr-1 { margin: .25rem !important; }
+.mr-2 { margin: .5rem !important; }
+.mr-3 { margin: 1rem !important; }
+.mr-4 { margin: 1.5rem !important; }
+.mr-5 { margin: 3rem !important; }</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Margin Top</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> <pre class="iq-helper-classes m-0">
+.mt-0 { margin: 0 !important; }
+.mt-1 { margin: .25rem !important; }
+.mt-2 { margin: .5rem !important; }
+.mt-3 { margin: 1rem !important; }
+.mt-4 { margin: 1.5rem !important; }
+.mt-5 { margin: 3rem !important; }</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Margin Bottom</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> <pre class="iq-helper-classes m-0">
+.mb-0 { margin: 0 !important; }
+.mb-1 { margin: .25rem !important; }
+.mb-2 { margin: .5rem !important; }
+.mb-3 { margin: 1rem !important; }
+.mb-4 { margin: 1.5rem !important; }
+.mb-5 { margin: 3rem !important; }</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Display Block</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> <pre class="iq-helper-classes m-0">
+.d-block { display: block !important; }
+.d-inline-block { display: inline-block !important; }
+.d-flex { display: display-flex !important; }</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Alignment Item</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> <pre class="iq-helper-classes m-0">
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.float-left { float: left; }
+.float-right { float: right; }
+.float-none { float: none; }</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Line Height</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> <pre class="iq-helper-classes m-0">
+.line-height { line-height: normal !important; }
+.line-height-2 { line-height: 2 !important; }
+.line-height-3 { line-height: 20px !important; }
+.line-height-4 { line-height: 40px !important; }
+.line-height-5 { line-height: 45px !important; }
+.line-height-6 { line-height: 60px; }
+.line-height-7 { line-height: 50px !important; }</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Font Weight</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> <pre class="iq-helper-classes m-0">
+.font-weight-300 { font-weight: 300 !important; }
+.font-weight-400 { font-weight: 400 !important; }
+.font-weight-500 { font-weight: 500 !important; }
+.font-weight-600 { font-weight: 600 !important; }
+.font-weight-700 { font-weight: 700 !important; }</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Font Size</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> <pre class="iq-helper-classes m-0">
+.font-size-12 { font-size: 12px !important; }
+.font-size-14 { font-size: 14px !important; }
+.font-size-16 { font-size: 16px !important; }
+.font-size-18 { font-size: 18px !important; }
+.font-size-20 { font-size: 20px !important; }
+.font-size-22 { font-size: 22px !important; }
+.font-size-24 { font-size: 24px !important; }
+.font-size-32 { font-size: 32px !important; }
+.font-size-40 { font-size: 40px !important; }
+.font-size-80 { font-size: 80px !important; }</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Text Color</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> <pre class="iq-helper-classes m-0">
+.text-primary { color: var(--primary) !important; }
+.text-secondary { color: var(--secondary) !important; }
+.text-success { color: var(--success) !important; }
+.text-danger { color: var(--danger) !important; }
+.text-warning { color: var(--warning) !important; }
+.text-info { color: var(--info) !important; }
+.text-light { color: var(--light) !important; }
+.text-dark { color: var(--dark) !important; }
+.text-white { color: var(--white) !important; }
+.text-black { color: var(--black) !important; }
+.text-body { color: var(--body-text) !important; }
+.text-title { color: var(--body-text) !important; }</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Background Color</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> <pre class="iq-helper-classes m-0">
+.bg-primary, .badge-primary {
+color: var(--white);
+background: var(--primary) !important;
+}
+
+.bg-secondary, .badge-secondary {
+color: var(--white);
+background-color: var(--secondary) !important;
+}
+
+.bg-success, .badge-success {
+color: var(--white);
+background: var(--success) !important;
+}
+
+.bg-danger, .badge-danger {
+color: var(--white);
+background: var(--danger) !important;
+}
+
+.bg-warning, .badge-warning {
+color: var(--white);
+background: var(--warning) !important;
+}
+
+.bg-info, .badge-info {
+color: var(--white) !important;
+background: var(--info) !important;
+}
+
+.bg-light, .badge-light {
+background-color: var(--light) !important;
+}
+
+.bg-dark, .badge-dark {
+color: var(--white);
+background-color: var(--dark) !important;
+}
+
+.bg-close, .badge-close {
+color: var(--white);
+background-color: var(--close) !important;
+}</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Light Background Color</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> <pre class="iq-helper-classes m-0">
+.bg-primary {
+background: var(--light-primary) !important;
+color: var(--primary) !important;
+}
+
+.bg-secondary {
+background: var(--light-secondary) !important;
+color: var(--secondary) !important;
+}
+
+.bg-success {
+background: var(--light-success) !important;
+color: var(--success) !important;
+}
+
+.bg-danger {
+background: var(--light-danger) !important;
+color: var(--danger) !important;
+}
+
+.bg-warning {
+background: var(--light-warning) !important;
+color: var(--warning) !important;
+}
+
+.bg-info {
+background: var(--light-info) !important;
+color: var(--info) !important;
+}
+
+.bg-dark {
+background: var(--light-dark) !important;
+color: var(--dark) !important;
+}
+
+.bg-close {
+background: var(--light-close) !important;
+color: var(--dark) !important;
+}</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Hover Background Color</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> <pre class="iq-helper-classes m-0">
+.bg-primary-hover:hover {
+background: var(--light-primary) !important;
+color: var(--primary);
+}
+
+.bg-primary-secondary-hover:hover {
+background: var(--light-secondary) !important;
+}
+
+.bg-primary-success-hover:hover {
+background: var(--light-success) !important;
+}
+
+.bg-primary-danger-hover:hover {
+background: var(--light-danger) !important;
+}
+
+.bg-primary-warning-hover:hover {
+background: var(--light-warning) !important;
+}
+
+.bg-primary-info-hover:hover {
+background: var(--light-info) !important;
+}
+
+.bg-primary-dark-hover:hover {
+background: var(--light-dark) !important;
+}</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Button Color</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> <pre class="iq-helper-classes m-0">
+.btn-primary {
+background: var(--primary);
+border-color: var(--primary);
+}
+
+.btn-secondary {
+background-color: var(--secondary);
+border-color: var(--secondary);
+}
+
+.btn-success {
+background-color: var(--success);
+border-color: var(--success);
+}
+
+.btn-danger {
+background-color: var(--danger);
+border-color: var(--danger);
+}
+
+.btn-warning {
+background-color: var(--warning);
+border-color: var(--warning);
+color: var(--white);
+}
+
+.btn-info {
+background-color: var(--info);
+border-color: var(--info);
+}
+
+.btn-light {
+background-color: var(--light);
+border-color: var(--light);
+}
+
+.btn-dark {
+background-color: var(--dark);
+border-color: var(--dark);
+}
+
+.btn-white {
+background-color: var(--white);
+border-color: var(--white);
+}</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Button Hover Color</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> <pre class="iq-helper-classes m-0">
+.btn-primary:hover {
+background: var(--primary-hover);
+border-color: var(--primary-hover);
+}
+
+.btn-secondary:hover {
+background-color: var(--secondary-hover);
+border-color: var(--secondary-hover);
+}
+
+.btn-success:hover {
+background-color: var(--success-hover);
+border-color: var(--success-hover);
+}
+
+.btn-danger:hover {
+background-color: var(--danger-hover);
+border-color: var(--danger-hover);
+}
+
+.btn-warning:hover {
+background-color: var(--warning-hover);
+border-color: var(--warning-hover);
+}
+
+.btn-info:hover {
+background-color: var(--info-hover);
+border-color: var(--info-hover);
+}
+
+.btn-light:hover {
+background-color: var(--light-hover);
+border-color: var(--light-hover);
+}
+
+.btn-dark:hover {
+background-color: var(--dark-hover);
+border-color: var(--dark-hover);
+}</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+               <div class="card card-block card-stretch card-height">
+                  <div class="card-header d-flex justify-content-between">
+                     <div class="header-title">
+                        <h4 class="card-title">Border Color</h4>
+                     </div>
+                  </div>
+                  <div class="card-body"> <pre class="iq-helper-classes m-0">
+.border-primary {
+border-color: var(--primary) !important;
+}
+
+.border-secondary {
+border-color: var(--secondary) !important;
+}
+
+.border-success {
+border-color: var(--success) !important;
+}
+
+.border-danger {
+border-color: var(--danger) !important;
+}
+
+.border-warning {
+border-color: var(--warning) !important;
+}
+
+.border-info {
+border-color: var(--info) !important;
+}
+
+.border-light {
+border-color: var(--light) !important;
+}
+
+.border-dark {
+border-color: var(--dark) !important;
+}
+
+.border-white {
+border-color: var(--white) !important;
+}</pre>
                   </div>
                </div>
             </div>
          </div>
       </div>
-   </div>
-</div>
       </div>
     </div>
     <!-- Wrapper End-->
@@ -1260,8 +1568,8 @@
             <div class="row">
                 <div class="col-lg-6">
                     <ul class="list-inline mb-0">
-                        <li class="list-inline-item"><a th:href="@{/privacy-policy.html}">Privacy Policy</a></li>
-                        <li class="list-inline-item"><a th:href="@{/terms-of-service.html}">Terms of Use</a></li>
+                        <li class="list-inline-item"><a href="../backend/privacy-policy.html">Privacy Policy</a></li>
+                        <li class="list-inline-item"><a href="../backend/terms-of-service.html">Terms of Use</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-6 text-right">
@@ -1271,22 +1579,22 @@
         </div>
     </footer>
     <!-- Backend Bundle JavaScript -->
-    <script th:src="@{/js/backend-bundle.min.js}"></script>
-
+    <script src="../assets/js/backend-bundle.min.js"></script>
+    
     <!-- Table Treeview JavaScript -->
-    <script th:src="@{/js/table-treeview.js}"></script>
-
+    <script src="../assets/js/table-treeview.js"></script>
+    
     <!-- Chart Custom JavaScript -->
-    <script th:src="@{/js/customizer.js}"></script>
-
+    <script src="../assets/js/customizer.js"></script>
+    
     <!-- Chart Custom JavaScript -->
-    <script async th:src="@{/js/chart-custom.js}"></script>
+    <script async src="../assets/js/chart-custom.js"></script>
     <!-- Chart Custom JavaScript -->
-    <script async th:src="@{/js/slider.js}"></script>
-
+    <script async src="../assets/js/slider.js"></script>
+    
     <!-- app JavaScript -->
-    <script th:src="@{/js/app.js}"></script>
-
-    <script th:src="@{/vendor/moment.min.js}"></script>
+    <script src="../assets/js/app.js"></script>
+    
+    <script src="../assets/vendor/moment.min.js"></script>
   </body>
 </html>

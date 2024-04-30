@@ -7,29 +7,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class TestController {
 
-    @GetMapping(path="/SignIn")
-    public String SignIn(Model model){ return "login"; }
-
-    @GetMapping(path="/SignUp")
-    public String SignUp(Model model){ return "register"; }
-
     @GetMapping(path="/error500")
-    public String error500(Model model){ return "pages-error-500"; }
+    public String error500(Model model){ return "Error/pages-error-500"; }
 
     @GetMapping(path="/error404")
-    public String error404(Model model){ return "pages-error"; }
+    public String error404(Model model){ return "Error/pages-error"; }
 
     @GetMapping(path="/userAdd")
-    public String userAdd(Model model){ return "user-add"; }
+    public String userAdd(Model model){ return "Main/user-add"; }
 
     @GetMapping(path="/userList")
-    public String userList(Model model){ return "user-list"; }
+    public String userList(Model model){ return "Main/user-list"; }
 
     @GetMapping(path="/userProfileEdit")
-    public String userProfileEdit(Model model){ return "user-profile-edit"; }
+    public String userProfileEdit(Model model){ return "Main/user-profile-edit"; }
 
     @GetMapping(path="/navbar")
-    public String navbar(Model model){ return "navbar"; }
+    public String navbar(Model model){ return "Section/navbar"; }
 
 
 
