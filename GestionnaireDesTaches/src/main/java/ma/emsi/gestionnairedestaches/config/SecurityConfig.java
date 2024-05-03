@@ -36,13 +36,13 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests()
-                .requestMatchers("/login**","/register**","/logout**","/css/**","/js/**","/images/**","/vendor/**").permitAll()
+                .requestMatchers("/home**","/login**","/register**","/logout**","/css/**","/js/**","/images/**","/vendor/**").permitAll()
                 .anyRequest().authenticated();
-
         http
                 .formLogin()
-                .loginPage("/login");
+                .loginPage("/home"); // Methode Post Doesnt Work
 
+        System.out.println("Security Config ligne 45");
 
         return http.build();
     }

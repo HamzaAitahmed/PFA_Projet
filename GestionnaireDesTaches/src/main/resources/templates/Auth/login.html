@@ -36,13 +36,13 @@
                         <div class="d-flex align-items-center auth-content">
                            <div class="col-lg-6 bg-primary content-left">
                               <div class="p-3">
-                                 <h2 class="mb-2 text-white">Register</h2>
+                                 <h2 class="mb-2 text-white">Login</h2>
                                   <p th:if="${param.error}" class="error" th:text="${message}"></p>
-                                 <form th:action="@{/login}" method="post">
+                                 <form th:action="@{/login}" method="Post" >
                                     <div class="row">
                                        <div class="col-lg-12">
                                           <div class="floating-label form-group">
-                                             <input class="floating-input form-control" name="email" type="email" placeholder=" ">
+                                             <input class="floating-input form-control" name="email" type="email"  placeholder=" ">
                                              <label>Email</label>
                                           </div>
                                        </div>
@@ -53,7 +53,7 @@
                                           </div>
                                        </div>
                                     </div>
-                                    <button type="submit" class="btn btn-white">Register</button>
+                                    <button type="submit" class="btn btn-white">Login</button>
                                      <p class="mt-3"> Create an Account
                                         <a th:href="@{register}" class="text-white text-underline">Register</a>
                                      </p>

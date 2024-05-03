@@ -1,0 +1,1 @@
+SecurityConfig  -> Ligne 43 :  .loginPage("/register"); // Methode Get is Working But Post Isn't Working

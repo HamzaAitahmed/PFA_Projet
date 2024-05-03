@@ -37,7 +37,7 @@
                            <div class="col-lg-6 bg-primary content-left">
                               <div class="p-3">
                                  <h2 class="mb-2 text-white">Register</h2>
-                                  <p th:if="${param.error}" class="error" th:text="${message}"></p>
+                                  <p th:if="${param.error}" class="error"  th:text="${message}" ></p>
                                  <form th:action="@{/register}" method="post" th:object="${user}">
                                     <div class="row">
                                         <div class="col-lg-12">
