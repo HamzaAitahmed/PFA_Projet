@@ -28,10 +28,19 @@ public class HomeController {
     @GetMapping(path="/userList")
     public String userList(Model model){ return "Main/user-list"; }
 
+    @GetMapping(path="/Team")
+    public String Team(Model model){ return "Main/page-team"; }
+
+    @GetMapping(path="/project")
+    public String project(Model model){ return "Main/page-project"; }
+
     @GetMapping(path="/userProfileEdit")
     public String userProfileEdit(Model model){ return "Main/user-profile-edit"; }
 
     @GetMapping(path="/navbar")
-    public String navbar(Model model){ return "Section/navbar"; }
+    public String navbar(Model model){ return "Sections/navbar"; }
+
+    @GetMapping(path="/sidebar")
+    public String sidebar(Model model){ return "Sections/sidebar"; }
 
 }

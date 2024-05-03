@@ -14,7 +14,7 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(unique=true)
+    @Column(unique=true) // unique seulement dans le projet
     private String nom;
 
     private String description;

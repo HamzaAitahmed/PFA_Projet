@@ -17,9 +17,11 @@ public class Team {
     @Column(unique=true)
     private String nom;
 
+    private Integer OwnerId;
+
     @OneToMany(mappedBy = "ProjectTeam")
     private Collection<Project> Projects;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "Teams")
     private  Collection<User> MemberTeam;
 }

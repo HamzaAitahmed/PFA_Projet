@@ -29,10 +29,10 @@
     <div class="wrapper"></div>
 
     <!--   SideBar     -->
-    <div th:insert="sidebar :: sidebar">  </div>
+    <div th:insert="Sections/sidebar :: sidebar">  </div>
 
-    <!--   NavBar     -->
-    <div th:insert="navbar :: navbar">  </div>
+<!--    &lt;!&ndash;   NavBar     &ndash;&gt;-->
+    <div th:insert="Sections/navbar :: navbar">  </div>
 
     <!--   ????     -->
     <div class="content-page">
@@ -120,58 +120,9 @@
                                        <label for="dob">Date Of Birth:</label>
                                        <input  class="form-control" id="dob" value="1984-01-24">
                                     </div>
-                                    <div class="form-group col-sm-6">
-                                       <label>Marital Status:</label>
-                                       <select class="form-control" id="exampleFormControlSelect1">
-                                          <option selected="">Single</option>
-                                          <option>Married</option>
-                                          <option>Widowed</option>
-                                          <option>Divorced</option>
-                                          <option>Separated </option>
-                                       </select>
-                                    </div>
-                                    <div class="form-group col-sm-6">
-                                       <label>Age:</label>
-                                       <select class="form-control" id="exampleFormControlSelect2">
-                                          <option>12-18</option>
-                                          <option>19-32</option>
-                                          <option selected="">33-45</option>
-                                          <option>46-62</option>
-                                          <option>63 > </option>
-                                       </select>
-                                    </div>
-                                    <div class="form-group col-sm-6">
-                                       <label>Country:</label>
-                                       <select class="form-control" id="exampleFormControlSelect3">
-                                          <option>Caneda</option>
-                                          <option>Noida</option>
-                                          <option selected="">USA</option>
-                                          <option>India</option>
-                                          <option>Africa</option>
-                                       </select>
-                                    </div>
-                                    <div class="form-group col-sm-6">
-                                       <label>State:</label>
-                                       <select class="form-control" id="exampleFormControlSelect4">
-                                          <option>California</option>
-                                          <option>Florida</option>
-                                          <option selected="">Georgia</option>
-                                          <option>Connecticut</option>
-                                          <option>Louisiana</option>
-                                       </select>
-                                    </div>
-                                    <div class="form-group col-sm-12">
-                                       <label>Address:</label>
-                                       <textarea class="form-control" name="address" rows="5" style="line-height: 22px;">
-                                       37 Cardinal Lane
-                                       Petersburg, VA 23803
-                                       United States of America
-                                       Zip Code: 85001
-                                       </textarea>
-                                    </div>
+                                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                     <button type="reset" class="btn iq-bg-danger">Cancel</button>
                                  </div>
-                                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                                 <button type="reset" class="btn iq-bg-danger">Cancel</button>
                               </form>
                            </div>
                         </div>

@@ -30,7 +30,7 @@ public class User {
     @OneToMany(mappedBy = "UserTask")
     private Collection<Task> Tasks;
 
-    @ManyToMany(mappedBy = "MemberTeam")
+    @ManyToMany
     private Collection<Team> Teams;
 
     public User(String email, String password, String username) {
