@@ -17,6 +17,8 @@ public class Project {
     @Column(unique=true)
     private String nom;
 
+    private String Description;
+
     @OneToMany(mappedBy = "ProjectTask")
     private Collection<Task> Tasks;
 

@@ -22,7 +22,8 @@ public class User {
     @Column(name = "ROLE")
     private String role;
 
-
+    @Column(name = "photo", nullable = true)
+    private String profilePicture;
 
     @OneToMany(mappedBy = "ProjectOwner")
     private Collection<Project> Projects;
@@ -30,7 +31,10 @@ public class User {
     @OneToMany(mappedBy = "UserTask")
     private Collection<Task> Tasks;
 
-    @ManyToMany
+    @OneToMany(mappedBy = "Leader")
+    private Collection<Team> MyTeams;
+
+    @ManyToMany(mappedBy = "Members")
     private Collection<Team> Teams;
 
     public User(String email, String password, String username) {

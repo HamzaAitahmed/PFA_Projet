@@ -1950,7 +1950,7 @@ textarea.form-control {
   color: #605C8D;
   text-align: left;
   list-style: none;
-  background-color: #fff;
+  background-color: #f1f1f1;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 16px;
@@ -2093,11 +2093,11 @@ textarea.form-control {
   .dropdown-item:hover, .dropdown-item:focus {
     color: #16181b;
     text-decoration: none;
-    background-color: #f8f9fa; }
+    background-color: #bad3fd; }
   .dropdown-item.active, .dropdown-item:active {
     color: #fff;
     text-decoration: none;
-    background-color: #5773FF; }
+    background-color: #7faeff; }
   .dropdown-item.disabled, .dropdown-item:disabled {
     color: #6c757d;
     pointer-events: none;

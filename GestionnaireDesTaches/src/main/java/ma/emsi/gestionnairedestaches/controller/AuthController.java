@@ -15,30 +15,29 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
+//@SessionAttributes("connectedUser")
 @RequestMapping("")
 public class AuthController {
     private final UserService userService;
 
-
     @Autowired UserRepository userRepository;
+
     private final AuthenticationManager authenticationManager;
-    private User ConnectedUser ;
+
+
     public AuthController(UserService userService,AuthenticationManager authenticationManager) {
         this.userService = userService;
+        System.out.println("userService : "+userService);
         this.authenticationManager = authenticationManager;
+        System.out.println("authenticationManager : "+authenticationManager);
     }
 
     @RequestMapping(value = "/home",method = RequestMethod.GET)
-    public String home(){
-        System.out.println("home GET ");
-        return "Auth/home";
-    }
+    public String home(){ return "Auth/home"; }
 
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login(Model model){
@@ -47,20 +46,19 @@ public class AuthController {
         return "Auth/login";
     }
 
+    @ModelAttribute("connectedUser")
+    public User setUpUserForm() {
+        return new User();
+    }
+
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public String login(HttpServletRequest request, HttpServletResponse response,@ModelAttribute("email" ) String email,@ModelAttribute("password") String password, Model model){
-        model.addAttribute("message","Login XXX");
-        System.out.println("Login Post ");
+    public String login(HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirectAttributes, @ModelAttribute("email" ) String email, @ModelAttribute("password") String password, Model model){
 
         try {
             User OldUser = userRepository.findUserByEmail(email);
-            ConnectedUser = OldUser;
-
             if(OldUser == null){
-                model.addAttribute("message","Email Not Found");
                 return "redirect:/login?error";
             }
-            System.out.println("Login Post ");
 
             Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email,password));
             SecurityContext securityContext = SecurityContextHolder.getContext();
@@ -68,6 +66,7 @@ public class AuthController {
             HttpSession session = request.getSession(true);
             session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY,securityContext);
 
+            session.setAttribute("connectedUser",OldUser);
             return "redirect:/";
 
         } catch (Exception e){
@@ -84,13 +83,8 @@ public class AuthController {
         session.invalidate();
         SecurityContext securityContext = SecurityContextHolder.getContext();
         securityContext.setAuthentication(null);
-        System.out.println(ConnectedUser);
-        model.addAttribute("user",ConnectedUser);
         return "redirect:/home";
     }
-
-
-
 
     @RequestMapping(value = "/register",method = RequestMethod.GET)
     public String register(HttpServletRequest request, HttpServletResponse response, Model model){
@@ -102,29 +96,37 @@ public class AuthController {
 
     @RequestMapping(value = "/register",method = RequestMethod.POST)
     public String createNewUser(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("user") User user , Model model){
-        String message = "Registration Failed";
-        model.addAttribute("message",message);
+
         try {
             user.setRole("USER");
             User newUser = userService.createUser(user);
             if(newUser == null){
-                return "redirect:/register?error&message="+message;
+                return "redirect:/register?error";
             }
             Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(),user.getPassword()));
             SecurityContext securityContext = SecurityContextHolder.getContext();
             securityContext.setAuthentication(authentication);
-//            HttpSession session = request.getSession(true);
-//            session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY,securityContext);
 
             return "redirect:/login";
 
         } catch (Exception e){
-            return "redirect:/register?error&message="+message;
+            return "redirect:/register?error";
 
         }
 
     }
 
+//    @RequestMapping(value = "/navbar",method = RequestMethod.GET)
+//    public String navbar(Model model){
+//        System.out.println("Navbar GET");
+//        return "Sections/navbar";
+//    }
+//
+//    @RequestMapping(value = "/sidebar",method = RequestMethod.GET)
+//    public String sidebar(Model model){
+//        System.out.println("SideBar GET");
+//        return "Sections/sidebar";
+//    }
 //    @RequestMapping(value = "/logout",method = RequestMethod.POST)
 //    public String logout(HttpServletRequest request, HttpServletResponse response,@ModelAttribute("user") User user, @ModelAttribute("password") String password, Model model ){
 //        System.out.print("email : "+user.getEmail()+"password : "+password);
@@ -153,5 +155,4 @@ public class AuthController {
 //
 //    }
 //
-
 }

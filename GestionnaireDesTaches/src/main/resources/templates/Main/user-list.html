@@ -28,11 +28,11 @@
     <!-- Wrapper Start -->
     <div class="wrapper">
 
-        <!--   SideBar     -->
-        <!--    <div th:insert="sidebar :: sidebar">  </div>-->
+    <!--   SideBar     -->
+    <div th:insert="Sections/sidebar :: sidebar">  </div>
 
-        <!--    &lt;!&ndash;   NavBar     &ndash;&gt;-->
-        <!--    <div th:insert="navbar::navbar">  </div>-->
+    <!--    &lt;!&ndash;   NavBar     &ndash;&gt;-->
+    <div th:insert="Sections/navbar :: navbar(${user})">  </div>
 
 <div class="content-page">
 <div class="container-fluid">
@@ -259,8 +259,7 @@
                            </td>
                         </tr>
                         <tr>
-                           <td class="text-center"><img class="rounded img-fluid avatar-40"
-                                 th:src="@{images/user/09.jpg}" alt="profile"></td>
+                           <td class="text-center"><img class="rounded img-fluid avatar-40" th:src="@{images/user/09.jpg}" alt="profile"></td>
                            <td>Bill Dabear</td>
                            <td>+55 2563 456 589</td>
                            <td>billdabear@gmail.com</td>
@@ -572,21 +571,6 @@
             </div>
         </div>
     </div>
-    <footer class="iq-footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6">
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item"><a th:href="@{/privacy-policy.html}">Privacy Policy</a></li>
-                        <li class="list-inline-item"><a th:href="@{/terms-of-service.html}">Terms of Use</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-6 text-right">
-                    <span class="mr-1"><script>document.write(new Date().getFullYear())</script>©</span> <a href="#" class="">Webkit</a>.
-                </div>
-            </div>
-        </div>
-    </footer>
     <!-- Backend Bundle JavaScript -->
     <script th:src="@{/js/backend-bundle.min.js}"></script>
 

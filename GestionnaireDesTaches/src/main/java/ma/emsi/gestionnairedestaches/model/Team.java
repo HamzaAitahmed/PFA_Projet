@@ -17,11 +17,18 @@ public class Team {
     @Column(unique=true)
     private String nom;
 
-    private Integer OwnerId;
+    @ManyToOne
+    private User Leader;
 
     @OneToMany(mappedBy = "ProjectTeam")
     private Collection<Project> Projects;
 
-    @ManyToMany(mappedBy = "Teams")
-    private  Collection<User> MemberTeam;
+    @ManyToMany
+    private  Collection<User> Members;
+
+    public Team(Integer id, String nom, User leader) {
+        this.id = id;
+        this.nom = nom;
+        Leader = leader;
+    }
 }

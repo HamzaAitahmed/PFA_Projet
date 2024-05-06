@@ -31,8 +31,8 @@
     <!--   SideBar     -->
     <div th:insert="Sections/sidebar :: sidebar">  </div>
 
-<!--    &lt;!&ndash;   NavBar     &ndash;&gt;-->
-    <div th:insert="Sections/navbar :: navbar">  </div>
+    <!--   NavBar     -->
+    <div th:insert="Sections/navbar :: navbar(${user})">  </div>
 
     <!--   ????     -->
     <div class="content-page">

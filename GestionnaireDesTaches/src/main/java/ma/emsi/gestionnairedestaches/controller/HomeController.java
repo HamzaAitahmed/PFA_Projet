@@ -1,19 +1,21 @@
 package ma.emsi.gestionnairedestaches.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import ma.emsi.gestionnairedestaches.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
+@SessionAttributes({"connectedUser"})
 @RequestMapping("")
 public class HomeController {
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
-    public String index(){
-        return "redirect:/userList";
+    public String index(HttpServletRequest request, RedirectAttributes redirectAttributes, HttpServletResponse response, @SessionAttribute("connectedUser" ) User user){
+        return "redirect:/project";
     }
 
     @GetMapping(path="/error500")
@@ -28,19 +30,30 @@ public class HomeController {
     @GetMapping(path="/userList")
     public String userList(Model model){ return "Main/user-list"; }
 
-    @GetMapping(path="/Team")
-    public String Team(Model model){ return "Main/page-team"; }
+    @GetMapping(path="/team")
+    public String team(Model model){ return "Main/page-team"; }
+
+
+
+    @GetMapping(path="/index")
+    public String index(Model model,RedirectAttributes redirectAttributes, @ModelAttribute("connectedUser" ) User user2){
+        System.out.println("# index User : "+user2);
+        model.addAttribute("user", user2);
+        return "Main/index";
+    }
 
     @GetMapping(path="/project")
-    public String project(Model model){ return "Main/page-project"; }
+    public String project(RedirectAttributes redirectAttributes,@ModelAttribute("connectedUser" ) User user3 , Model model){
+        model.addAttribute("user", user3);
+        System.out.println("# project User : "+user3);
+        return "Main/page-project";
+    }
+
+    @GetMapping(path="/userProfil")
+    public String userProfil(Model model){ return "Main/user-profile"; }
 
     @GetMapping(path="/userProfileEdit")
     public String userProfileEdit(Model model){ return "Main/user-profile-edit"; }
 
-    @GetMapping(path="/navbar")
-    public String navbar(Model model){ return "Sections/navbar"; }
-
-    @GetMapping(path="/sidebar")
-    public String sidebar(Model model){ return "Sections/sidebar"; }
 
 }
