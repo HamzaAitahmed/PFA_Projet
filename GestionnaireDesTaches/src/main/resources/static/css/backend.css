@@ -19957,7 +19957,7 @@ fieldset[disabled] .btn {
   z-index: 999999; }
 
 #loading-center {
-  background: url(../images/logo.svg) no-repeat scroll center center;
+  background: url(../images/GTD_LOGO.svg) no-repeat scroll center center;
   background-size: 20%;
   width: 100%;
   height: 100%;
@@ -21236,7 +21236,7 @@ fieldset[disabled] .btn {
   z-index: 999999; }
 
 #loading-center {
-  background: url(../images/logo.svg) no-repeat scroll center center;
+  background: url(../images/GTD_LOGO.svg) no-repeat scroll center center;
   background-size: 20%;
   width: 100%;
   height: 100%;
@@ -23565,3 +23565,9 @@ ul.iq-contact-rest li a p {
 
 .data-table .badge {
   padding: 8px 10px; }
+.hidden{
+  display: none;
+}
+.disabled{
+  display: none;
+}

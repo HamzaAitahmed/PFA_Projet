@@ -24,17 +24,6 @@ public class HomeController {
     @GetMapping(path="/error404")
     public String error404(Model model){ return "Error/pages-error"; }
 
-    @GetMapping(path="/userAdd")
-    public String userAdd(Model model){ return "Main/user-add"; }
-
-    @GetMapping(path="/userList")
-    public String userList(Model model){ return "Main/user-list"; }
-
-    @GetMapping(path="/team")
-    public String team(Model model){ return "Main/page-team"; }
-
-
-
     @GetMapping(path="/index")
     public String index(Model model,RedirectAttributes redirectAttributes, @ModelAttribute("connectedUser" ) User user2){
         System.out.println("# index User : "+user2);
@@ -42,18 +31,7 @@ public class HomeController {
         return "Main/index";
     }
 
-    @GetMapping(path="/project")
-    public String project(RedirectAttributes redirectAttributes,@ModelAttribute("connectedUser" ) User user3 , Model model){
-        model.addAttribute("user", user3);
-        System.out.println("# project User : "+user3);
-        return "Main/page-project";
-    }
 
-    @GetMapping(path="/userProfil")
-    public String userProfil(Model model){ return "Main/user-profile"; }
-
-    @GetMapping(path="/userProfileEdit")
-    public String userProfileEdit(Model model){ return "Main/user-profile-edit"; }
 
 
 }
