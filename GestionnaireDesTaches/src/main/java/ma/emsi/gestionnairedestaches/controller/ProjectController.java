@@ -64,7 +64,9 @@ public class ProjectController {
 
         List<Team> Teams = teamRepository.findAll();
         if(Teams.isEmpty())
+        {
             Teams = null;
+        }
         System.out.println("# NewProject Team : "+Teams);
         Project NewProject = new Project();
         model.addAttribute("Project",NewProject);
