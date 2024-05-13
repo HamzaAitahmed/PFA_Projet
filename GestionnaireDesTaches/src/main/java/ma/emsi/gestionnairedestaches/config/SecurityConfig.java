@@ -34,13 +34,13 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests()
-                .requestMatchers("/home**","/login**","/register**","/logout**","/css/**","/js/**","/images/**","/vendor/**").permitAll()
-                .anyRequest().authenticated();
-        http
-                .formLogin()
-                .loginPage("/home"); // Methode Post Doesnt Work
+//        http
+//                .authorizeHttpRequests()
+//                .requestMatchers("/home**","/login**","/register**","/logout**","/css/**","/js/**","/images/**","/vendor/**").permitAll()
+//                .anyRequest().authenticated();
+//        http
+//                .formLogin()
+//                .loginPage("/home"); // Methode Post Doesnt Work
 
         System.out.println("Security Config ligne 45");
 

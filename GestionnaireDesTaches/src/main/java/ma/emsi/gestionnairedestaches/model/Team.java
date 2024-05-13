@@ -31,4 +31,16 @@ public class Team {
         this.nom = nom;
         Leader = leader;
     }
+
+    @Override
+    public String toString() {
+        return "Team{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", Leader=" + Leader +
+                ", Projects=" + Projects.toString() +
+                ", Members=" + Members.toString() +
+                '}';
+    }
+    
 }

@@ -24,4 +24,15 @@ public class Task {
 
     @ManyToOne
     private Project ProjectTask;
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", description='" + description + '\'' +
+                ", UserTask=" + UserTask.toString() +
+                ", ProjectTask=" + ProjectTask.toString() +
+                '}';
+    }
 }

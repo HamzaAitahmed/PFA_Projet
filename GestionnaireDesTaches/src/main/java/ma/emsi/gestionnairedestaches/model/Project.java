@@ -28,4 +28,15 @@ public class Project {
     @ManyToOne
     private Team ProjectTeam;
 
+    @Override
+    public String toString() {
+        return "Project{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", Description='" + Description + '\'' +
+//                ", Tasks=" + Tasks.toString() +
+//                ", ProjectOwner=" + ProjectOwner.toString() +
+//                ", ProjectTeam=" + ProjectTeam.toString() +
+                '}';
+    }
 }
