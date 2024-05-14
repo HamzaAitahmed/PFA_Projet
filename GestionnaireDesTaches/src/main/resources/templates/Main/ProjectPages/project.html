@@ -27,11 +27,11 @@
 <div class="wrapper">
 
     <!--   SideBar     -->
-    <div th:insert="Sections/sidebar :: sidebar">  </div>
+    <div th:insert="~{Sections/sidebar :: sidebar}">  </div>
     <!--    <div th:replace="fragment/form :: sidebar(${user})">  </div>-->
 
     <!--   NavBar     -->
-    <div th:insert="Sections/navbar :: navbar(${user})">  </div>
+    <div th:insert="~{Sections/navbar :: navbar(${user})}">  </div>
 
 
     <div class="content-page">
@@ -92,17 +92,19 @@
                                 <h5 class="mb-1" th:text="${s.getNom()}"></h5>
                                 <p class="mb-3"  th:text="${s.getDescription()}"></p>
                                 <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-                                    <div class="iq-media-group" th:if="${s.projectTeam != null}" >
+                                    <div class="iq-media-group"  >
                                         <a href="#" class="iq-media projectowner">
                                             <img  class="img-fluid avatar-40 rounded-circle" th:src="${s.projectOwner.profilePicture} " alt="">
                                         </a>
-                                        <a href="#" class="iq-media" th:each="x:${s.projectTeam.getMembers()}" th:hidden="${s.projectOwner == x}"  >
-                                            <img class="img-fluid avatar-40 rounded-circle" th:src="${x.getProfilePicture()}" alt="">
-                                        </a>
+                                        <div class="d-inline-block" th:if="${s.projectTeam != null}" >
+                                            <a href="#" class="iq-media" th:each="x:${s.projectTeam.getMembers()}" th:hidden="${s.projectOwner == x}"  >
+                                                <img class="img-fluid avatar-40 rounded-circle" th:src="${x.getProfilePicture()}" alt="">
+                                            </a>
+                                        </div>
                                     </div>
                                     <div class="link-shadow">
                                         <a class="btn btn-white text-danger " th:href="@{deleteProject(id=${s.id}, search=${search})}">Delete</a>
-                                        <a class="btn btn-white text-primary " th:href="@{EditProject(id=${s.id}, search=${search})}">Edit</a>
+                                        <a class="btn btn-white text-primary " th:href="@{EditProject(Project_id=${s.id}, search=${search})}">Edit</a>
                                     </div>
                                 </div>
                             </div>
@@ -133,24 +135,25 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                        <div class="iq-media-group"  th:if="${s.projectTeam != null}">
+                                        <div class="iq-media-group" >
                                             <a href="#" class="iq-media projectowner">
                                                 <img  class="img-fluid avatar-40 rounded-circle" th:src="${s.projectOwner.profilePicture} " alt="">
                                             </a>
-                                            <a href="#" th:each="x:${s.projectTeam.members}" th:hidden="${s.projectOwner == x}"  class="iq-media">
-                                                <img  class="img-fluid avatar-40 rounded-circle" th:src="${x.profilePicture}" alt="">
-                                            </a>
+                                            <div class="d-inline-block" th:if="${s.projectTeam != null}" >
+                                                <a href="#" th:each="x:${s.projectTeam.members}" th:hidden="${s.projectOwner == x}"  class="iq-media">
+                                                    <img  class="img-fluid avatar-40 rounded-circle" th:src="${x.profilePicture}" alt="">
+                                                </a>
+                                            </div>
                                         </div>
                                         <div class="link-shadow">
                                             <a class="btn btn-white text-danger " th:href="@{deleteProject(id=${s.id}, search=${search})}">Delete</a>
-                                            <a class="btn btn-white text-primary " th:href="@{EditProject(id=${s.id}, search=${search})}">Edit</a>
+                                            <a class="btn btn-white text-primary " th:href="@{EditProject(Project_id=${s.id}, search=${search})}">Edit</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
             <!-- Page end  -->

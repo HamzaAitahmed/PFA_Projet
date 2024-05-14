@@ -30,13 +30,13 @@ public class Project {
 
     @Override
     public String toString() {
-        return "Project{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", Description='" + Description + '\'' +
+        return "Project{ " +
+                "id = " + id +
+                " | nom = '" + nom + '\'' +
+                " | Description = '" + Description + '\'' +
 //                ", Tasks=" + Tasks.toString() +
-//                ", ProjectOwner=" + ProjectOwner.toString() +
-//                ", ProjectTeam=" + ProjectTeam.toString() +
+                " | ProjectOwner { id = " + ProjectOwner.getId() +" | username  = " + ProjectOwner.getUsername() + " } " +
+//                ", ProjectTeam=" + ProjectTeam.getNom() +
                 '}';
     }
 }

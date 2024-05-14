@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -25,37 +26,48 @@ public class ProjectController {
     @Autowired UserRepository userRepository;
 
     @GetMapping(path="/project")
-    public String project(HttpServletRequest request,RedirectAttributes redirectAttributes, @RequestParam(name = "search" , defaultValue = "All Projects") String search ,
-//                          @ModelAttribute("connectedUser" ) User user3 ,
-                          Model model )
+    public String project(@RequestParam(name = "search" , defaultValue = "Other Projects") String search , @ModelAttribute("connectedUser" ) User user3 , Model model )
     {
-        User user3 = userRepository.findUserByEmail("hamza@gmail.com");
+        // Problem dans la list dans controller Projet , problem dans Team Edit?Project ( none )
+        // si le projet a une team est que tout les teams sont pas disponibles il faut afficher none
+        System.out.println("\n%%%%%%% User 3 : "+user3);
+        List<Project> OtherProjects = projectRepository.findMemberById(user3.getId());
+        List<Project> MyProjects = projectRepository.findByProjectOwner(user3.getId());
+        List<Project> AllProjects = OtherProjects;
+        AllProjects.addAll(MyProjects);
+        List<Team> teams = null;
 
-        HttpSession session = request.getSession(true);
-        session.setAttribute("connectedUser",user3);
-
-        List<Project> projects = null;
-        if(search.equals("All Projects")){
-            System.out.println("All Projects");
-            projects = projectRepository.findByProjectOwner(user3.getId());
-        }
         if(search.equals("My Projects")){ // Done
-            System.out.println("My Projects");
-            projects = projectRepository.findByProjectOwner(user3.getId());
+            model.addAttribute("PorjectList", MyProjects);
+        }
+        if(search.equals("Other Projects")){
+            model.addAttribute("PorjectList", OtherProjects);
+        }
+        if(search.equals("All Projects")){
+            model.addAttribute("PorjectList", AllProjects);
         }
 
-        if(search.equals("Other Projects")){
-            System.out.println("Other Projects");
-            projects = projectRepository.findAll();
-        }
+
         System.out.println("user id : "+user3.getId());
-        for(Project p : projects){
-            System.out.println(p);
-        }
-        model.addAttribute("PorjectList", projects);
+//        for(Project p : projects){
+//            System.out.print("#######  --> "+p);
+//            if (p.getProjectTeam()!=null)
+//            {
+//                System.out.print("  ----> Team id : "+p.getProjectTeam().getId()+"\n");
+//                for(User u : p.getProjectTeam().getMembers()){
+//                    System.out.println("\t\t    '--> Members : username = "+u.getUsername()+" | Team id : "+p.getProjectTeam().getId());
+//                }
+//            }else
+//            {
+//                System.out.println();
+//            }
+//        }
+//        for(Team t : teams){
+//            System.out.println("@@@@@@@  --> "+t);
+//        }
+
         model.addAttribute("search", search);
         model.addAttribute("user", user3);
-        System.out.println("return Main/project");
 
         return "Main/ProjectPages/project";
     }
@@ -98,6 +110,8 @@ public class ProjectController {
                 return "redirect:/NewProject?error";
             }
             NewProject.setProjectOwner(user);
+            System.out.println("$$$$$$$$$$$NewProject Post Project : "+NewProject+" | Team : "+NewProject.getProjectTeam()+"\n");
+
             projectRepository.save(NewProject);
             return "redirect:/project";
 
@@ -109,8 +123,10 @@ public class ProjectController {
     }
 
     @RequestMapping(value = "/EditProject",method = RequestMethod.GET)
-    public String EditProject(RedirectAttributes redirectAttributes,HttpServletRequest request, HttpServletResponse response,Integer id,String search, @ModelAttribute("connectedUser" ) User user , Model model){
+    public String EditProject(RedirectAttributes redirectAttributes,HttpServletRequest request, HttpServletResponse response,int Project_id, String search , @ModelAttribute("connectedUser" ) User user , Model model){
         System.out.println("\nEditProject Get");
+        System.out.println("^^^^^^^^^^^^^ EditProject Get User : "+user);
+        System.out.println("^^^^^^^^^^^^^ EditProject Get EditProject id : "+Project_id);
 
         List<Team> Teams = teamRepository.findAll();
         Teams.removeAll( teamRepository.findNotNullProjects() );
@@ -119,29 +135,35 @@ public class ProjectController {
         {
             Teams = null;
         }
+        Project EditProject = projectRepository.findProjectById(Project_id);
 
-        Project EditProject = projectRepository.findProjectById(id);
+        List<Project> projects = projectRepository.findMemberById(user.getId());
+
         System.out.println("%%%%%%%%%%%%% EditProject Get :  "+EditProject);
+        model.addAttribute("PorjectList",projects);
         model.addAttribute("Project",EditProject);
         model.addAttribute("user",user);
         model.addAttribute("ListTeams",Teams);
         model.addAttribute("search", search);
         redirectAttributes.addAttribute("search", search);
+        System.out.println("%%%%%%%%%%%%%%EditProject Get User : "+user);
         System.out.println("EditProject Get Done \n");
 
         return "Main/ProjectPages/EditProject";
     }
 
     @RequestMapping(value = "/EditProject",method = RequestMethod.POST)
-    public String EditProject(RedirectAttributes redirectAttributes,HttpServletRequest request, HttpServletResponse response, Model model, int id,
+    public String EditProject(RedirectAttributes redirectAttributes,HttpServletRequest request, HttpServletResponse response, Model model,
                               @RequestParam(name = "nom" ) String nom,
+                              @RequestParam(name = "id" ) int id,
                               @RequestParam(name = "description" ) String description,
                               @RequestParam(name = "ProjectTeam" ,defaultValue = "-1") int ProjectTeam,
                               @ModelAttribute("search" ) String search,
-                              @ModelAttribute("connectedUser" ) User user
-    )
+                              @ModelAttribute("connectedUser" ) User user )
     {
-        System.out.println("\n#############  EditProject Get id : "+ id + " | Nom : "+nom+" | ProjectTeam : "+ProjectTeam+" | description : "+description);
+        System.out.println("\n#############EditProject Post User : "+user);
+
+        System.out.println("#############  EditProject Post id : "+ id + " | Nom : "+nom+" | ProjectTeam : "+ProjectTeam+" | description : "+description);
 
         model.addAttribute("user",user);
         Project EditProject = projectRepository.findProjectById(id);
