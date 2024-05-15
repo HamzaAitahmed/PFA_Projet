@@ -31,9 +31,7 @@ public class AuthController {
 
     public AuthController(UserService userService,AuthenticationManager authenticationManager) {
         this.userService = userService;
-        System.out.println("userService : "+userService);
         this.authenticationManager = authenticationManager;
-        System.out.println("authenticationManager : "+authenticationManager);
     }
 
     @RequestMapping(value = "/home",method = RequestMethod.GET)

@@ -28,8 +28,6 @@ public class ProjectController {
     @GetMapping(path="/project")
     public String project(@RequestParam(name = "search" , defaultValue = "Other Projects") String search , @ModelAttribute("connectedUser" ) User user3 , Model model )
     {
-        // Problem dans la list dans controller Projet , problem dans Team Edit?Project ( none )
-        // si le projet a une team est que tout les teams sont pas disponibles il faut afficher none
         System.out.println("\n%%%%%%% User 3 : "+user3);
         List<Project> OtherProjects = projectRepository.findMemberById(user3.getId());
         List<Project> MyProjects = projectRepository.findByProjectOwner(user3.getId());

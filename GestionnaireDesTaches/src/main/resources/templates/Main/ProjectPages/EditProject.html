@@ -54,7 +54,7 @@
                                 <h4>Project Team</h4>
                                 <select type="number" name="ProjectTeam" class="form-control">
                                     <option th:value="${Project.projectTeam != null} ? ${Project.projectTeam.id} : '-1' " th:text="${Project.projectTeam != null} ? ${Project.projectTeam.getNom()} : 'Choose a Team' " selected th:hidden="${Project.projectTeam == null}"></option>
-                                    <option th:disabled="${ListTeams == null }" th:value="-1" th:text="${ListTeams==null} ? 'There is No Teams' : 'None'"></option>
+                                    <option th:value="-1" th:text="None"></option>
                                     <option th:each="s:${ListTeams}" th:value="${s != null} ? ${s.id} : '-1' " th:text="${s != null} ? ${s.nom} : ''  " ></option>
                                 </select>
                             </div>
