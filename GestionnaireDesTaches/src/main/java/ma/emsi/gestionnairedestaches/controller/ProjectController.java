@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @SessionAttributes({"connectedUser"})
@@ -31,9 +33,28 @@ public class ProjectController {
         System.out.println("\n%%%%%%% User 3 : "+user3);
         List<Project> OtherProjects = projectRepository.findMemberById(user3.getId());
         List<Project> MyProjects = projectRepository.findByProjectOwner(user3.getId());
-        List<Project> AllProjects = OtherProjects;
+
+        List<Project> AllProjects = new LinkedList<>(OtherProjects);
         AllProjects.addAll(MyProjects);
+
+        List<Project> AllProjectsFiltered = AllProjects.stream() // pour supprimer les objets dupliquer
+                .distinct()
+                .collect(Collectors.toList());
+
         List<Team> teams = null;
+
+        System.out.println("############## OtherProjects ##############");
+        for(Project p : OtherProjects)
+            System.out.println("#######  --> "+p);
+
+        System.out.println("############## MyProjects ##############");
+        for(Project p : MyProjects)
+            System.out.println("#######  --> "+p);
+
+        System.out.println("############## AllProjects ##############");
+        for(Project p : AllProjects)
+            System.out.println("#######  --> "+p);
+
 
         if(search.equals("My Projects")){ // Done
             model.addAttribute("PorjectList", MyProjects);
@@ -42,12 +63,12 @@ public class ProjectController {
             model.addAttribute("PorjectList", OtherProjects);
         }
         if(search.equals("All Projects")){
-            model.addAttribute("PorjectList", AllProjects);
+            model.addAttribute("PorjectList", AllProjectsFiltered);
         }
 
 
         System.out.println("user id : "+user3.getId());
-//        for(Project p : projects){
+//        for(Project p : OtherProjects){
 //            System.out.print("#######  --> "+p);
 //            if (p.getProjectTeam()!=null)
 //            {
@@ -127,7 +148,7 @@ public class ProjectController {
         System.out.println("^^^^^^^^^^^^^ EditProject Get EditProject id : "+Project_id);
 
         List<Team> Teams = teamRepository.findAll();
-        Teams.removeAll( teamRepository.findNotNullProjects() );
+//        Teams.removeAll( teamRepository.findNotNullProjects() );
 
         if(Teams.isEmpty())
         {
@@ -153,7 +174,7 @@ public class ProjectController {
     @RequestMapping(value = "/EditProject",method = RequestMethod.POST)
     public String EditProject(RedirectAttributes redirectAttributes,HttpServletRequest request, HttpServletResponse response, Model model,
                               @RequestParam(name = "nom" ) String nom,
-                              @RequestParam(name = "id" ) int id,
+                              @RequestParam(name = "Project_id" ) int Project_id,
                               @RequestParam(name = "description" ) String description,
                               @RequestParam(name = "ProjectTeam" ,defaultValue = "-1") int ProjectTeam,
                               @ModelAttribute("search" ) String search,
@@ -161,10 +182,10 @@ public class ProjectController {
     {
         System.out.println("\n#############EditProject Post User : "+user);
 
-        System.out.println("#############  EditProject Post id : "+ id + " | Nom : "+nom+" | ProjectTeam : "+ProjectTeam+" | description : "+description);
+        System.out.println("#############  EditProject Post id : "+ Project_id + " | Nom : "+nom+" | ProjectTeam : "+ProjectTeam+" | description : "+description);
 
         model.addAttribute("user",user);
-        Project EditProject = projectRepository.findProjectById(id);
+        Project EditProject = projectRepository.findProjectById(Project_id);
         Team Teams = teamRepository.findTeamById(ProjectTeam);
 
         try {

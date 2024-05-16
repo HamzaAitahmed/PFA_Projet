@@ -33,7 +33,7 @@
             <div class="modal-header d-block text-center pb-3 border-bttom">
                 <h3 class="modal-title" id="exampleModalCenterTitle01">Edit Project</h3>
             </div>
-            <form th:action="@{EditProject(id=${Project.id} ,search=${search})}" method="post">
+            <form th:action="@{EditProject(Project_id=${Project.id} ,search=${search})}" method="post">
 <!--                <input type="hidden" name="id" required  id="id" th:value="${Project.id}">-->
                 <div class="modal-body">
                     <div class="row">
@@ -53,9 +53,9 @@
                             <div class="form-group mb-3">
                                 <h4>Project Team</h4>
                                 <select type="number" name="ProjectTeam" class="form-control">
-                                    <option th:value="${Project.projectTeam != null} ? ${Project.projectTeam.id} : '-1' " th:text="${Project.projectTeam != null} ? ${Project.projectTeam.getNom()} : 'Choose a Team' " selected th:hidden="${Project.projectTeam == null}"></option>
-                                    <option th:value="-1" th:text="None"></option>
-                                    <option th:each="s:${ListTeams}" th:value="${s != null} ? ${s.id} : '-1' " th:text="${s != null} ? ${s.nom} : ''  " ></option>
+                                    <option th:value="-1" th:text="'Choose a Team'" th:disabled="${Project.projectTeam == null}" th:selected="${Project.projectTeam == null}" th:hidden="${Project.projectTeam != null}"></option>
+                                    <option th:value="-1" th:text="'!!!! No Team !!!!'"></option>
+                                    <option th:each="s:${ListTeams}" th:value="${s != null} ? ${s.id} : '-1' " th:selected="${Project.projectTeam == s}" th:text="${s != null} ? ${s.nom} : ''  " ></option>
                                 </select>
                             </div>
                         </div>

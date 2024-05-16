@@ -18,20 +18,14 @@ public interface ProjectRepository extends JpaRepository<Project,Integer> {
     @Query("SELECT p FROM Project p WHERE p.ProjectOwner.id = :id")
     List<Project> findByProjectOwner(@Param("id") Integer id);
 
-    @Query("SELECT t.Projects FROM Team t Join t.Members m on m.id = :id")
+    @Query("SELECT p FROM Project p JOIN Team t ON p.ProjectTeam = t JOIN User u ON t.Leader = u OR t IN ( SELECT tm.Teams  FROM t.Members tm WHERE u = tm ) WHERE u.id = 1")
     List<Project> findMemberById(int id);
 
-    //SELECT *
-    //FROM project
-    //INNER JOIN user ON user.id = 1
-    //JOIN team_members ON team.id = user.
-    //JOIN user On user.id = team_members.members_id;
-
-
-    //SELECT *
-    //FROM Project p
-    //JOIN Team t ON p.project_team_id = t.id
-    //WHERE t.leader_id = 12 ;
+//    SELECT p.*
+//    FROM Project p
+//    JOIN Team t ON p.project_team_id = t.id
+//    JOIN User u ON t.leader_id = u.id OR t.id IN (SELECT y.teams_id FROM team_members y WHERE u.id = y.members_id)
+//    WHERE u.id = 1;
 
     Project findProjectById(Integer id);
 
