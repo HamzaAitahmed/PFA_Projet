@@ -97,7 +97,16 @@ public class AuthController {
 
         try {
             user.setRole("USER");
+            User userTest = userRepository.findUserByEmail(user.getEmail());
+
+            if(userTest != null){
+                return "redirect:/register?error";
+            }
+
             User newUser = userService.createUser(user);
+            if(newUser == null){
+                return "redirect:/register?error";
+            }
             newUser.setProfilePicture("images/user/inconnu.jpg");
             Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(),user.getPassword()));
             SecurityContext securityContext = SecurityContextHolder.getContext();

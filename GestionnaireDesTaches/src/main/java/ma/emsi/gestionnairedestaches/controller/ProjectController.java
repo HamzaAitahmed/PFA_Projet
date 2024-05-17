@@ -11,9 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Controller
@@ -31,30 +29,31 @@ public class ProjectController {
     public String project(@RequestParam(name = "search" , defaultValue = "Other Projects") String search , @ModelAttribute("connectedUser" ) User user3 , Model model )
     {
         System.out.println("\n%%%%%%% User 3 : "+user3);
-        List<Project> OtherProjects = projectRepository.findMemberById(user3.getId());
+        List<Project> OtherProjects = projectRepository.findProjectTeamByUserId(user3.getId());
         List<Project> MyProjects = projectRepository.findByProjectOwner(user3.getId());
 
-        List<Project> AllProjects = new LinkedList<>(OtherProjects);
-        AllProjects.addAll(MyProjects);
+        List<Project> AllProjects = projectRepository.findAllProjectByUserId(user3.getId());
 
-        List<Project> AllProjectsFiltered = AllProjects.stream() // pour supprimer les objets dupliquer
-                .distinct()
-                .collect(Collectors.toList());
+        Collections.sort(AllProjects , Comparator.comparingLong(Project::getId)); // sort List by Project Id
+//        List<Project> AllProjects = new LinkedList<>(OtherProjects); // pour Ajouter OtherProjects
 
-        List<Team> teams = null;
+//        AllProjects.addAll(MyProjects); // pour Ajouter MyProjects Avec OtherProjects
+//
+//        List<Project> AllProjectsFiltered = AllProjects.stream() // pour supprimer les objets dupliquer
+//                .distinct()
+//                .collect(Collectors.toList());
 
-        System.out.println("############## OtherProjects ##############");
-        for(Project p : OtherProjects)
-            System.out.println("#######  --> "+p);
-
-        System.out.println("############## MyProjects ##############");
-        for(Project p : MyProjects)
-            System.out.println("#######  --> "+p);
-
-        System.out.println("############## AllProjects ##############");
-        for(Project p : AllProjects)
-            System.out.println("#######  --> "+p);
-
+//        System.out.println("############## OtherProjects ##############");
+//        for(Project p : OtherProjects)
+//            System.out.println("#######  --> "+p);
+//
+//        System.out.println("############## MyProjects ##############");
+//        for(Project p : MyProjects)
+//            System.out.println("#######  --> "+p);
+//
+//        System.out.println("############## AllProjects ##############");
+//        for(Project p : AllProjects)
+//            System.out.println("#######  --> "+p);
 
         if(search.equals("My Projects")){ // Done
             model.addAttribute("PorjectList", MyProjects);
@@ -63,11 +62,10 @@ public class ProjectController {
             model.addAttribute("PorjectList", OtherProjects);
         }
         if(search.equals("All Projects")){
-            model.addAttribute("PorjectList", AllProjectsFiltered);
+            model.addAttribute("PorjectList", AllProjects);
         }
 
-
-        System.out.println("user id : "+user3.getId());
+//        System.out.println("user id : "+user3.getId());
 //        for(Project p : OtherProjects){
 //            System.out.print("#######  --> "+p);
 //            if (p.getProjectTeam()!=null)
@@ -156,7 +154,7 @@ public class ProjectController {
         }
         Project EditProject = projectRepository.findProjectById(Project_id);
 
-        List<Project> projects = projectRepository.findMemberById(user.getId());
+        List<Project> projects = projectRepository.findProjectTeamByUserId(user.getId());
 
         System.out.println("%%%%%%%%%%%%% EditProject Get :  "+EditProject);
         model.addAttribute("PorjectList",projects);

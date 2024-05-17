@@ -39,4 +39,5 @@ public class Project {
 //                ", ProjectTeam=" + ProjectTeam.getNom() +
                 '}';
     }
+
 }
