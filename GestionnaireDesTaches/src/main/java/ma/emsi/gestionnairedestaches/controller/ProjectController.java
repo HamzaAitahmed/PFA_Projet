@@ -25,14 +25,10 @@ public class ProjectController {
     @Autowired UserRepository userRepository;
 
     @GetMapping(path="/project")
-    public String project(HttpServletRequest request,RedirectAttributes redirectAttributes, @RequestParam(name = "search" , defaultValue = "All Projects") String search ,
+    public String project(HttpServletRequest request,RedirectAttributes redirectAttributes, @SessionAttribute("connectedUser" ) User user3, @RequestParam(name = "search" , defaultValue = "All Projects") String search ,
 //                          @ModelAttribute("connectedUser" ) User user3 ,
                           Model model )
     {
-        User user3 = userRepository.findUserByEmail("hamza@gmail.com");
-
-        HttpSession session = request.getSession(true);
-        session.setAttribute("connectedUser",user3);
 
         List<Project> projects = null;
         if(search.equals("All Projects")){

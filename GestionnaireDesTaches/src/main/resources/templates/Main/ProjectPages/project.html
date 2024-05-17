@@ -92,13 +92,15 @@
                                 <h5 class="mb-1" th:text="${s.getNom()}"></h5>
                                 <p class="mb-3"  th:text="${s.getDescription()}"></p>
                                 <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-                                    <div class="iq-media-group" th:if="${s.projectTeam != null}" >
+                                    <div class="iq-media-group">
                                         <a href="#" class="iq-media projectowner">
                                             <img  class="img-fluid avatar-40 rounded-circle" th:src="${s.projectOwner.profilePicture} " alt="">
                                         </a>
-                                        <a href="#" class="iq-media" th:each="x:${s.projectTeam.getMembers()}" th:hidden="${s.projectOwner == x}"  >
-                                            <img class="img-fluid avatar-40 rounded-circle" th:src="${x.getProfilePicture()}" alt="">
-                                        </a>
+                                        <div  th:if="${s.projectTeam != null}"  >
+                                            <a href="#" class="iq-media" th:each="x:${s.projectTeam.getMembers()}" th:hidden="${s.projectOwner == x}"  >
+                                                <img class="img-fluid avatar-40 rounded-circle" th:src="${x.getProfilePicture()}" alt="">
+                                            </a>
+                                        </div>
                                     </div>
                                     <div class="link-shadow">
                                         <a class="btn btn-white text-danger " th:href="@{deleteProject(id=${s.id}, search=${search})}">Delete</a>

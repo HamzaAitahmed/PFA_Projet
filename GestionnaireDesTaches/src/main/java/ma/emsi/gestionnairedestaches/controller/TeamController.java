@@ -13,7 +13,7 @@ public class TeamController {
     @GetMapping(path="/team")
     public String team(Model model, @ModelAttribute("connectedUser" ) User user){
         model.addAttribute("user", user);
-        return "Main/team";
+        return "Main/TeamPages/team";
     }
 
 }
