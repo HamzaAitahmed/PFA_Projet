@@ -35,6 +35,7 @@ public class ProjectController {
         List<Project> AllProjects = projectRepository.findAllProjectByUserId(user3.getId());
 
         Collections.sort(AllProjects , Comparator.comparingLong(Project::getId)); // sort List by Project Id
+        
 //        List<Project> AllProjects = new LinkedList<>(OtherProjects); // pour Ajouter OtherProjects
 
 //        AllProjects.addAll(MyProjects); // pour Ajouter MyProjects Avec OtherProjects
