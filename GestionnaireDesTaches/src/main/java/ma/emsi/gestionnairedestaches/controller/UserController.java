@@ -13,16 +13,25 @@ public class UserController {
     @GetMapping(path="/userList")
     public String userList(Model model, @ModelAttribute("connectedUser" ) User user){
         model.addAttribute("user", user);
-        return "Main/user-list";
+        return "Main/UserPages/user-list";
     }
 
     @GetMapping(path="/userProfil")
-    public String userProfil(Model model){ return "Main/user-profile"; }
+    public String userProfil(Model model, @ModelAttribute("connectedUser" ) User user){
+        model.addAttribute("user", user);
+        return "Main/UserPages/user-profile";
+    }
 
     @GetMapping(path="/userProfileEdit")
-    public String userProfileEdit(Model model){ return "Main/user-profile-edit"; }
+    public String userProfileEdit(Model model, @ModelAttribute("connectedUser" ) User user){
+        model.addAttribute("user", user);
+        return "Main/UserPages/user-profile-edit";
+    }
 
     @GetMapping(path="/userAdd")
-    public String userAdd(Model model){ return "Main/user-add"; }
+    public String userAdd(Model model, @ModelAttribute("connectedUser" ) User user){
+        model.addAttribute("user", user);
+        return "Main/UserPages/user-add";
+    }
 
 }

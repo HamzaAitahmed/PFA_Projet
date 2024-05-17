@@ -18,8 +18,8 @@ public interface TeamRepository extends JpaRepository<Team,Integer>{
     @Query("SELECT p.ProjectTeam FROM Project p WHERE p.ProjectTeam IS NOT NULL ")
     List<Team> findNotNullProjects();
 
-    @Query("SELECT p.ProjectTeam FROM Project p WHERE p.ProjectTeam IS NOT NULL ")
-    List<Team> findTeamById();
+//    @Query("SELECT p.ProjectTeam FROM Project p WHERE p.ProjectTeam IS NOT NULL ")
+//    List<Team> findTeamById();
 
     Team findTeamById(Integer id);
 

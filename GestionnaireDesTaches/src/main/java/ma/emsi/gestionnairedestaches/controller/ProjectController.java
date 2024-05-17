@@ -11,7 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Controller
 @SessionAttributes({"connectedUser"})
@@ -25,33 +26,73 @@ public class ProjectController {
     @Autowired UserRepository userRepository;
 
     @GetMapping(path="/project")
+<<<<<<< HEAD
     public String project(HttpServletRequest request,RedirectAttributes redirectAttributes, @SessionAttribute("connectedUser" ) User user3, @RequestParam(name = "search" , defaultValue = "All Projects") String search ,
 //                          @ModelAttribute("connectedUser" ) User user3 ,
                           Model model )
     {
+=======
+    public String project(@RequestParam(name = "search" , defaultValue = "Other Projects") String search , @ModelAttribute("connectedUser" ) User user3 , Model model )
+    {
+        System.out.println("\n%%%%%%% User 3 : "+user3);
+        List<Project> OtherProjects = projectRepository.findProjectTeamByUserId(user3.getId());
+        List<Project> MyProjects = projectRepository.findByProjectOwner(user3.getId());
 
-        List<Project> projects = null;
-        if(search.equals("All Projects")){
-            System.out.println("All Projects");
-            projects = projectRepository.findByProjectOwner(user3.getId());
-        }
+        List<Project> AllProjects = projectRepository.findAllProjectByUserId(user3.getId());
+
+        Collections.sort(AllProjects , Comparator.comparingLong(Project::getId)); // sort List by Project Id
+        
+//        List<Project> AllProjects = new LinkedList<>(OtherProjects); // pour Ajouter OtherProjects
+
+//        AllProjects.addAll(MyProjects); // pour Ajouter MyProjects Avec OtherProjects
+//
+//        List<Project> AllProjectsFiltered = AllProjects.stream() // pour supprimer les objets dupliquer
+//                .distinct()
+//                .collect(Collectors.toList());
+
+//        System.out.println("############## OtherProjects ##############");
+//        for(Project p : OtherProjects)
+//            System.out.println("#######  --> "+p);
+//
+//        System.out.println("############## MyProjects ##############");
+//        for(Project p : MyProjects)
+//            System.out.println("#######  --> "+p);
+//
+//        System.out.println("############## AllProjects ##############");
+//        for(Project p : AllProjects)
+//            System.out.println("#######  --> "+p);
+>>>>>>> ecd2629d93d6e3288440f2bfcf54963d78d0aeb0
+
         if(search.equals("My Projects")){ // Done
-            System.out.println("My Projects");
-            projects = projectRepository.findByProjectOwner(user3.getId());
+            model.addAttribute("PorjectList", MyProjects);
+        }
+        if(search.equals("Other Projects")){
+            model.addAttribute("PorjectList", OtherProjects);
+        }
+        if(search.equals("All Projects")){
+            model.addAttribute("PorjectList", AllProjects);
         }
 
-        if(search.equals("Other Projects")){
-            System.out.println("Other Projects");
-            projects = projectRepository.findAll();
-        }
-        System.out.println("user id : "+user3.getId());
-        for(Project p : projects){
-            System.out.println(p);
-        }
-        model.addAttribute("PorjectList", projects);
+//        System.out.println("user id : "+user3.getId());
+//        for(Project p : OtherProjects){
+//            System.out.print("#######  --> "+p);
+//            if (p.getProjectTeam()!=null)
+//            {
+//                System.out.print("  ----> Team id : "+p.getProjectTeam().getId()+"\n");
+//                for(User u : p.getProjectTeam().getMembers()){
+//                    System.out.println("\t\t    '--> Members : username = "+u.getUsername()+" | Team id : "+p.getProjectTeam().getId());
+//                }
+//            }else
+//            {
+//                System.out.println();
+//            }
+//        }
+//        for(Team t : teams){
+//            System.out.println("@@@@@@@  --> "+t);
+//        }
+
         model.addAttribute("search", search);
         model.addAttribute("user", user3);
-        System.out.println("return Main/project");
 
         return "Main/ProjectPages/project";
     }
@@ -94,6 +135,8 @@ public class ProjectController {
                 return "redirect:/NewProject?error";
             }
             NewProject.setProjectOwner(user);
+            System.out.println("$$$$$$$$$$$NewProject Post Project : "+NewProject+" | Team : "+NewProject.getProjectTeam()+"\n");
+
             projectRepository.save(NewProject);
             return "redirect:/project";
 
@@ -105,42 +148,50 @@ public class ProjectController {
     }
 
     @RequestMapping(value = "/EditProject",method = RequestMethod.GET)
-    public String EditProject(RedirectAttributes redirectAttributes,HttpServletRequest request, HttpServletResponse response,Integer id,String search, @ModelAttribute("connectedUser" ) User user , Model model){
+    public String EditProject(RedirectAttributes redirectAttributes,HttpServletRequest request, HttpServletResponse response,int Project_id, String search , @ModelAttribute("connectedUser" ) User user , Model model){
         System.out.println("\nEditProject Get");
+        System.out.println("^^^^^^^^^^^^^ EditProject Get User : "+user);
+        System.out.println("^^^^^^^^^^^^^ EditProject Get EditProject id : "+Project_id);
 
         List<Team> Teams = teamRepository.findAll();
-        Teams.removeAll( teamRepository.findNotNullProjects() );
+//        Teams.removeAll( teamRepository.findNotNullProjects() );
 
         if(Teams.isEmpty())
         {
             Teams = null;
         }
+        Project EditProject = projectRepository.findProjectById(Project_id);
 
-        Project EditProject = projectRepository.findProjectById(id);
+        List<Project> projects = projectRepository.findProjectTeamByUserId(user.getId());
+
         System.out.println("%%%%%%%%%%%%% EditProject Get :  "+EditProject);
+        model.addAttribute("PorjectList",projects);
         model.addAttribute("Project",EditProject);
         model.addAttribute("user",user);
         model.addAttribute("ListTeams",Teams);
         model.addAttribute("search", search);
         redirectAttributes.addAttribute("search", search);
+        System.out.println("%%%%%%%%%%%%%%EditProject Get User : "+user);
         System.out.println("EditProject Get Done \n");
 
         return "Main/ProjectPages/EditProject";
     }
 
     @RequestMapping(value = "/EditProject",method = RequestMethod.POST)
-    public String EditProject(RedirectAttributes redirectAttributes,HttpServletRequest request, HttpServletResponse response, Model model, int id,
+    public String EditProject(RedirectAttributes redirectAttributes,HttpServletRequest request, HttpServletResponse response, Model model,
                               @RequestParam(name = "nom" ) String nom,
+                              @RequestParam(name = "Project_id" ) int Project_id,
                               @RequestParam(name = "description" ) String description,
                               @RequestParam(name = "ProjectTeam" ,defaultValue = "-1") int ProjectTeam,
                               @ModelAttribute("search" ) String search,
-                              @ModelAttribute("connectedUser" ) User user
-    )
+                              @ModelAttribute("connectedUser" ) User user )
     {
-        System.out.println("\n#############  EditProject Get id : "+ id + " | Nom : "+nom+" | ProjectTeam : "+ProjectTeam+" | description : "+description);
+        System.out.println("\n#############EditProject Post User : "+user);
+
+        System.out.println("#############  EditProject Post id : "+ Project_id + " | Nom : "+nom+" | ProjectTeam : "+ProjectTeam+" | description : "+description);
 
         model.addAttribute("user",user);
-        Project EditProject = projectRepository.findProjectById(id);
+        Project EditProject = projectRepository.findProjectById(Project_id);
         Team Teams = teamRepository.findTeamById(ProjectTeam);
 
         try {
