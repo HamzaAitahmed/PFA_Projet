@@ -15,27 +15,17 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @SessionAttributes({"connectedUser"})
 @RequestMapping("")
 public class HomeController {
-<<<<<<< HEAD
-    @Autowired
-    UserRepository userRepository;
-=======
     @Autowired UserRepository userRepository;
->>>>>>> ecd2629d93d6e3288440f2bfcf54963d78d0aeb0
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public String index(HttpServletRequest request, RedirectAttributes redirectAttributes, HttpServletResponse response){
         User user3 = userRepository.findUserByEmail("hamza@gmail.com");
-<<<<<<< HEAD
 
-        HttpSession session = request.getSession(true);
-        session.setAttribute("connectedUser",user3);
 
-=======
         System.out.println("\n / User : "+user3);
 
         HttpSession session = request.getSession(true);
         session.setAttribute("connectedUser",user3);
->>>>>>> ecd2629d93d6e3288440f2bfcf54963d78d0aeb0
         return "redirect:/project";
     }
 

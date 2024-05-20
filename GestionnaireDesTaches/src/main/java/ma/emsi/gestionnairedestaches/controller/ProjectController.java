@@ -26,12 +26,6 @@ public class ProjectController {
     @Autowired UserRepository userRepository;
 
     @GetMapping(path="/project")
-<<<<<<< HEAD
-    public String project(HttpServletRequest request,RedirectAttributes redirectAttributes, @SessionAttribute("connectedUser" ) User user3, @RequestParam(name = "search" , defaultValue = "All Projects") String search ,
-//                          @ModelAttribute("connectedUser" ) User user3 ,
-                          Model model )
-    {
-=======
     public String project(@RequestParam(name = "search" , defaultValue = "Other Projects") String search , @ModelAttribute("connectedUser" ) User user3 , Model model )
     {
         System.out.println("\n%%%%%%% User 3 : "+user3);
@@ -61,7 +55,6 @@ public class ProjectController {
 //        System.out.println("############## AllProjects ##############");
 //        for(Project p : AllProjects)
 //            System.out.println("#######  --> "+p);
->>>>>>> ecd2629d93d6e3288440f2bfcf54963d78d0aeb0
 
         if(search.equals("My Projects")){ // Done
             model.addAttribute("PorjectList", MyProjects);
@@ -128,7 +121,11 @@ public class ProjectController {
     }
 
     @RequestMapping(value = "/NewProject",method = RequestMethod.POST)
-    public String CreateNewProject(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("connectedUser" ) User user , @ModelAttribute("Project") Project NewProject , Model model){
+    public String CreateNewProject(HttpServletRequest request, HttpServletResponse response,
+                                   @ModelAttribute("connectedUser" ) User user ,
+                                   @ModelAttribute("Project") Project NewProject ,
+                                   Model model)
+    {
         model.addAttribute("user",user);
         try {
             if(NewProject == null){

@@ -3,13 +3,14 @@ package ma.emsi.gestionnairedestaches.model;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.Collection;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -17,7 +18,12 @@ public class User {
     @Column(unique=true)
     private String email;
 
-    private String username,password;
+    private String FirstName, LastName, username, password;
+
+    @Temporal(TemporalType.DATE)
+    private Date dateOfBirth;
+
+    private String Gender;
 
     @Column(name = "ROLE")
     private String role;

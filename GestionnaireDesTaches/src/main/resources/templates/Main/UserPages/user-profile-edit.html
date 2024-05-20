@@ -74,15 +74,15 @@
                               </div>
                            </div>
                            <div class="card-body">
-                              <form>
+                              <form th:action="@{PersonnalInfo}" method="post" >
                                  <div class="form-group row align-items-center">
                                     <div class="col-md-12">
                                        <div class="profile-img-edit">
                                           <div class="crm-profile-img-edit">
-                                             <img class="crm-profile-pic rounded-circle avatar-100" th:src="@{images/user/11.png}" alt="profile-pic">
+                                             <img class="crm-profile-pic rounded-circle avatar-100" th:src="${user.profilePicture}" alt="profile-pic">
                                              <div class="crm-p-image bg-primary">
                                                 <i class="las la-pen upload-button"></i>
-                                                <input class="file-upload" type="file" accept="image/*">
+                                                <input class="file-upload" name="image" type="file" th:value="${user.profilePicture}" multiple accept="image/*">
                                              </div>
                                           </div>                                          
                                        </div>
@@ -91,34 +91,34 @@
                                  <div class=" row align-items-center">
                                     <div class="form-group col-sm-6">
                                        <label for="fname">First Name:</label>
-                                       <input type="text" class="form-control" id="fname" value="Barry">
+                                       <input required type="text" class="form-control" name="FirstName" id="fname" th:value="${user.firstName}">
                                     </div>
                                     <div class="form-group col-sm-6">
                                        <label for="lname">Last Name:</label>
-                                       <input type="text" class="form-control" id="lname" value="Tech">
+                                       <input required type="text" class="form-control" name="LastName" id="lname" th:value="${user.lastName}">
                                     </div>
                                     <div class="form-group col-sm-6">
                                        <label for="uname">User Name:</label>
-                                       <input type="text" class="form-control" id="uname" value="Barry@01">
+                                       <input required type="text" class="form-control" name="username" id="uname" th:value="${user.username}">
                                     </div>
                                     <div class="form-group col-sm-6">
-                                       <label for="cname">City:</label>
-                                       <input type="text" class="form-control" id="cname" value="Atlanta">
+                                       <label for="cname">Email :</label>
+                                       <input required type="email" class="form-control" name="email" id="cname" th:value="${user.email}" >
                                     </div>
                                     <div class="form-group col-sm-6">
                                        <label class="d-block">Gender:</label>
                                        <div class="custom-control custom-radio custom-control-inline">
-                                          <input type="radio" id="customRadio8" name="customRadio1" class="custom-control-input" checked="">
+                                          <input required type="radio" id="customRadio8" name="Gender" class="custom-control-input" value="Male" th:checked="${user.gender=='Male'}">
                                           <label class="custom-control-label" for="customRadio8"> Male </label>
                                        </div>
                                        <div class="custom-control custom-radio custom-control-inline">
-                                          <input type="radio" id="customRadio9" name="customRadio1" class="custom-control-input">
+                                          <input required type="radio" id="customRadio9" name="Gender" value="Female" class="custom-control-input"  th:checked="${user.gender=='Female'}">
                                           <label class="custom-control-label" for="customRadio9"> Female </label>
                                        </div>
                                     </div>
                                     <div class="form-group col-sm-6">
                                        <label for="dob">Date Of Birth:</label>
-                                       <input  class="form-control" id="dob" value="1984-01-24">
+                                       <input required type="date" class="form-control" name="dateOfBirth" id="dob" th:value="${user.dateOfBirth}" >
                                     </div>
                                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
                                      <button type="reset" class="btn iq-bg-danger">Cancel</button>
@@ -132,22 +132,23 @@
                            <div class="card-header d-flex justify-content-between">
                               <div class="iq-header-title">
                                  <h4 class="card-title">Change Password</h4>
+                                  <p th:if="${error}" class="text-danger" th:text="${message}"></p>
                               </div>
                            </div>
                            <div class="card-body">
-                              <form>
+                              <form th:action="@{changePWD}" method="post" >
                                  <div class="form-group">
                                     <label for="cpass">Current Password:</label>
                                     <a href="javascripe:void();" class="float-right">Forgot Password</a>
-                                    <input type="Password" class="form-control" id="cpass" value="">
+                                    <input required type="Password" name="currentPWD" class="form-control" id="cpass" value="">
                                  </div>
                                  <div class="form-group">
                                     <label for="npass">New Password:</label>
-                                    <input type="Password" class="form-control" id="npass" value="">
+                                    <input required type="Password" name="newPWD" class="form-control" id="npass" value="">
                                  </div>
                                  <div class="form-group">
                                     <label for="vpass">Verify Password:</label>
-                                    <input type="Password" class="form-control" id="vpass" value="">
+                                    <input required type="Password" name="ConfirmationPWD" class="form-control" id="vpass" value="">
                                  </div>
                                  <button type="submit" class="btn btn-primary mr-2">Submit</button>
                                  <button type="reset" class="btn iq-bg-danger">Cancel</button>

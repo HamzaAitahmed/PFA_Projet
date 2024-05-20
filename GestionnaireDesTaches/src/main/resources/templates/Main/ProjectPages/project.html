@@ -92,15 +92,6 @@
                                 <h5 class="mb-1" th:text="${s.getNom()}"></h5>
                                 <p class="mb-3"  th:text="${s.getDescription()}"></p>
                                 <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-<<<<<<< HEAD
-                                    <div class="iq-media-group">
-                                        <a href="#" class="iq-media projectowner">
-                                            <img  class="img-fluid avatar-40 rounded-circle" th:src="${s.projectOwner.profilePicture} " alt="">
-                                        </a>
-                                        <div  th:if="${s.projectTeam != null}"  >
-                                            <a href="#" class="iq-media" th:each="x:${s.projectTeam.getMembers()}" th:hidden="${s.projectOwner == x}"  >
-                                                <img class="img-fluid avatar-40 rounded-circle" th:src="${x.getProfilePicture()}" alt="">
-=======
                                     <div class="iq-media-group"  >
                                         <a href="#" class="iq-media projectowner">
                                             <img  class="img-fluid avatar-40 rounded-circle" th:src="${s.projectOwner.profilePicture} " alt="">
@@ -111,7 +102,6 @@
                                             </a>
                                             <a href="#" th:each="x:${s.projectTeam.members}" th:hidden="${s.projectOwner == x || s.projectTeam.leader == x }"  class="iq-media">
                                                 <img  class="img-fluid avatar-40 rounded-circle" th:src="${x.profilePicture}" alt="">
->>>>>>> ecd2629d93d6e3288440f2bfcf54963d78d0aeb0
                                             </a>
                                         </div>
                                     </div>
