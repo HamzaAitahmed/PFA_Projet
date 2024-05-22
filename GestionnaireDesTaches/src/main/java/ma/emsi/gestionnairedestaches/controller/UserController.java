@@ -67,33 +67,23 @@ public class UserController {
         model.addAttribute("user", user);
         model.addAttribute("active", "changePWD");
         model.addAttribute("error", true);
-        return "Main/UserPages/user-profile-edit";
+        return "redirect:/userProfileEdit";
 
     }
 
     @RequestMapping(value = "/PersonnalInfo",method = RequestMethod.POST)
     public String PersonnalInfo(Model model, @ModelAttribute("connectedUser" ) User user,
-                            @RequestParam(name = "image" ) String image,
-                            @RequestParam(name = "FirstName" ) String FirstName,
-                            @RequestParam(name = "LastName" ) String LastName,
-                            @RequestParam(name = "username" ) String username,
-                            @RequestParam(name = "Gender" ) String Gender,
-                            @RequestParam(name = "dateOfBirth" ) Date dateOfBirth,
-                            @RequestParam(name = "email" ) String email)
+                            @RequestParam(name = "profilePicture" ) String image )
     {
 
-//        userRepository.save(user);
-        System.out.println("user date : "+user.getDateOfBirth());
-        System.out.println("form date : "+dateOfBirth);
-        System.out.println("user image : "+user.getProfilePicture());
+        userRepository.save(user);
+        System.out.println(user);
         System.out.println("form image : "+image);
-        System.out.println("user Gender : "+user.getGender());
-        System.out.println("form Gender : "+ Gender );
 
         model.addAttribute("user", user);
         model.addAttribute("active", "changePWD");
         model.addAttribute("error", true);
-        return "Main/UserPages/user-profile-edit";
+        return "redirect:/userProfileEdit";
 
     }
 

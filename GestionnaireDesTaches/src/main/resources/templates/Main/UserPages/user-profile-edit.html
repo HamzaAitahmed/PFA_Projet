@@ -43,19 +43,14 @@
                   <div class="card-body p-0">
                      <div class="iq-edit-list usr-edit">
                         <ul class="iq-edit-profile d-flex nav nav-pills">
-                           <li class="col-md-4 p-0">
+                           <li class="col-md-6 p-0">
                               <a class="nav-link active" data-toggle="pill" href="#personal-information">
                               Personal Information
                               </a>
                            </li>
-                           <li class="col-md-4 p-0">
+                           <li class="col-md-6 p-0">
                               <a class="nav-link" data-toggle="pill" href="#chang-pwd">
                               Change Password
-                              </a>
-                           </li>
-                           <li class="col-md-4 p-0">
-                              <a class="nav-link" data-toggle="pill" href="#manage-contact">
-                              Manage Contact
                               </a>
                            </li>
                         </ul>
@@ -74,15 +69,15 @@
                               </div>
                            </div>
                            <div class="card-body">
-                              <form th:action="@{PersonnalInfo}" method="post" >
+                              <form th:action="@{PersonnalInfo}" method="post">
                                  <div class="form-group row align-items-center">
                                     <div class="col-md-12">
                                        <div class="profile-img-edit">
                                           <div class="crm-profile-img-edit">
-                                             <img class="crm-profile-pic rounded-circle avatar-100" th:src="${user.profilePicture}" alt="profile-pic">
+                                             <img class="crm-profile-pic rounded-circle profilePicture avatar-100" id="profilePicture" th:src="${user.profilePicture}" alt="profile-pic">
                                              <div class="crm-p-image bg-primary">
                                                 <i class="las la-pen upload-button"></i>
-                                                <input class="file-upload" name="image" type="file" th:value="${user.profilePicture}" multiple accept="image/*">
+                                                <input class="file-upload" name="profilePicture" id="profilePicturesrc" type="file" th:value="${user.getProfilePicture()}" accept="image/*">
                                              </div>
                                           </div>                                          
                                        </div>
@@ -118,7 +113,7 @@
                                     </div>
                                     <div class="form-group col-sm-6">
                                        <label for="dob">Date Of Birth:</label>
-                                       <input required type="date" class="form-control" name="dateOfBirth" id="dob" th:value="${user.dateOfBirth}" >
+                                       <input required type="date" class="form-control" name="dateOfBirth" id="dob" th:value="${{user.dateOfBirth}}" >
                                     </div>
                                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
                                      <button type="reset" class="btn iq-bg-danger">Cancel</button>
@@ -154,43 +149,6 @@
                                  <button type="reset" class="btn iq-bg-danger">Cancel</button>
                               </form>
                            </div>
-                        </div>
-                     </div>
-                     <div class="tab-pane fade" id="manage-contact" role="tabpanel">
-                        <div class="card">
-                            <div class="card-header d-flex justify-content-between">
-                                <div class="header-title">
-                                    <h4 class="card-title">Social Media</h4>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="acc-edit">
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="facebook">Facebook:</label>
-                                            <input type="text" class="form-control" id="facebook" value="www.facebook.com">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="twitter">Twitter:</label>
-                                            <input type="text" class="form-control" id="twitter" value="www.twitter.com">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="google">Google +:</label>
-                                            <input type="text" class="form-control" id="google" value="www.google.com">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="instagram">Instagram:</label>
-                                            <input type="text" class="form-control" id="instagram" value="www.instagram.com">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="youtube">You Tube:</label>
-                                            <input type="text" class="form-control" id="youtube" value="www.youtube.com">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                        <button type="reset" class="btn iq-bg-danger">Cancel</button>
-                                    </form>
-                                </div>
-                            </div>
                         </div>
                      </div>
                   </div>
@@ -478,7 +436,7 @@
 
     <!-- app JavaScript -->
     <script th:src="@{/js/app.js}"></script>
-
+    <script th:src="@{/js/imageSelected.js}"></script>
     <script th:src="@{/vendor/moment.min.js}"></script>
   </body>
 </html>
