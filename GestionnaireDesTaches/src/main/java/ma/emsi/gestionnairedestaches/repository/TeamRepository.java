@@ -3,6 +3,7 @@ package ma.emsi.gestionnairedestaches.repository;
 import ma.emsi.gestionnairedestaches.model.*;
 import jakarta.transaction.Transactional;
 import org.hibernate.validator.constraints.pl.REGON;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,6 +12,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface TeamRepository extends JpaRepository<Team,Integer>{
@@ -23,4 +25,22 @@ public interface TeamRepository extends JpaRepository<Team,Integer>{
 
     Team findTeamById(Integer id);
 
+//    @Autowired
+//    private TeamRepository teamRepository;
+
+//    public List<Team> getAllTeams() {
+//        return teamRepository.findAll();
+//    }
+
+//    public Optional<Team> getTeamById(Integer id) {
+//        return teamRepository.findById(id);
+//    }
+
+//    public Team saveTeam(Team team) {
+//        return teamRepository.save(team);
+//    }
+
+//    public void deleteTeam(Integer id) {
+//        teamRepository.deleteById(id);
+//    }
 }
