@@ -19,6 +19,9 @@ public class Task {
 
     private String description;
 
+
+    private boolean TaskDone=false;
+
     @ManyToOne
     private User UserTask;
 
