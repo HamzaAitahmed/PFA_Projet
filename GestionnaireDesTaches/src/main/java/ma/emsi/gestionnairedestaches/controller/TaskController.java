@@ -44,15 +44,22 @@ public class TaskController {
         }
 
         List<Project> ListProject = projectRepository.findByProjectOwner(user1.getId());
+        List<Task> ListTaskDone = taskRepository.findProjectTaskByTaskDone(user1.getId(),true);
+        List<Task> ListTaskNotDone = taskRepository.findProjectTaskByTaskDone(user1.getId(),false);
 
         model.addAttribute("user", user1);
-        model.addAttribute("ListTasks", tasks);
+        model.addAttribute("ListTaskDone", ListTaskDone);
+        model.addAttribute("ListTaskNotDone", ListTaskNotDone);
         model.addAttribute("ListProject", ListProject);
         model.addAttribute("CurrentProject",project);
 
         return "Main/TaskPages/task";
     }
-
+    @GetMapping(path="/taskRedirect")
+    public String taskRedirct(Model model, @RequestParam(name = "Project_id" , defaultValue = "1" ) int Project_id, @SessionAttribute("connectedUser" ) User user1)
+    {
+        return "redirect:/task";
+    }
 //    @RequestMapping(value = "/deleteTask",method = RequestMethod.GET)
 //    public String deleteTask(Integer id, String search){
 //        Task task = taskRepository.findTaskById(id);
