@@ -25,6 +25,8 @@ public interface TeamRepository extends JpaRepository<Team,Integer>{
 
     Team findTeamById(Integer id);
 
+    @Query("SELECT t FROM Team t WHERE t.Leader.id = :id")
+    List<Team> findTeamsByLeader(@Param("id") Integer id);
 //    @Autowired
 //    private TeamRepository teamRepository;
 

@@ -1,10 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>GDT</title>
+    <style>
+
+    </style>
+    <!-- Favicon -->
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}" />
+    <link rel="stylesheet" th:href="@{/css/backend-plugin.min.css}">
+    <link rel="stylesheet" th:href="@{/css/backend.css}">
+    <link rel="stylesheet" th:href="@{/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/vendor/remixicon/fonts/remixicon.css}">
+
+    <link rel="stylesheet" th:href="@{/vendor/tui-calendar/tui-calendar/dist/tui-calendar.css}">
+    <link rel="stylesheet" th:href="@{/vendor/tui-calendar/tui-date-picker/dist/tui-date-picker.css}">
+    <link rel="stylesheet" th:href="@{/vendor/tui-calendar/tui-time-picker/dist/tui-time-picker.css}">
 </head>
-<body>
+<body class="modal-open">
+
+<!-- loader END -->
+
+<!-- Wrapper End-->
+<div class="modal-backdrop fade show"></div>
+
+<!-- Modal list start -->
+<div class="modal fade show" id="edit-team-modal" role="dialog" aria-modal="true" style="display: none; padding-left: 4px;">
+    <div class="modal-dialog  modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-block text-center pb-3 border-bottom">
+                <h3 class="modal-title" id="exampleModalCenterTitle03">Edit Team</h3>
+            </div>
+            <div class="modal-body">
+                <form th:action="@{/update-team}" method="get">
+                    <input type="hidden" name="id" th:value="${team.id}">
+                    <div>
+                        <label for="exampleInputText2">Team Name</label>
+                        <input type="text" id="exampleInputText2" name="nom" th:value="${team.getNom()}" required>
+                    </div>
+                   <!-- <div>
+                        <label for="members">Members</label>
+                        <input type="text" id="members" name="members"  required>
+                    </div>
+                    <div>
+                        <label for="project_name">Project Name</label>
+                        <input type="text" id="project_name" name="project_name"  required>
+                    </div>-->
+                    <div>
+                        <button type="submit">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

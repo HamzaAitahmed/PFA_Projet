@@ -1,32 +1,42 @@
 package ma.emsi.gestionnairedestaches.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import ma.emsi.gestionnairedestaches.model.Project;
 import ma.emsi.gestionnairedestaches.model.Team;
 import ma.emsi.gestionnairedestaches.model.User;
+import ma.emsi.gestionnairedestaches.repository.ProjectRepository;
 import ma.emsi.gestionnairedestaches.repository.TeamRepository;
+import ma.emsi.gestionnairedestaches.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
 @SessionAttributes("connectedUser")
-@RequestMapping("/teams")
+
 public class TeamController {
 
     @Autowired
     TeamRepository teamrepository;
-  
+    @Autowired
+    ProjectRepository projectRepository;
+    @Autowired
+    UserRepository userRepository;
 
-    @GetMapping
+    @GetMapping("/team")
     public String listTeams(Model model, @ModelAttribute("connectedUser") User user) {
         if (user == null) {
             return "redirect:/login";
         }
         model.addAttribute("user", user);
-        model.addAttribute("teams", teamrepository.findAll());
-        return "Main/TeamPages/team-list";
+        System.out.println("------------------------------------");
+        model.addAttribute("TeamsList", teamrepository.findTeamsByLeader(user.getId()));
+        return "Main/TeamPages/team";
     }
 
     @GetMapping("/{id}")
@@ -46,56 +56,93 @@ public class TeamController {
 
     @GetMapping("/add")
     public String addTeamForm(Model model, @ModelAttribute("connectedUser") User user) {
+      //  List<User> Members = UserRepository.;
         if (user == null) {
             return "redirect:/login";
         }
         model.addAttribute("user", user);
         model.addAttribute("team", new Team());
+       // model.addAttribute("ListMembers",Members);
         return "Main/TeamPages/team-add";
     }
+    @RequestMapping(value = "/create-new-team",method = RequestMethod.GET)
+    public String CreateNewTeam(HttpServletRequest request, HttpServletResponse response,
+                                   @ModelAttribute("connectedUser" ) User user ,
+                                   @RequestParam(name = "nom") String teamName,
+                                   Model model)
+    {
+        model.addAttribute("user",user);
+        try {
+            Team team=new Team();
+            System.out.println("********************************************************");
+            team.setNom(teamName);
+            team.setLeader(user);
+            teamrepository.save(team);
+            return "redirect:/team";
 
-    @PostMapping
-    public String addTeam(@ModelAttribute Team team, Model model, @ModelAttribute("connectedUser") User user) {
-        if (user == null) {
-            return "redirect:/login";
+        } catch (Exception e){
+            return "redirect:/team?error";
+
         }
-        team.setLeader(user); // Assume the connected user is the leader for simplicity
-        teamrepository.save(team);
-        return "redirect:/teams";
+
     }
 
-    @GetMapping("/edit/{id}")
-    public String editTeamForm(@PathVariable Integer id, Model model, @ModelAttribute("connectedUser") User user) {
+
+    @GetMapping("/edit-team")
+    public String editTeamForm(@RequestParam("Team_id") Integer teamId, Model model,
+                               @ModelAttribute("connectedUser") User user) {
         if (user == null) {
             return "redirect:/login";
         }
-        Team teams = teamrepository.findTeamById(id);
-
-        if (teams!=null) {
-            model.addAttribute("teams", teams);
-            model.addAttribute("user", user);
-            return "Main/TeamPages/team-edit";
-        } else {
-            return "redirect:/teams";
+        Team team = teamrepository.findById(teamId).orElse(null);
+        if (team == null) {
+            return "redirect:/team?error=notfound";
         }
+        model.addAttribute("user", user);
+        model.addAttribute("team", team);
+        return "Main/TeamPages/EditTeam";
+    }
+    @RequestMapping(value="/update-team" , method = RequestMethod.GET)
+    public String updateTeam(HttpServletRequest request, HttpServletResponse response,
+                             @ModelAttribute("connectedUser") User user,
+                             @RequestParam("id") Integer id,
+                             @RequestParam("nom") String name,
+                             Model model) {
+        if (user == null) {
+            return "redirect:/login";
+        }
+        model.addAttribute("user", user);
+        try {
+            Team team = teamrepository.findById(id).orElse(null);
+            if (team == null) {
+                return "redirect:/team?error=notfound";
+            }
+            team.setNom(name);
+            team.setLeader(user);
+            teamrepository.save(team);
+            return "redirect:/team";
+        } catch (Exception e) {
+            return "redirect:/team?error=update";
+        }
+
     }
 
-    @PostMapping("/edit/{id}")
-    public String editTeam(@PathVariable Integer id, @ModelAttribute Team team, Model model, @ModelAttribute("connectedUser") User user) {
+    @GetMapping("DeleteTeam")
+    public String deleteTeam( Integer Team_id, @ModelAttribute("connectedUser") User user) {
         if (user == null) {
             return "redirect:/login";
         }
-        team.setId(id);
-        teamrepository.save(team);
-        return "redirect:/teams";
-    }
+        // Find the team by id
+        Team team = teamrepository.findById(Team_id).orElse(null);
+        if (team != null) {
+            // Disassociate projects
+            for (Project project : team.getProjects()) {
+                project.setProjectTeam(null);
+                projectRepository.save(project);
+            }
+            // Now delete the team
+            teamrepository.delete(team);}
 
-    @GetMapping("/delete/{id}")
-    public String deleteTeam(@PathVariable Integer id, @ModelAttribute("connectedUser") User user) {
-        if (user == null) {
-            return "redirect:/login";
-        }
-        teamrepository.deleteById(id);
-        return "redirect:/teams";
+        return "redirect:/team";
     }
 }
