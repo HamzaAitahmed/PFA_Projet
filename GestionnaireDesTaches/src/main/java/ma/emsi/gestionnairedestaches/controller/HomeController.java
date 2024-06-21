@@ -26,7 +26,7 @@ public class HomeController {
 
         HttpSession session = request.getSession(true);
         session.setAttribute("connectedUser",user3);
-        return "redirect:/task";
+        return "redirect:/team";
     }
 
 
