@@ -28,7 +28,6 @@
 
     <!--   SideBar     -->
     <div th:insert="~{Sections/sidebar :: sidebar}">  </div>
-    <!--    <div th:replace="fragment/form :: sidebar(${user})">  </div>-->
 
     <!--   NavBar     -->
     <div th:insert="~{Sections/navbar :: navbar(${user})}">  </div>
@@ -106,8 +105,8 @@
                                         </div>
                                     </div>
                                     <div class="link-shadow">
-                                        <a class="btn btn-white text-danger " th:href="@{deleteProject(id=${s.id}, search=${search})}">Delete</a>
-                                        <a class="btn btn-white text-primary " th:href="@{EditProject(Project_id=${s.id}, search=${search})}">Edit</a>
+                                        <a class="btn btn-white text-danger " th:href="@{deleteProject(id=${s.id})}">Delete</a>
+                                        <a class="btn btn-white text-primary " th:href="@{EditProject(Project_id=${s.id})}">Edit</a>
                                     </div>
                                 </div>
                             </div>

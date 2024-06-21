@@ -27,11 +27,12 @@
     <!-- Wrapper Start -->
     <div class="wrapper">
 
-    <!--   SideBar     -->
-    <div th:insert="Sections/sidebar :: sidebar">  </div>
+        <!--   SideBar     -->
+        <div th:insert="~{Sections/sidebar :: sidebar}">  </div>
 
-    <!--    &lt;!&ndash;   NavBar     &ndash;&gt;-->
-    <div th:insert="Sections/navbar :: navbar(${user})">  </div>
+        <!--   NavBar     -->
+        <div th:insert="~{Sections/navbar :: navbar(${user})}">  </div>
+
 
     <div class="content-page">
      <div class="container-fluid">

@@ -16,10 +16,7 @@ public class Task {
 
     @Column(unique=true) // unique seulement dans le projet
     private String nom;
-
     private String description;
-
-
     private boolean TaskDone=false;
 
     @ManyToOne
@@ -34,8 +31,9 @@ public class Task {
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", description='" + description + '\'' +
-                ", UserTask=" + UserTask.toString() +
-                ", ProjectTask=" + ProjectTask.toString() +
+                ", TaskDone=" + TaskDone +
+//                ", UserTask=" + UserTask +
+//                ", ProjectTask=" + ProjectTask +
                 '}';
     }
 }
