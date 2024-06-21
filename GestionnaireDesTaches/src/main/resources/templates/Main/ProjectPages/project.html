@@ -31,7 +31,6 @@
 
     <!--   SideBar     -->
     <div th:insert="~{Sections/sidebar :: sidebar}">  </div>
-    <!--    <div th:replace="fragment/form :: sidebar(${user})">  </div>-->
 
     <!--   NavBar     -->
     <div th:insert="~{Sections/navbar :: navbar(${user})}">  </div>
@@ -90,7 +89,7 @@
                             <div class="card-body">
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <div th:id="${iterator.index < 10} ? 'circle-progress-0'+${iterator.index} : 'circle-progress-'+${iterator.index} " class="circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="25" data-type="percent"></div>
-                                    <i class="ri-star-fill m-0 text-warning"></i>
+                                    <a class="btn m-0 btn-white badge-warning text-primary " th:href="@{task(Project_id=${s.id})}">Tasks</a>
                                 </div>
                                 <h5 class="mb-1" th:text="${s.getNom()}"></h5>
                                 <p class="mb-3"  th:text="${s.getDescription()}"></p>
@@ -109,8 +108,8 @@
                                         </div>
                                     </div>
                                     <div class="link-shadow">
-                                        <a class="btn btn-white text-danger " th:href="@{deleteProject(id=${s.id}, search=${search})}">Delete</a>
-                                        <a class="btn btn-white text-primary " th:href="@{EditProject(Project_id=${s.id}, search=${search})}">Edit</a>
+                                        <a class="btn btn-white text-danger " th:href="@{deleteProject(id=${s.id})}">Delete</a>
+                                        <a class="btn btn-white text-primary " th:href="@{EditProject(Project_id=${s.id})}">Edit</a>
                                     </div>
                                 </div>
                             </div>

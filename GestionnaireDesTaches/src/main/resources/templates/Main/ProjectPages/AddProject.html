@@ -50,7 +50,7 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group mb-3">
-                                    <h4>Project Team</h4>
+                                    <label  class="h5">Project Team</label>
                                     <select th:field="*{projectTeam}" name="IdTeam" class="form-control" id="IdTeam">
                                         <option th:value="-1" selected hidden="hidden">Choose a Team</option>
                                         <option th:disabled="${ListTeams == null}" th:value="-1" th:text="${ListTeams==null} ? 'There is No Teams' : 'None'"></option>
@@ -75,10 +75,10 @@
     <div class="wrapper">
 
         <!--   SideBar     -->
-        <div th:insert="Sections/sidebar :: sidebar">  </div>
+        <div th:insert="~{Sections/sidebar :: sidebar}">  </div>
 
         <!--   NavBar     -->
-        <div th:insert="Sections/navbar :: navbar(${user})">  </div>
+        <div th:insert="~{Sections/navbar :: navbar(${user})}">  </div>
 
 
         <div class="content-page">

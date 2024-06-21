@@ -51,7 +51,7 @@
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group mb-3">
-                                <h4>Project Team</h4>
+                                <h5>Project Team</h5>
                                 <select type="number" name="ProjectTeam" class="form-control">
                                     <option th:value="-1" th:text="'Choose a Team'" th:disabled="${Project.projectTeam == null}" th:selected="${Project.projectTeam == null}" th:hidden="${Project.projectTeam != null}"></option>
                                     <option th:value="-1" th:text="'!!!! No Team !!!!'"></option>
@@ -78,7 +78,6 @@
 
     <!--   SideBar     -->
     <div th:insert="~{Sections/sidebar :: sidebar}">  </div>
-    <!--    <div th:replace="fragment/form :: sidebar(${user})">  </div>-->
 
     <!--   NavBar     -->
     <div th:insert="~{Sections/navbar :: navbar(${user})}">  </div>

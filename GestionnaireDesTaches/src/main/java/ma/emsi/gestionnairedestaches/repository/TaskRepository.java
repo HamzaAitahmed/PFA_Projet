@@ -16,4 +16,10 @@ import java.util.List;
 public interface TaskRepository extends JpaRepository<Task,Integer>{
     @Query("SELECT t FROM Task t WHERE t.ProjectTask.id = :id")
     List<Task> findProjectTaskById(@Param("id") Integer id);
+
+    @Query("SELECT t FROM Task t WHERE t.ProjectTask.id = :id AND t.TaskDone = :bl")
+    List<Task> findProjectTaskByTaskDone(@Param("id") Integer id ,boolean bl);
+
+    @Query("SELECT t FROM Task t WHERE t.id = :id")
+    Task findTaskById(int id);
 }

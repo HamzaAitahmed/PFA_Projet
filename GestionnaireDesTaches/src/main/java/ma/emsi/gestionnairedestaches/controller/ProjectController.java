@@ -121,8 +121,7 @@ public class ProjectController {
     }
 
     @RequestMapping(value = "/NewProject",method = RequestMethod.POST)
-    public String CreateNewProject(HttpServletRequest request, HttpServletResponse response,
-                                   @ModelAttribute("connectedUser" ) User user ,
+    public String CreateNewProject(@ModelAttribute("connectedUser" ) User user ,
                                    @ModelAttribute("Project") Project NewProject ,
                                    Model model)
     {

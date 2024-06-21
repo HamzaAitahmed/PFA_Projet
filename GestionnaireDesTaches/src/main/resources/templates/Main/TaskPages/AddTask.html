@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Webkit | Responsive Bootstrap 4 Admin Dashboard Template</title>
+      
+      <!-- Favicon -->
+      <link rel="shortcut icon" th:href="@{/images/favicon.ico}" />
+      <link rel="stylesheet" th:href="@{/css/backend-plugin.min.css}">
+      <link rel="stylesheet" th:href="@{/css/backend.css}">
+      <link rel="stylesheet" th:href="@{/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css}">
+      <link rel="stylesheet" th:href="@{/vendor/remixicon/fonts/remixicon.css}">
+
+      <link rel="stylesheet" th:href="@{/vendor/tui-calendar/tui-calendar/dist/tui-calendar.css}">
+      <link rel="stylesheet" th:href="@{/vendor/tui-calendar/tui-date-picker/dist/tui-date-picker.css}">
+      <link rel="stylesheet" th:href="@{/vendor/tui-calendar/tui-time-picker/dist/tui-time-picker.css}">
+  </head>
+  <body class="  ">
+    <!-- loader Start -->
+
+    <!-- loader END -->
+
+    <!--   SideBar     -->
+    <div th:insert="~{Sections/sidebar :: sidebar}">  </div>
+
+    <!--   NavBar     -->
+    <div th:insert="~{Sections/navbar :: navbar(${user})}">  </div>
+    <div class="modal-backdrop fade show"></div>
+
+    <!-- Wrapper Start -->
+    <div class="content-page">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-wrap align-items-center justify-content-between breadcrumb-content">
+                                <h5  th:text="${CurrentProject.nom} + ' Tasks ####'" ></h5>
+                                <div class="d-flex flex-wrap align-items-center">
+                                    <div class="dropdown dropdown-project mr-3">
+                                        <div class="dropdown-toggle" id="dropdownMenuButton03" data-toggle="dropdown">
+                                            <div class="btn bg-body">
+                                                <span class="h6">Project :</span>
+                                                <span th:text="${CurrentProject.nom}"></span>
+                                                <i class="ri-arrow-down-s-line ml-2 mr-0"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="btn btn-primary">New Task</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div  class="col-lg-12 ListTaskNotDone">
+                    <div th:each="s,iterator:${ListTaskNotDone}" class="card">
+                        <div  class="card-body">
+                            <div  class="row">
+                                <div class="col-lg-12">
+                                    <div class="card card-widget task-card">
+                                        <div class="card-body">
+                                            <div  class="d-flex flex-wrap align-items-center justify-content-between">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="custom-control custom-task custom-checkbox custom-control-inline">
+                                                        <input type="checkbox" disabled th:checked="${s.taskDone == true}" class="custom-control-input" th:id="${'customChecktask'+iterator.index}">
+                                                        <label class="custom-control-label" th:for="${'customChecktask'+iterator.index}"></label>
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="mb-2" th:text="${s.nom}"></h5>
+                                                        <div class="media align-items-center">
+                                                            <div class="btn bg-body mr-3"><i class="ri-align-justify mr-2"></i><span th:text="${ListTaskDone.size()+'/'+(ListTaskDone.size()+ListTaskNotDone.size())}"></span></div>
+                                                            <div class="btn bg-body"><i class="ri-survey-line mr-2"></i>3</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="media align-items-center mt-md-0 mt-3">
+                                                    <a href="#" class="btn bg-primary-light mr-1">Done</a>
+                                                    <a href="#" class="btn bg-success-light mr-1" ><i class="ri-edit-box-line m-0"></i></a>
+                                                    <a href="#" class="btn bg-secondary-light "><i class="ri-delete-bin-2-fill m-0"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div th:each="s,iterator:${ListTaskDone}" class="card ListTaskDone">
+                        <div  class="card-body">
+                            <div  class="row">
+                                <div class="col-lg-12">
+                                    <div class="card card-widget task-card">
+                                        <div class="card-body">
+                                            <div  class="d-flex flex-wrap align-items-center justify-content-between">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="custom-control custom-task custom-checkbox custom-control-inline">
+                                                        <input type="checkbox" disabled th:checked="${s.taskDone == true}" class="custom-control-input " th:id="${'customCheck'+iterator.index}">
+                                                        <label class="custom-control-label" th:for="${'customCheck'+iterator.index}"></label>
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="mb-2" th:text="${s.nom}"></h5>
+                                                        <div class="media align-items-center">
+                                                            <div class="btn bg-body mr-3"><i class="ri-align-justify mr-2"></i><span th:text="${ListTaskDone.size()+'/'+(ListTaskDone.size()+ListTaskNotDone.size())}"></span></div>
+                                                            <div class="btn bg-body"><i class="ri-survey-line mr-2"></i>3</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="media align-items-center mt-md-0 mt-3">
+                                                    <a href="#" class="btn bg-warning-light mr-1">Not Done</a>
+                                                    <a href="#" class="btn bg-success-light mr-1" ><i class="ri-edit-box-line m-0"></i></a>
+                                                    <a href="#" class="btn bg-secondary-light "><i class="ri-delete-bin-2-fill m-0"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Wrapper End -->
+    <!-- Modal list start -->
+    <div class="modal fade bd-example-modal-lg show" style="padding-right: 4px; display: block;">
+        <div class="modal-dialog  modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header d-block text-center pb-3 border-bttom">
+                    <h3 class="modal-title" id="exampleModalCenterTitle">New Task</h3>
+                </div>
+                <form th:action="@{NewTask(Project_id=${Project_id})}" method="post" th:object="${NewTask}">
+                    <input type="text" class="form-control" th:field="*{projectTask}" th:value="${Project_id}" hidden="hidden">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group mb-3">
+                                    <label for="exampleInputText02"  class="h5">Task Name</label>
+                                    <input type="text" class="form-control" th:field="*{nom}" id="exampleInputText02" placeholder="Enter task Name">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group mb-3">
+                                    <label for="exampleInputText13"  class="h5">Task Description</label>
+                                    <input type="text" class="form-control" th:field="*{description}" id="exampleInputText13" placeholder="Enter task Description">
+                                    <!--                                    <textarea class="form-control" id="exampleInputText13" th:field="*{description}" rows="2"></textarea>-->
+                                </div>
+                            </div>
+                            <div th:if="${users != null}" class="col-lg-12">
+                                <div class="form-group mb-3">
+                                    <label  class="h5">Assigned to</label>
+                                    <select th:field="*{userTask}" th:value="${users == null} ? null " name="users" class="form-control">
+                                        <option th:value="null" selected hidden="hidden">Choose a User</option>
+                                        <option th:disabled="${users == null}" th:value="null" th:text="${users==null} ? 'No Members in This Team'  : 'None'"></option>
+                                        <option th:each="s:${users}" th:value="${s != null} ? ${s.id} : '' " th:text="${s != null} ? ${s.username} : ''  " ></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="d-flex flex-wrap align-items-ceter justify-content-center mt-4">
+                                    <button  class="btn btn-primary mr-3" type="submit" >Save</button>
+                                    <a class="btn btn-primary" th:href="@{task(Project_id=${Project_id})}">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Backend Bundle JavaScript -->
+    <script th:src="@{/js/backend-bundle.min.js}"></script>
+
+    <!-- Table Treeview JavaScript -->
+    <script th:src="@{/js/table-treeview.js}"></script>
+
+    <!-- Chart Custom JavaScript -->
+    <script th:src="@{/js/customizer.js}"></script>
+
+    <!-- Chart Custom JavaScript -->
+    <script async th:src="@{/js/chart-custom.js}"></script>
+    <!-- Chart Custom JavaScript -->
+    <script async th:src="@{/js/slider.js}"></script>
+
+    <!-- app JavaScript -->
+    <script th:src="@{/js/app.js}"></script>
+
+    <script th:src="@{/vendor/moment.min.js}"></script>
+  </body>
+</html>

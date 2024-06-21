@@ -29,10 +29,10 @@
     <div class="wrapper"></div>
 
     <!--   SideBar     -->
-    <div th:insert="Sections/sidebar :: sidebar">  </div>
+    <div th:insert="~{Sections/sidebar :: sidebar}">  </div>
 
     <!--   NavBar     -->
-    <div th:insert="Sections/navbar :: navbar(${user})">  </div>
+    <div th:insert="~{Sections/navbar :: navbar(${user})}">  </div>
 
     <!--   ????     -->
     <div class="content-page">
