@@ -21,41 +21,82 @@
 </head>
 <body class="modal-open">
 
-<!-- loader END -->
+    <!-- loader END -->
 
-<!-- Wrapper End-->
-<div class="modal-backdrop fade show"></div>
+    <!-- Wrapper End-->
+    <div class="modal-backdrop fade show"></div>
 
-<!-- Modal list start -->
-<div class="modal fade show" id="edit-team-modal" role="dialog" aria-modal="true" style="display: none; padding-left: 4px;">
-    <div class="modal-dialog  modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header d-block text-center pb-3 border-bottom">
-                <h3 class="modal-title" id="exampleModalCenterTitle03">Edit Team</h3>
-            </div>
-            <div class="modal-body">
-                <form th:action="@{/update-team}" method="get">
-                    <input type="hidden" name="id" th:value="${team.id}">
-                    <div>
-                        <label for="exampleInputText2">Team Name</label>
-                        <input type="text" id="exampleInputText2" name="nom" th:value="${team.getNom()}" required>
-                    </div>
-                   <!-- <div>
-                        <label for="members">Members</label>
-                        <input type="text" id="members" name="members"  required>
-                    </div>
-                    <div>
-                        <label for="project_name">Project Name</label>
-                        <input type="text" id="project_name" name="project_name"  required>
-                    </div>-->
-                    <div>
-                        <button type="submit">Save Changes</button>
-                    </div>
-                </form>
+    <!-- Modal list start -->
+
+    <div class="modal fade bd-example-modal-lg show" role="dialog" aria-modal="true" id="new-user-modal" style="display: block;">
+        <div class="modal-dialog  modal-dialog-centered modal-lg" role="document">
+
+            <div class="modal-content">
+                <div class="modal-header d-block text-center pb-3 border-bottom">
+                    <h3 class="modal-title" id="exampleModalCenterTitle02">New Team</h3>
+                </div>
+                <div class="modal-body">
+                    <form id="form_1" class="row" action="/create-new-team" method="get">
+                        <div class="col-lg-6">
+                            <div class="form-group mb-3">
+                                <label for="exampleInputText2" class="h5">Name Team * </label>
+                                <input type="text" name="nom" class="form-control" id="exampleInputText2" placeholder="Enter your name team">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group mb-3">
+                                <label for="exampleInputText2" class="h5">Choose a Members</label>
+                                <div class="dropdown bootstrap-select form-control"><select name="Members" class="selectpicker form-control" data-style="py-0">
+                                    <option>Members</option>
+                                    <option>Kianna Septimus</option>
+                                    <option>Jaxson Herwitz</option>
+                                    <option>Ryan Schleifer</option>
+                                </select><button type="button" tabindex="-1" class="btn dropdown-toggle py-0" data-toggle="dropdown" role="combobox" aria-owns="bs-select-4" aria-haspopup="listbox" aria-expanded="false" title="Members"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">Members</div></div> </div></button><div class="dropdown-menu "><div class="inner show" role="listbox" id="bs-select-4" tabindex="-1"><ul class="dropdown-menu inner show" role="presentation"></ul></div></div></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="d-flex flex-wrap align-items-center justify-content-center mt-2">
+                                <button type="submit" class="btn btn-primary mr-3">Save</button>
+                                <div class="btn btn-primary" data-dismiss="modal">Cancel</div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+<!--    <div class="modal fade show" style="display: none; padding-left: 4px;">-->
+<!--        <div class="modal-dialog  modal-dialog-centered modal-lg" >-->
+<!--            <div class="modal-content">-->
+<!--                <div class="modal-header d-block text-center pb-3 border-bottom">-->
+<!--                    <h3 class="modal-title" id="exampleModalCenterTitle03">Edit Team</h3>-->
+<!--                </div>-->
+<!--                <div class="modal-body">-->
+<!--                    <form th:action="@{/update-team}" method="get">-->
+<!--                        <input type="hidden" name="id" th:value="${team.id}">-->
+<!--                        <div>-->
+<!--                            <label for="exampleInputText2">Team Name</label>-->
+<!--                            <input type="text" id="exampleInputText2" name="nom" th:value="${team.getNom()}" required>-->
+<!--                        </div>-->
+<!--                       &lt;!&ndash; <div>-->
+<!--                            <label for="members">Members</label>-->
+<!--                            <input type="text" id="members" name="members"  required>-->
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            <label for="project_name">Project Name</label>-->
+<!--                            <input type="text" id="project_name" name="project_name"  required>-->
+<!--                        </div>&ndash;&gt;-->
+<!--                        <div>-->
+<!--                            <button type="submit">Save Changes</button>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
 </body>
 </html>
