@@ -77,7 +77,7 @@
                                              <img class="crm-profile-pic rounded-circle profilePicture avatar-100" id="profilePicture" th:src="${user.profilePicture}" alt="profile-pic">
                                              <div class="crm-p-image bg-primary">
                                                 <i class="las la-pen upload-button"></i>
-                                                <input class="file-upload" name="profilePicture" id="profilePicturesrc" type="file" th:value="${user.getProfilePicture()}" accept="image/*">
+                                                <input class="file-upload" disabled name="profilePicture" id="profilePicturesrc" type="file" th:value="${user.getProfilePicture()}" accept="image/*">
                                              </div>
                                           </div>                                          
                                        </div>

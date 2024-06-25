@@ -131,29 +131,28 @@
                 <div class="modal-header d-block text-center pb-3 border-bttom">
                     <h3 class="modal-title" id="exampleModalCenterTitle">New Task</h3>
                 </div>
-                <form th:action="@{NewTask(Project_id=${Project_id})}" method="post" th:object="${NewTask}">
-                    <input type="text" class="form-control" th:field="*{projectTask}" th:value="${Project_id}" hidden="hidden">
+                <form th:action="@{EditTaskx(Project_id=${Project_id} , Task_id=${Task_id})}" method="post">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group mb-3">
                                     <label for="exampleInputText02"  class="h5">Task Name</label>
-                                    <input required type="text" class="form-control" th:field="*{nom}" id="exampleInputText02" placeholder="Enter task Name">
+                                    <input type="text" class="form-control" name="nom" th:value="${EditTask.nom!=null}? ${EditTask.nom} : null " th:text="${EditTask.nom==null}? 'Enter task Name 121?' " id="exampleInputText02">
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group mb-3">
                                     <label for="exampleInputText13"  class="h5">Task Description</label>
-                                    <input required type="text" class="form-control" th:field="*{description}" id="exampleInputText13" placeholder="Enter task Description">
+                                    <input type="text" class="form-control" name="description" th:value="${EditTask.description!=null}? ${EditTask.description} : null " th:text="${EditTask.description==null} ? 'Enter task Description?22' " id="exampleInputText13">
                                 </div>
                             </div>
                             <div th:if="${users != null}" class="col-lg-12">
                                 <div class="form-group mb-3">
                                     <label  class="h5">Assigned to</label>
-                                    <select th:field="*{userTask}" th:value="${users == null} ? null " name="users" class="form-control">
-                                        <option th:value="null" selected hidden="hidden">Choose a User</option>
+                                    <select th:value="${users == null} ? '-1' " name="users" class="form-control">
+                                        <option th:value="${EditTask.userTask!=null}? ${EditTask.userTask.id} :'-1'" th:text="${EditTask.userTask!=null}? ${EditTask.userTask.username} : 'Choose a User'" selected hidden="hidden"></option>
                                         <option th:value="-1"> None </option>
-                                        <option th:each="s:${users}" th:value="${s != null} ? ${s.id} : '' " th:text="${s != null} ? ${s.username} : ''  " ></option>
+                                        <option th:each="s:${users}" th:value="${s.id}" th:text="${s.username}" ></option>
                                     </select>
                                 </div>
                             </div>

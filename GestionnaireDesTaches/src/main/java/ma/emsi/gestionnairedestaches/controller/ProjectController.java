@@ -197,7 +197,14 @@ public class ProjectController {
             EditProject.setNom(nom);
             EditProject.setDescription(description);
             EditProject.setProjectTeam(Teams);
-
+            if (Teams == null)
+            {
+                for(Task task : EditProject.getTasks())
+                {
+                    task.setUserTask(null);
+//                    taskRepository.save(task);
+                }
+            }
             projectRepository.save(EditProject);
             System.out.println("return Main/EditProject POST %%%%%%%%%%%%%\n");
             return "redirect:/project";

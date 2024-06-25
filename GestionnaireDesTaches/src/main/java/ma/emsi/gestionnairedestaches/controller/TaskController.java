@@ -81,11 +81,13 @@ public class TaskController {
         {
             users = team.getMembers();
             users.add(team.getLeader());
-            users.add(ObjProject.getProjectOwner());
         }
 
         List<Task> ListTaskDone = taskRepository.findProjectTaskByTaskDone(Project_id,true);
         List<Task> ListTaskNotDone = taskRepository.findProjectTaskByTaskDone(Project_id,false);
+
+//        for(User vuser : users)
+//            System.out.println("@###@#####@ ---> "+vuser);
 
         model.addAttribute("NewTask",NewTask);
         model.addAttribute("Project_id",Project_id);
@@ -119,54 +121,67 @@ public class TaskController {
     }
 
 
-//    @RequestMapping(value = "/EditTask",method = RequestMethod.GET)
-//    public String EditTask(@ModelAttribute("connectedUser" ) User user , @RequestParam(name = "Project_id") int Project_id,@RequestParam(name = "Task_id") int Task_id, Model model)
-//    {
-//        Project ObjProject = projectRepository.findProjectById(Project_id);
-//        Project ObjTask = projectRepository.findProjectById(Task_id);
-//
-//        Team team = ObjProject.getProjectTeam();
-//        Collection<User> users = null;
-//        if(team!=null)
-//        {
-//            users = team.getMembers();
-//            users.add(team.getLeader());
-//            users.add(ObjProject.getProjectOwner());
-//        }
-//
-//        List<Task> ListTaskDone = taskRepository.findProjectTaskByTaskDone(Project_id,true);
-//        List<Task> ListTaskNotDone = taskRepository.findProjectTaskByTaskDone(Project_id,false);
-//
-//        model.addAttribute("EditTask",ObjTask);
-//        model.addAttribute("Project_id",Project_id);
-//        model.addAttribute("users",users);
-//        model.addAttribute("user",user);
-//        model.addAttribute("ListTaskDone", ListTaskDone);
-//        model.addAttribute("ListTaskNotDone", ListTaskNotDone);
-//        model.addAttribute("CurrentProject",ObjProject);
-//        return "Main/TaskPages/AddTask";
-//    }
-//
-//    @RequestMapping(value = "/EditTask",method = RequestMethod.POST)
-//    public String EditTask(@ModelAttribute("connectedUser" ) User user ,
-//                                @ModelAttribute("NewTask") Task NewTask ,
-//                                @ModelAttribute("Project_id") Integer Project_id )
-//    {
-//        System.out.println("NewTask Post : "+NewTask);
-//        try {
-//            if(NewTask == null){
-//                return "redirect:/NewTask?Project_id="+Project_id+"&error";
-//            }
-//            taskRepository.save(NewTask);
-//            projectRepository.save(projectRepository.findProjectById(Project_id));
-//            return "redirect:/task?Project_id="+Project_id;
-//
-//        } catch (Exception e){
-//            System.out.println("NewTask erro exception ");
-//            return "redirect:/NewTask?Project_id="+Project_id+"&error";
-//        }
-//
-//    }
+    @RequestMapping(value = "/EditTask",method = RequestMethod.GET)
+    public String EditTask(@ModelAttribute("connectedUser" ) User user , @RequestParam(name = "Project_id") int Project_id,@RequestParam(name = "Task_id") int Task_id, Model model)
+    {
+        System.out.println("EditTask Get : "+Task_id);
+
+        Project ObjProject = projectRepository.findProjectById(Project_id);
+        Task ObjTask = taskRepository.findTaskById(Task_id);
+
+        Team team = ObjProject.getProjectTeam();
+        Collection<User> users = null;
+        if(team!=null)
+        {
+            users = team.getMembers();
+            users.add(team.getLeader());
+        }
+
+        List<Task> ListTaskDone = taskRepository.findProjectTaskByTaskDone(Project_id,true);
+        List<Task> ListTaskNotDone = taskRepository.findProjectTaskByTaskDone(Project_id,false);
+
+        model.addAttribute("EditTask",ObjTask);
+        model.addAttribute("Task_id",Task_id);
+        model.addAttribute("Project_id",Project_id);
+        model.addAttribute("users",users);
+        model.addAttribute("user",user);
+        model.addAttribute("ListTaskDone", ListTaskDone);
+        model.addAttribute("ListTaskNotDone", ListTaskNotDone);
+        model.addAttribute("CurrentProject",ObjProject);
+        return "Main/TaskPages/EditTask";
+    }
+
+    @RequestMapping(value = "/EditTaskx",method = RequestMethod.POST)
+    public String EditTask(@ModelAttribute("connectedUser" ) User user ,
+                                @RequestParam(name = "Task_id") int Task_id ,
+                                @RequestParam(name = "nom") String nom ,
+                                @RequestParam(name = "users" , defaultValue = "-1" ) int user_id ,
+                                @RequestParam(name = "description") String description ,
+                                @ModelAttribute("Project_id") Integer Project_id )
+    {
+
+        Task EditTask = taskRepository.findTaskById(Task_id);
+        try {
+            if(EditTask == null){
+                System.out.println("EditTask Post error 1 : "+EditTask);
+                return "redirect:/EditTask?Project_id="+Project_id+"&Task_id="+Task_id+"&error";
+            }
+            EditTask.setNom(nom);
+            EditTask.setDescription(description);
+            if(user_id != -1)
+                EditTask.setUserTask( userRepository.findUserById(user_id) );
+            else
+                EditTask.setUserTask(null);
+
+            taskRepository.save(EditTask);
+            return "redirect:/task?Project_id="+Project_id;
+
+        } catch (Exception e){
+            System.out.println("EditTask Post error 2 : "+EditTask);
+            return "redirect:/EditTask?Project_id="+Project_id+"&Task_id="+Task_id+"&error";
+        }
+
+    }
 
 
 }
