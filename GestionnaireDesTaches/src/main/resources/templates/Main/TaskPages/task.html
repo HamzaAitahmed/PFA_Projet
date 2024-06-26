@@ -77,103 +77,11 @@
                                                     <div class="media align-items-center mt-md-0 mt-3">
                                                         <a th:href="@{TaskStatus(Project_id=${CurrentProject.id} , Task_id=${s.id})}" class="btn bg-primary-light mr-1">Done</a>
                                                         <a th:href="@{EditTask(Project_id=${CurrentProject.id}   , Task_id=${s.id})}" class="btn bg-success-light mr-1" ><i class="ri-edit-box-line m-0"></i></a>
-                                                        <a th:href="@{DeleteTask(Project_id=${CurrentProject.id} , Task_id=${s.id})}" class="btn bg-secondary-light "><i class="ri-delete-bin-2-fill m-0"></i></a>
+                                                        <a  onclick="confirmerDelete(this.href);return false ;"  th:href="@{DeleteTask(Project_id=${CurrentProject.id} , Task_id=${s.id})}" class="btn bg-secondary-light "><i class="ri-delete-bin-2-fill m-0"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!--                                <div class="collapse" id="collapseEdit1">                                            -->
-                                        <!--                                    <div class="card card-list task-card">-->
-                                        <!--                                        <div class="card-header d-flex align-items-center justify-content-between px-0 mx-3">-->
-                                        <!--                                            <div class="header-title">-->
-                                        <!--                                                <div class="custom-control custom-checkbox custom-control-inline">-->
-                                        <!--                                                    <input type="checkbox" class="custom-control-input" id="customCheck05">-->
-                                        <!--                                                    <label class="custom-control-label h5" for="customCheck05">Mark as done</label>-->
-                                        <!--                                                </div>-->
-                                        <!--                                            </div>-->
-                                        <!--                                            <div><a href="#" class="btn bg-secondary-light">Design</a></div>-->
-                                        <!--                                        </div>-->
-                                        <!--                                        <div class="card-body">-->
-                                        <!--                                            <div class="form-group mb-3 position-relative">-->
-                                        <!--                                                <input type="text" class="form-control bg-white" placeholder="Design landing page of webkit">-->
-                                        <!--                                                <a href="#" class="task-edit task-simple-edit text-body"><i class="ri-edit-box-line"></i></a>-->
-                                        <!--                                            </div>-->
-                                        <!--                                            <div class="card mb-3">-->
-                                        <!--                                                <div class="card-body">-->
-                                        <!--                                                    <div class="row">-->
-                                        <!--                                                        <div class="col-lg-6">-->
-                                        <!--                                                            <div class="form-group mb-0">-->
-                                        <!--                                                                <label  class="h5">Memebers</label>-->
-                                        <!--                                                                <select name="type" class="selectpicker form-control" data-style="py-0">-->
-                                        <!--                                                                    <option>Memebers</option>-->
-                                        <!--                                                                    <option>Kianna Septimus</option>-->
-                                        <!--                                                                    <option>Jaxson Herwitz</option>-->
-                                        <!--                                                                    <option>Ryan Schleifer</option>-->
-                                        <!--                                                                </select>-->
-                                        <!--                                                            </div>-->
-                                        <!--                                                        </div>-->
-                                        <!--                                                        <div class="col-lg-6">-->
-                                        <!--                                                            <div class="form-group mb-0">-->
-                                        <!--                                                                <label for="exampleInputText3" class="h5">Due Dates*</label>-->
-                                        <!--                                                                <input type="date" class="form-control" id="exampleInputText3" value="">-->
-                                        <!--                                                            </div>                        -->
-                                        <!--                                                        </div>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                </div>-->
-                                        <!--                                            </div>-->
-                                        <!--                                            <div class="card mb-3">-->
-                                        <!--                                                <div class="card-body">-->
-                                        <!--                                                    <div class="row">-->
-                                        <!--                                                        <div class="col-lg-6">                                                        -->
-                                        <!--                                                            <h5 class="mb-2">Description</h5>-->
-                                        <!--                                                            <p class="mb-0">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>-->
-                                        <!--                                                        </div>-->
-                                        <!--                                                        <div class="col-lg-6">                                      -->
-                                        <!--                                                            <h5 class="mb-2">Checklist</h5>-->
-                                        <!--                                                            <div class="row">-->
-                                        <!--                                                                <div class="col-lg-6">-->
-                                        <!--                                                                    <div class="custom-control custom-checkbox custom-control-inline mr-0">-->
-                                        <!--                                                                        <input type="checkbox" class="custom-control-input" id="customCheck1">-->
-                                        <!--                                                                        <label class="custom-control-label mb-1" for="customCheck1">Design mobile version</label>-->
-                                        <!--                                                                    </div>-->
-                                        <!--                                                                    <div class="custom-control custom-checkbox custom-control-inline mr-0">-->
-                                        <!--                                                                        <input type="checkbox" class="custom-control-input" id="customCheck02">-->
-                                        <!--                                                                        <label class="custom-control-label mb-1" for="customCheck02">Use images of unsplash.com</label>-->
-                                        <!--                                                                    </div>-->
-                                        <!--                                                                    <div class="custom-control custom-checkbox custom-control-inline mr-0">-->
-                                        <!--                                                                        <input type="checkbox" class="custom-control-input" id="customCheck3">-->
-                                        <!--                                                                        <label class="custom-control-label" for="customCheck3">Vector images of small size.</label>-->
-                                        <!--                                                                    </div>-->
-                                        <!--                                                                </div>-->
-                                        <!--                                                                <div class="col-lg-6">-->
-                                        <!--                                                                    <div class="custom-control custom-checkbox custom-control-inline mr-0">-->
-                                        <!--                                                                        <input type="checkbox" class="custom-control-input" id="customCheck04">-->
-                                        <!--                                                                        <label class="custom-control-label mb-1" for="customCheck04">Design mobile version of landing page</label>-->
-                                        <!--                                                                    </div>-->
-                                        <!--                                                                    <div class="custom-control custom-checkbox custom-control-inline mr-0">-->
-                                        <!--                                                                        <input type="checkbox" class="custom-control-input" id="customCheck5">-->
-                                        <!--                                                                        <label class="custom-control-label mb-1" for="customCheck5">Use images of unsplash.com</label>-->
-                                        <!--                                                                    </div>-->
-                                        <!--                                                                    <div class="custom-control custom-checkbox custom-control-inline mr-0">-->
-                                        <!--                                                                        <input type="checkbox" class="custom-control-input" id="customCheck06">-->
-                                        <!--                                                                        <label class="custom-control-label" for="customCheck06">Vector images of small size..</label>-->
-                                        <!--                                                                    </div>-->
-                                        <!--                                                                </div>-->
-                                        <!--                                                            </div>                       -->
-                                        <!--                                                        </div>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                </div>-->
-                                        <!--                                            </div>-->
-                                        <!--                                            <div class="form-group mb-0">-->
-                                        <!--                                                <label  class="h5">Attachments</label>-->
-                                        <!--                                                <div class="custom-file">-->
-                                        <!--                                                    <input type="file" class="custom-file-input" id="inputGroupFile001">-->
-                                        <!--                                                    <label class="custom-file-label" for="inputGroupFile001">Upload media</label>-->
-                                        <!--                                                </div>-->
-                                        <!--                                            </div>-->
-                                        <!--                                        </div>-->
-                                        <!--                                    </div>-->
-                                        <!--                                </div>      -->
                                     </div>
                                 </div>
                             </div>
@@ -201,103 +109,11 @@
                                                     <div class="media align-items-center mt-md-0 mt-3">
                                                         <a th:href="@{TaskStatus(Project_id=${CurrentProject.id} , Task_id=${s.id})}" class="btn bg-warning-light mr-1">Not Done</a>
                                                         <a th:href="@{EditTask(Project_id=${CurrentProject.id}   , Task_id=${s.id})}" class="btn bg-success-light mr-1" ><i class="ri-edit-box-line m-0"></i></a>
-                                                        <a th:href="@{DeleteTask(Project_id=${CurrentProject.id} , Task_id=${s.id})}" class="btn bg-secondary-light "><i class="ri-delete-bin-2-fill m-0"></i></a>
+                                                        <a  onclick="confirmerDelete(this.href);return false ;"  th:href="@{DeleteTask(Project_id=${CurrentProject.id} , Task_id=${s.id})}" class="btn bg-secondary-light "><i class="ri-delete-bin-2-fill m-0"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!--                                <div class="collapse" id="collapseEdit1">                                            -->
-                                        <!--                                    <div class="card card-list task-card">-->
-                                        <!--                                        <div class="card-header d-flex align-items-center justify-content-between px-0 mx-3">-->
-                                        <!--                                            <div class="header-title">-->
-                                        <!--                                                <div class="custom-control custom-checkbox custom-control-inline">-->
-                                        <!--                                                    <input type="checkbox" class="custom-control-input" id="customCheck05">-->
-                                        <!--                                                    <label class="custom-control-label h5" for="customCheck05">Mark as done</label>-->
-                                        <!--                                                </div>-->
-                                        <!--                                            </div>-->
-                                        <!--                                            <div><a href="#" class="btn bg-secondary-light">Design</a></div>-->
-                                        <!--                                        </div>-->
-                                        <!--                                        <div class="card-body">-->
-                                        <!--                                            <div class="form-group mb-3 position-relative">-->
-                                        <!--                                                <input type="text" class="form-control bg-white" placeholder="Design landing page of webkit">-->
-                                        <!--                                                <a href="#" class="task-edit task-simple-edit text-body"><i class="ri-edit-box-line"></i></a>-->
-                                        <!--                                            </div>-->
-                                        <!--                                            <div class="card mb-3">-->
-                                        <!--                                                <div class="card-body">-->
-                                        <!--                                                    <div class="row">-->
-                                        <!--                                                        <div class="col-lg-6">-->
-                                        <!--                                                            <div class="form-group mb-0">-->
-                                        <!--                                                                <label  class="h5">Memebers</label>-->
-                                        <!--                                                                <select name="type" class="selectpicker form-control" data-style="py-0">-->
-                                        <!--                                                                    <option>Memebers</option>-->
-                                        <!--                                                                    <option>Kianna Septimus</option>-->
-                                        <!--                                                                    <option>Jaxson Herwitz</option>-->
-                                        <!--                                                                    <option>Ryan Schleifer</option>-->
-                                        <!--                                                                </select>-->
-                                        <!--                                                            </div>-->
-                                        <!--                                                        </div>-->
-                                        <!--                                                        <div class="col-lg-6">-->
-                                        <!--                                                            <div class="form-group mb-0">-->
-                                        <!--                                                                <label for="exampleInputText3" class="h5">Due Dates*</label>-->
-                                        <!--                                                                <input type="date" class="form-control" id="exampleInputText3" value="">-->
-                                        <!--                                                            </div>                        -->
-                                        <!--                                                        </div>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                </div>-->
-                                        <!--                                            </div>-->
-                                        <!--                                            <div class="card mb-3">-->
-                                        <!--                                                <div class="card-body">-->
-                                        <!--                                                    <div class="row">-->
-                                        <!--                                                        <div class="col-lg-6">                                                        -->
-                                        <!--                                                            <h5 class="mb-2">Description</h5>-->
-                                        <!--                                                            <p class="mb-0">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>-->
-                                        <!--                                                        </div>-->
-                                        <!--                                                        <div class="col-lg-6">                                      -->
-                                        <!--                                                            <h5 class="mb-2">Checklist</h5>-->
-                                        <!--                                                            <div class="row">-->
-                                        <!--                                                                <div class="col-lg-6">-->
-                                        <!--                                                                    <div class="custom-control custom-checkbox custom-control-inline mr-0">-->
-                                        <!--                                                                        <input type="checkbox" class="custom-control-input" id="customCheck1">-->
-                                        <!--                                                                        <label class="custom-control-label mb-1" for="customCheck1">Design mobile version</label>-->
-                                        <!--                                                                    </div>-->
-                                        <!--                                                                    <div class="custom-control custom-checkbox custom-control-inline mr-0">-->
-                                        <!--                                                                        <input type="checkbox" class="custom-control-input" id="customCheck02">-->
-                                        <!--                                                                        <label class="custom-control-label mb-1" for="customCheck02">Use images of unsplash.com</label>-->
-                                        <!--                                                                    </div>-->
-                                        <!--                                                                    <div class="custom-control custom-checkbox custom-control-inline mr-0">-->
-                                        <!--                                                                        <input type="checkbox" class="custom-control-input" id="customCheck3">-->
-                                        <!--                                                                        <label class="custom-control-label" for="customCheck3">Vector images of small size.</label>-->
-                                        <!--                                                                    </div>-->
-                                        <!--                                                                </div>-->
-                                        <!--                                                                <div class="col-lg-6">-->
-                                        <!--                                                                    <div class="custom-control custom-checkbox custom-control-inline mr-0">-->
-                                        <!--                                                                        <input type="checkbox" class="custom-control-input" id="customCheck04">-->
-                                        <!--                                                                        <label class="custom-control-label mb-1" for="customCheck04">Design mobile version of landing page</label>-->
-                                        <!--                                                                    </div>-->
-                                        <!--                                                                    <div class="custom-control custom-checkbox custom-control-inline mr-0">-->
-                                        <!--                                                                        <input type="checkbox" class="custom-control-input" id="customCheck5">-->
-                                        <!--                                                                        <label class="custom-control-label mb-1" for="customCheck5">Use images of unsplash.com</label>-->
-                                        <!--                                                                    </div>-->
-                                        <!--                                                                    <div class="custom-control custom-checkbox custom-control-inline mr-0">-->
-                                        <!--                                                                        <input type="checkbox" class="custom-control-input" id="customCheck06">-->
-                                        <!--                                                                        <label class="custom-control-label" for="customCheck06">Vector images of small size..</label>-->
-                                        <!--                                                                    </div>-->
-                                        <!--                                                                </div>-->
-                                        <!--                                                            </div>                       -->
-                                        <!--                                                        </div>-->
-                                        <!--                                                    </div>-->
-                                        <!--                                                </div>-->
-                                        <!--                                            </div>-->
-                                        <!--                                            <div class="form-group mb-0">-->
-                                        <!--                                                <label  class="h5">Attachments</label>-->
-                                        <!--                                                <div class="custom-file">-->
-                                        <!--                                                    <input type="file" class="custom-file-input" id="inputGroupFile001">-->
-                                        <!--                                                    <label class="custom-file-label" for="inputGroupFile001">Upload media</label>-->
-                                        <!--                                                </div>-->
-                                        <!--                                            </div>-->
-                                        <!--                                        </div>-->
-                                        <!--                                    </div>-->
-                                        <!--                                </div>      -->
                                     </div>
                                 </div>
                             </div>
@@ -311,7 +127,24 @@
 
     </div>
     <!-- Wrapper End-->
-
+    <script>
+        function  confirmerDelete(url){
+            return Swal.fire({
+                title: "Etes vous sur que vous voulez supprimer ce team ?",
+                showCancelButton: true,
+                confirmButtonText: "Supprimer",
+                cancelButtonText: "annuler",
+                confirmButtonColor:"#dc3545"
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    window.open(url,'_self');
+                } else if (result.isDenied) {
+                    Swal.fire("Changes are not saved", "", "info");
+                }
+            });
+        }
+    </script>
     <!-- Backend Bundle JavaScript -->
     <script th:src="@{/js/backend-bundle.min.js}"></script>
 
