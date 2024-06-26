@@ -12,12 +12,10 @@
       <link rel="stylesheet" th:href="@{/css/backend.css}">
       <link rel="stylesheet" th:href="@{/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css}">
       <link rel="stylesheet" th:href="@{/vendor/remixicon/fonts/remixicon.css}">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
       <link rel="stylesheet" th:href="@{/vendor/tui-calendar/tui-calendar/dist/tui-calendar.css}">
       <link rel="stylesheet" th:href="@{/vendor/tui-calendar/tui-date-picker/dist/tui-date-picker.css}">
       <link rel="stylesheet" th:href="@{/vendor/tui-calendar/tui-time-picker/dist/tui-time-picker.css}">
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   </head>
   <body class="  ">
     <!-- loader Start -->
@@ -85,17 +83,17 @@
                                     <img th:src="${s.getLeader().getProfilePicture()}" class="img-fluid rounded-circle avatar-90 m-auto" alt="image">
                                 </div>
                                 <div class="odr-content rounded">
-                                    <h4 class="mb-2" th:text="${s.getLeader().getFirstName()+' '+s.getLeader().getLastName()}"></h4>
-                                    <p class="mb-3" th:text="${s.getNom()}"></p>
+                                    <h4 class="mb-2" th:text="${s.getNom()}"></h4>
+                                    <p class="mb-3" th:text="${s.getLeader().getFirstName()+' '+s.getLeader().getLastName()}"></p>
                                     <ul class="list-unstyled mb-3">
 
                                     </ul>
                                     <div class="pt-3 border-top">
-                                        <a th:href="@{edit-team(Team_id=${s.id})}" class="btn btn-primary">
-                                            <i class="fas fa-edit"></i>
+                                        <a th:href="@{edit-team(Team_id=${s.id})}" class="btn bg-success-light mr-1">
+                                            <i class="ri-edit-box-line m-0"></i>
                                         </a>
-                                        <a onclick="confirmerDelete(this.href);return false ;" th:href="@{DeleteTeam(Team_id=${s.id})}" class="btn btn-danger ml-2">
-                                            <i class="fas fa-trash"></i>
+                                        <a onclick="confirmerDelete(this.href);return false ;" th:href="@{DeleteTeam(Team_id=${s.id})}" class="btn bg-secondary-light ">
+                                            <i class="ri-delete-bin-2-fill m-0"></i>
                                         </a>
                                     </div>
 

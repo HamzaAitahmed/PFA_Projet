@@ -108,8 +108,8 @@
                                         </div>
                                     </div>
                                     <div class="link-shadow">
-                                        <a class="btn btn-white text-danger " onclick="confirmerDelete(this.href);return false ;"  th:href="@{deleteProject(id=${s.id})}">Delete</a>
-                                        <a class="btn btn-white text-primary " th:href="@{EditProject(Project_id=${s.id})}">Edit</a>
+                                        <a class="btn bg-secondary-light " onclick="confirmerDelete(this.href);return false ;"   th:href="@{deleteProject(id=${s.id}, search=${search})}"><i class="ri-delete-bin-2-fill m-0"></i></a>
+                                        <a class="btn bg-success-light mr-1" th:href="@{EditProject(Project_id=${s.id}, search=${search})}"> <i class="ri-edit-box-line m-0"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -154,8 +154,8 @@
                                             </div>
                                         </div>
                                         <div class="link-shadow">
-                                            <a class="btn btn-white text-danger " th:href="@{deleteProject(id=${s.id}, search=${search})}">Delete</a>
-                                            <a class="btn btn-white text-primary " th:href="@{EditProject(Project_id=${s.id}, search=${search})}">Edit</a>
+                                            <a class="btn bg-secondary-light " onclick="confirmerDelete(this.href);return false ;"   th:href="@{deleteProject(id=${s.id}, search=${search})}"><i class="ri-delete-bin-2-fill m-0"></i></a>
+                                            <a class="btn bg-success-light mr-1" th:href="@{EditProject(Project_id=${s.id}, search=${search})}"> <i class="ri-edit-box-line m-0"></i></a>
                                         </div>
                                     </div>
                                 </div>
