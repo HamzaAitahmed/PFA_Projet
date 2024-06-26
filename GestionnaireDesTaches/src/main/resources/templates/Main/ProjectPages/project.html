@@ -108,7 +108,7 @@
                                         </div>
                                     </div>
                                     <div class="link-shadow">
-                                        <a class="btn btn-white text-danger " th:href="@{deleteProject(id=${s.id})}">Delete</a>
+                                        <a class="btn btn-white text-danger " onclick="confirmerDelete(this.href);return false ;"  th:href="@{deleteProject(id=${s.id})}">Delete</a>
                                         <a class="btn btn-white text-primary " th:href="@{EditProject(Project_id=${s.id})}">Edit</a>
                                     </div>
                                 </div>
@@ -171,7 +171,24 @@
 <!-- Wrapper End-->
 
 <!-- Modal list start -->
-
+<script>
+    function  confirmerDelete(url){
+        return Swal.fire({
+            title: "Etes vous sur que vous voulez supprimer ce team ?",
+            showCancelButton: true,
+            confirmButtonText: "Supprimer",
+            cancelButtonText: "annuler",
+            confirmButtonColor:"#dc3545"
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                window.open(url,'_self');
+            } else if (result.isDenied) {
+                Swal.fire("Changes are not saved", "", "info");
+            }
+        });
+    }
+</script>ed
 <!-- Backend Bundle JavaScript -->
 <script th:src="@{/js/backend-bundle.min.js}"></script>
 

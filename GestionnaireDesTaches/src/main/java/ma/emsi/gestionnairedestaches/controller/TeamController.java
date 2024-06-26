@@ -28,17 +28,30 @@ public class TeamController {
     @Autowired
     UserRepository userRepository;
 
+
     @GetMapping("/team")
-    public String listTeams(Model model, @ModelAttribute("connectedUser") User user) {
-        if (user == null) {
-            return "redirect:/login";
+    public String listTeams(@RequestParam(name = "search" , defaultValue = "My Teams") String search,
+                            @ModelAttribute("connectedUser") User user,Model model) {
+        //if (user == null) {
+        //     return "redirect:/login";
+        // }
+        // model.addAttribute("user", user);
+        // System.out.println("------------------------------------");
+
+        // model.addAttribute("TeamsList", teamrepository.findTeamsByLeader(user.getId()));
+        System.out.println("\n%%%%%%% User 3 : "+user);
+        List<Team> MyTeams = teamrepository.findTeamsByLeader(user.getId());
+        if(search.equals("My Teams")){
+            model.addAttribute("TeamList", MyTeams);
         }
+
+
+        model.addAttribute("search", search);
         model.addAttribute("user", user);
-        System.out.println("------------------------------------");
-        model.addAttribute("TeamsList", teamrepository.findTeamsByLeader(user.getId()));
         return "Main/TeamPages/team";
     }
 
+<<<<<<< HEAD
     @RequestMapping(value = "/TeamMembers",method = RequestMethod.GET)
     public String TeamMembers(Model model, @ModelAttribute("connectedUser") User user , @RequestParam(name = "Team_id") int Team_id ) {
 
@@ -105,6 +118,8 @@ public class TeamController {
 //        return "redirect:/TeamMembers?Team_id=" + Team_id ;
 //    }
 
+=======
+>>>>>>> refs/remotes/origin/main
 
     @GetMapping("/{id}")
     public String viewTeam(@PathVariable Integer id, Model model, @ModelAttribute("connectedUser") User user) {

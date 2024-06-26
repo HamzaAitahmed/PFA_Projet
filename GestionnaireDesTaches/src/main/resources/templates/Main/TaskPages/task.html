@@ -77,8 +77,8 @@
                                                     <div class="media align-items-center mt-md-0 mt-3">
                                                         <a th:href="@{TaskStatus(Project_id=${CurrentProject.id} , Task_id=${s.id})}" class="btn bg-primary-light mr-1">Done</a>
                                                         <a th:href="@{EditTask(Project_id=${CurrentProject.id}   , Task_id=${s.id})}" class="btn bg-success-light mr-1" ><i class="ri-edit-box-line m-0"></i></a>
-                                                        <a onclick="confirmerDelete(this.href);return false ;"  th:href="@{DeleteTask(Project_id=${CurrentProject.id} , Task_id=${s.id})}" class="btn bg-secondary-light "><i class="ri-delete-bin-2-fill m-0"></i></a>
-                                                        </div>
+                                                        <a th:href="@{DeleteTask(Project_id=${CurrentProject.id} , Task_id=${s.id})}" class="btn bg-secondary-light "><i class="ri-delete-bin-2-fill m-0"></i></a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
