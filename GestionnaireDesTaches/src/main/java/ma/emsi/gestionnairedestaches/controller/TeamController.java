@@ -21,12 +21,9 @@ import java.util.Optional;
 
 public class TeamController {
 
-    @Autowired
-    TeamRepository teamrepository;
-    @Autowired
-    ProjectRepository projectRepository;
-    @Autowired
-    UserRepository userRepository;
+    @Autowired TeamRepository teamrepository;
+    @Autowired ProjectRepository projectRepository;
+    @Autowired UserRepository userRepository;
 
 
     @GetMapping("/team")
