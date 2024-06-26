@@ -21,232 +21,50 @@
 </head>
 <body class="modal-open">
 
-<!-- loader END -->
+<div class="card-header">
 
-<!-- Wrapper End-->
-<div class="modal-backdrop fade show"></div>
+    <form class="formGroup" method="Get" th:action="@{AjouteEtudiantGroup}">
 
-<!-- Modal list start -->
-<div class="modal fade show" role="dialog" aria-modal="true" id="new-project-modal" style="display: block; padding-left: 4px;">
-    <div class="modal-dialog  modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header d-block text-center pb-3 border-bttom">
-                <h3 class="modal-title" id="exampleModalCenterTitle01">Edit Cours</h3>
-            </div>
-            <form th:action="@{saveGroups}" method="post">
-                <div class="col-lg-12">
-                    <div class="d-flex flex-wrap align-items-ceter justify-content-center mt-2">
-                        <button  class="btn btn-primary mr-3" type="submit" >Save Changes</button>
-                        <a class="btn btn-primary" th:href="@{indexCours}">Cancel</a>
-                    </div>
-                </div>
-                <input id ="id" type="hidden" name="id" th:value="${GroupsEdit.id}">
-                <input type="hidden" name="currentPage" th:value="${currentPage}">
-                <input type="hidden" name="size" th:value="${size}">
-                <input type="hidden" name="searchName" th:value="${searchName}">                <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="form-group mb-3">
-                            <label for ="Titre" class="h5">Nom</label>
-                            <input required id ="Titre" class="form-control" type="text" name="Nom" th:value="${GroupsEdit.nom}">
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="form-group mb-3">
-                            <label for ="Description" class="h5">matricule</label>
-                            <input required id ="Description" class="form-control" type="text" name="matricule" th:value="${GroupsEdit.matricule}">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </form>
+        <input id ="idGroup2" type="hidden" name="id" th:value="${GroupsEdit.id}">
+        <input   type="hidden" name="currentPage" th:value="${currentPage}">
+        <input   type="hidden" name="size" th:value="${size}">
+        <input  type="hidden" name="searchName" th:value="${searchName}">
+        <input  type="hidden" name="action" th:value="EditController">
 
-            <!-- ######################### Etudiant  ######################### -->
+        <label for="myInput1">Sélectionnez Etudiant que vous souhaitez Ajouter : &nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input autocomplete="off" type="text" class="dropbtn myInput" name="idEtudiantAjouter" placeholder="Nom Etudiant" id="myInput1" onInput="filterFunction()" list="idEtudiantAjouter"   >
 
-            <div class="card-header">
+        <datalist  id="idEtudiantAjouter" class="dropdown-content myDropdown">
+            <option  th:each="s:${AddEtudiant}" th:value="${s.nom != null} ? ${s.getId()} : '-1' " th:text ="${s.nom != null} ? ${s.getNom()} : 'Null' "></option>
+        </datalist>
 
-                <form class="formGroup" method="Get" th:action="@{AjouteEtudiantGroup}">
+        <button class="btn btn-primary" type="submit">Ajouter</button>
 
-                    <input id ="idGroup2" type="hidden" name="id" th:value="${GroupsEdit.id}">
-                    <input   type="hidden" name="currentPage" th:value="${currentPage}">
-                    <input   type="hidden" name="size" th:value="${size}">
-                    <input  type="hidden" name="searchName" th:value="${searchName}">
-                    <input  type="hidden" name="action" th:value="EditController">
+    </form>
 
-                    <label for="myInput1">Sélectionnez Etudiant que vous souhaitez Ajouter : &nbsp;&nbsp;&nbsp;&nbsp;</label>
-                    <input autocomplete="off" type="text" class="dropbtn myInput" name="idEtudiantAjouter" placeholder="Nom Etudiant" id="myInput1" onInput="filterFunction()" list="idEtudiantAjouter"   >
+    <br>
 
-                    <datalist  id="idEtudiantAjouter" class="dropdown-content myDropdown">
-                        <option  th:each="s:${AddEtudiant}" th:value="${s.nom != null} ? ${s.getId()} : '-1' " th:text ="${s.nom != null} ? ${s.getNom()} : 'Null' "></option>
-                    </datalist>
+    <form class="formGroup" method="Get" th:action="@{DeleteEtudiantGroup}">
 
-                    <button class="btn btn-primary" type="submit">Ajouter</button>
+        <input id ="idGroup3" type="hidden" name="id" th:value="${GroupsEdit.id}">
+        <input   type="hidden" name="currentPage" th:value="${currentPage}">
+        <input   type="hidden" name="size" th:value="${size}">
+        <input  type="hidden" name="searchName" th:value="${searchName}">
+        <input  type="hidden" name="action" th:value="EditController">
 
-                </form>
+        <label for="myInput2">Sélectionnez Etudiant que vous souhaitez supprimer : </label>
+        <input autocomplete="off" type="text" class="dropbtn myInput" name="idEtudiantSupprimer" placeholder="Nom Etudiant" id="myInput2" onInput="filterFunction(this)" list="idEtudiantSupprimer"   >
 
-                <br>
+        <datalist  id="idEtudiantSupprimer" class="dropdown-content myDropdown">
+            <option  th:each="s:${DeleteEtudiant}" th:value="${s.nom != null} ? ${s.getId()} : '-1' " th:text ="${s.nom != null} ? ${s.getNom()} : 'Null' "></option>
+        </datalist>
 
-                <form class="formGroup" method="Get" th:action="@{DeleteEtudiantGroup}">
+        <button class="btn btn-primary" type="submit">Delete</button>
 
-                    <input id ="idGroup3" type="hidden" name="id" th:value="${GroupsEdit.id}">
-                    <input   type="hidden" name="currentPage" th:value="${currentPage}">
-                    <input   type="hidden" name="size" th:value="${size}">
-                    <input  type="hidden" name="searchName" th:value="${searchName}">
-                    <input  type="hidden" name="action" th:value="EditController">
+    </form>
 
-                    <label for="myInput2">Sélectionnez Etudiant que vous souhaitez supprimer : </label>
-                    <input autocomplete="off" type="text" class="dropbtn myInput" name="idEtudiantSupprimer" placeholder="Nom Etudiant" id="myInput2" onInput="filterFunction(this)" list="idEtudiantSupprimer"   >
-
-                    <datalist  id="idEtudiantSupprimer" class="dropdown-content myDropdown">
-                        <option  th:each="s:${DeleteEtudiant}" th:value="${s.nom != null} ? ${s.getId()} : '-1' " th:text ="${s.nom != null} ? ${s.getNom()} : 'Null' "></option>
-                    </datalist>
-
-                    <button class="btn btn-primary" type="submit">Delete</button>
-                </form>
-            </div>
-        </div>
-    </div>
 </div>
 
-
-<!-- Wrapper Start -->
-<div class="wrapper">
-
-    <!--   SideBar     -->
-    <div th:insert="~{Sections/sidebar :: sidebar}">  </div>
-    <!--    <div th:replace="fragment/form :: sidebar(${user})">  </div>-->
-
-    <!--   NavBar     -->
-    <div th:insert="~{Sections/navbar :: navbar(${user})}">  </div>
-
-
-    <div class="content-page">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex flex-wrap align-items-center justify-content-between breadcrumb-content">
-                                <h5>Your Projects</h5>
-                                <div class="d-flex flex-wrap align-items-center justify-content-between">
-                                    <div class="dropdown status-dropdown mr-3">
-                                        <div class="dropdown-toggle" id="dropdownMenuButton03" data-toggle="dropdown">
-                                            <div class="btn bg-body">
-                                                <span class="h6">Status :</span><span th:text="${search}"></span><i class="ri-arrow-down-s-line ml-2 mr-0"></i>
-                                            </div>
-                                        </div>
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton03">
-                                            <a class="dropdown-item" th:href="@{project(search=${'All Projects'})}"><i class="ri-mic-line mr-2"></i>All Projects</a>
-                                            <a class="dropdown-item" th:href="@{project(search=${'My Projects'})}"><i class="ri-attachment-line mr-2"></i>My Projects</a>
-                                            <a class="dropdown-item" th:href="@{project(search=${'Other Projects'})}"><i class="ri-file-copy-line mr-2"></i>Other Projects</a>
-                                        </div>
-                                    </div>
-                                    <div class="list-grid-toggle d-flex align-items-center mr-3">
-                                        <div data-toggle-extra="tab" data-target-extra="#grid" class="active">
-                                            <div class="grid-icon mr-3">
-                                                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                        <div data-toggle-extra="tab" data-target-extra="#list">
-                                            <div class="grid-icon">
-                                                <svg  width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <line x1="21" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="21" y1="18" x2="3" y2="18"></line>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pl-3 border-left btn-new">
-                                        <a  href="#" class="btn btn-primary" >New Project</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="grid" class="item-content animate__animated animate__fadeIn active" data-toggle-extra="tab-content">
-                <div class="row" >
-                    <div class="col-lg-4 col-md-6" th:each="s,iterator:${PorjectList}">
-                        <div class="card card-block card-stretch card-height">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center justify-content-between mb-4">
-                                    <div th:id="${iterator.index < 10} ? 'circle-progress-0'+${iterator.index} : 'circle-progress-'+${iterator.index} " class="circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="25" data-type="percent"></div>
-                                    <i class="ri-star-fill m-0 text-warning"></i>
-                                </div>
-                                <h5 class="mb-1" th:text="${s.getNom()}"></h5>
-                                <p class="mb-3"  th:text="${s.getDescription()}"></p>
-                                <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-                                    <div class="iq-media-group"  >
-                                        <a href="#" class="iq-media projectowner">
-                                            <img  class="img-fluid avatar-40 rounded-circle" th:src="${s.projectOwner.profilePicture} " alt="">
-                                        </a>
-                                        <div class="d-inline-block" th:if="${s.projectTeam != null}" >
-                                            <a href="#" class="iq-media" th:each="x:${s.projectTeam.getMembers()}" th:hidden="${s.projectOwner == x}"  >
-                                                <img class="img-fluid avatar-40 rounded-circle" th:src="${x.getProfilePicture()}" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="link-shadow">
-                                        <a class="btn btn-white text-danger " href="#">Delete</a>
-                                        <a class="btn btn-white text-primary " href="#">Edit</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="list" class="item-content animate__animated animate__fadeIn" data-toggle-extra="tab-content">
-                <div class="row">
-                    <div class="col-lg-6" th:each="s,iterator:${PorjectList}">
-                        <div class="card" >
-                            <div class="card-body">
-                                <div class="row" >
-                                    <div class="col-sm-8" >
-                                        <div class="d-flex align-items-center">
-                                            <!--                                            <div  class="circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="25" data-type="percent"></div>-->
-                                            <div th:id="${iterator.index < 10} ? 'circle-progress-0'+${iterator.index} : 'circle-progress-'+${iterator.index} " class="circle-progress-01 circle-progress circle-progress-success" data-min-value="0" data-max-value="100" data-value="40" data-type="percent" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40">
-                                                <svg version="1.1" width="100" height="100" viewBox="0 0 100 100" class="circle-progress">
-                                                    <circle class="circle-progress-circle" cx="50" cy="50" r="47" fill="none" stroke="#ddd" stroke-width="8"></circle>
-                                                    <path d="M 50 3 A 47 47 0 0 1 77.62590685774623 88.02379873562253" class="circle-progress-value" fill="none" stroke="#00E699" stroke-width="8"></path>
-                                                    <text class="circle-progress-text" x="50" y="50" font="16px Arial, sans-serif" text-anchor="middle" fill="#999" dy="0.4em">40%</text>
-                                                </svg>
-                                            </div>
-                                            <div class="ml-3">
-                                                <h5 class="mb-1" th:text="${s.getNom()}" > </h5>
-                                                <p class="mb-0"  th:text="${s.getDescription()}"> </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                        <div class="iq-media-group" >
-                                            <a href="#" class="iq-media projectowner">
-                                                <img  class="img-fluid avatar-40 rounded-circle" th:src="${s.projectOwner.profilePicture} " alt="">
-                                            </a>
-                                            <div class="d-inline-block" th:if="${s.projectTeam != null}" >
-                                                <a href="#" th:each="x:${s.projectTeam.members}" th:hidden="${s.projectOwner == x}"  class="iq-media">
-                                                    <img  class="img-fluid avatar-40 rounded-circle" th:src="${x.profilePicture}" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="link-shadow">
-                                            <a class="btn btn-white text-danger " href="#">Delete</a>
-                                            <a class="btn btn-white text-primary " href="#">Edit</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <!-- Page end  -->
-        </div>
-    </div>
-</div>
 
 <!-- Backend Bundle JavaScript -->
 <script th:src="@{/js/backend-bundle.min.js}"></script>

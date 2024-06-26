@@ -52,16 +52,11 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
-                ", FirstName='" + FirstName + '\'' +
-                ", LastName='" + LastName + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", Gender='" + Gender + '\'' +
-                ", role='" + role + '\'' +
-                ", profilePicture='" + profilePicture + '\'' +
+                " id=" + id +
+                " | email='" + email + '\'' +
+                " | FirstName='" + FirstName + '\'' +
+                " | LastName='" + LastName + '\'' +
+                " | username='" + username + '\'' +
                 '}';
     }
 }

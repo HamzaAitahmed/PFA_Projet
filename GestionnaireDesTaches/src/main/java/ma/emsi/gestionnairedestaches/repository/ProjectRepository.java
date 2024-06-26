@@ -27,6 +27,10 @@ public interface ProjectRepository extends JpaRepository<Project,Integer> {
     @Query("SELECT u.Projects FROM User u")
     List<Project> findProjectByUser();
 
+
+    @Query("SELECT p FROM Project p where p.ProjectTeam is null ")
+    List<Project> findProjectWithoutTeam();
+
 //    SELECT p.*
 //    FROM Project p
 //    JOIN Team t ON p.project_team_id = t.id

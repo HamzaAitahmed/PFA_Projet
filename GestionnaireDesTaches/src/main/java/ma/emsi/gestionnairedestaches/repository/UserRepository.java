@@ -28,6 +28,9 @@ public interface UserRepository extends JpaRepository<User,Integer> {
 
 //    @Query("SELECT u FROM User u where u.id IN (Select tm.id from Team.Members tm where Team.id = :TeamId ) OR u IN (Select t.Leader from Team t where t.id = :TeamId )")
     @Query("select u from User u Join Team On u IN ( Select t.Members from Team t where t.id = :TeamId ) ")
-    Collection<User> findMembersByTeamId( Integer TeamId);
+    List<User> findMembersByTeamId( Integer TeamId);
+
+    @Query("select u from User u Join Team On u Not IN ( Select t.Members from Team t where t.id = :TeamId ) ")
+    List<User> findNotMembersByTeamId( Integer TeamId);
 
 }
