@@ -51,7 +51,6 @@ public class TeamController {
         return "Main/TeamPages/team";
     }
 
-<<<<<<< HEAD
     @RequestMapping(value = "/TeamMembers",method = RequestMethod.GET)
     public String TeamMembers(Model model, @ModelAttribute("connectedUser") User user , @RequestParam(name = "Team_id") int Team_id ) {
 
@@ -118,8 +117,6 @@ public class TeamController {
 //        return "redirect:/TeamMembers?Team_id=" + Team_id ;
 //    }
 
-=======
->>>>>>> refs/remotes/origin/main
 
     @GetMapping("/{id}")
     public String viewTeam(@PathVariable Integer id, Model model, @ModelAttribute("connectedUser") User user) {
