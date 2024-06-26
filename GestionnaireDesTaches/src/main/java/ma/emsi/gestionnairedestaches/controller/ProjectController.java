@@ -35,26 +35,7 @@ public class ProjectController {
         List<Project> AllProjects = projectRepository.findAllProjectByUserId(user3.getId());
 
         Collections.sort(AllProjects , Comparator.comparingLong(Project::getId)); // sort List by Project Id
-        
-//        List<Project> AllProjects = new LinkedList<>(OtherProjects); // pour Ajouter OtherProjects
 
-//        AllProjects.addAll(MyProjects); // pour Ajouter MyProjects Avec OtherProjects
-//
-//        List<Project> AllProjectsFiltered = AllProjects.stream() // pour supprimer les objets dupliquer
-//                .distinct()
-//                .collect(Collectors.toList());
-
-//        System.out.println("############## OtherProjects ##############");
-//        for(Project p : OtherProjects)
-//            System.out.println("#######  --> "+p);
-//
-//        System.out.println("############## MyProjects ##############");
-//        for(Project p : MyProjects)
-//            System.out.println("#######  --> "+p);
-//
-//        System.out.println("############## AllProjects ##############");
-//        for(Project p : AllProjects)
-//            System.out.println("#######  --> "+p);
 
         if(search.equals("My Projects")){ // Done
             model.addAttribute("PorjectList", MyProjects);
@@ -65,25 +46,6 @@ public class ProjectController {
         if(search.equals("All Projects")){
             model.addAttribute("PorjectList", AllProjects);
         }
-
-//        System.out.println("user id : "+user3.getId());
-//        for(Project p : OtherProjects){
-//            System.out.print("#######  --> "+p);
-//            if (p.getProjectTeam()!=null)
-//            {
-//                System.out.print("  ----> Team id : "+p.getProjectTeam().getId()+"\n");
-//                for(User u : p.getProjectTeam().getMembers()){
-//                    System.out.println("\t\t    '--> Members : username = "+u.getUsername()+" | Team id : "+p.getProjectTeam().getId());
-//                }
-//            }else
-//            {
-//                System.out.println();
-//            }
-//        }
-//        for(Team t : teams){
-//            System.out.println("@@@@@@@  --> "+t);
-//        }
-
         model.addAttribute("search", search);
         model.addAttribute("user", user3);
 

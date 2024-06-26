@@ -77,7 +77,7 @@
                                                     <div class="media align-items-center mt-md-0 mt-3">
                                                         <a th:href="@{TaskStatus(Project_id=${CurrentProject.id} , Task_id=${s.id})}" class="btn bg-primary-light mr-1">Done</a>
                                                         <a th:href="@{EditTask(Project_id=${CurrentProject.id}   , Task_id=${s.id})}" class="btn bg-success-light mr-1" ><i class="ri-edit-box-line m-0"></i></a>
-                                                        <a th:href="@{DeleteTask(Project_id=${CurrentProject.id} , Task_id=${s.id})}" class="btn bg-secondary-light "><i class="ri-delete-bin-2-fill m-0"></i></a>
+                                                        <a onclick="confirmerDelete(this.href);return false ;"  th:href="@{DeleteTask(Project_id=${CurrentProject.id} , Task_id=${s.id})}" class="btn bg-secondary-light "><i class="ri-delete-bin-2-fill m-0"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -311,6 +311,24 @@
 
     </div>
     <!-- Wrapper End-->
+    <script>
+        function  confirmerDelete(url){
+            return Swal.fire({
+                title: "Etes vous sur que vous voulez supprimer ce team ?",
+                showCancelButton: true,
+                confirmButtonText: "Supprimer",
+                cancelButtonText: "annuler",
+                confirmButtonColor:"#dc3545"
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    window.open(url,'_self');
+                } else if (result.isDenied) {
+                    Swal.fire("Changes are not saved", "", "info");
+                }
+            });
+        }
+    </script>
 
     <!-- Backend Bundle JavaScript -->
     <script th:src="@{/js/backend-bundle.min.js}"></script>
