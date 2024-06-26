@@ -3,6 +3,7 @@ package ma.emsi.gestionnairedestaches.controller;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import ma.emsi.gestionnairedestaches.model.Project;
+import ma.emsi.gestionnairedestaches.model.Task;
 import ma.emsi.gestionnairedestaches.model.Team;
 import ma.emsi.gestionnairedestaches.model.User;
 import ma.emsi.gestionnairedestaches.repository.ProjectRepository;
@@ -29,22 +30,24 @@ public class TeamController {
     @GetMapping("/team")
     public String listTeams(@RequestParam(name = "search" , defaultValue = "My Teams") String search,
                             @ModelAttribute("connectedUser") User user,Model model) {
-        //if (user == null) {
-        //     return "redirect:/login";
-        // }
-        // model.addAttribute("user", user);
-        // System.out.println("------------------------------------");
 
-        // model.addAttribute("TeamsList", teamrepository.findTeamsByLeader(user.getId()));
-        System.out.println("\n%%%%%%% User 3 : "+user);
-        List<Team> MyTeams = teamrepository.findTeamsByLeader(user.getId());
+        List<Team> teams = null;
         if(search.equals("My Teams")){
-            model.addAttribute("TeamList", MyTeams);
+            teams =  teamrepository.findTeamsByLeader(user.getId());
+        }
+        if(search.equals("Other Team")){
+            teams =  teamrepository.findTeamsByMember(user.getId());
+        }
+        if(search.equals("All Teams")){
+            teams =  teamrepository.findTeamsByUser(user.getId());
         }
 
+        List<User> users = userRepository.findAll();
 
+        model.addAttribute("TeamList", teams);
         model.addAttribute("search", search);
         model.addAttribute("user", user);
+        model.addAttribute("users", users);
         return "Main/TeamPages/team";
     }
 
@@ -141,7 +144,7 @@ public class TeamController {
        // model.addAttribute("ListMembers",Members);
         return "Main/TeamPages/team-add";
     }
-    @RequestMapping(value = "/create-new-team",method = RequestMethod.GET)
+    @RequestMapping(value = "/create-new-team",method = RequestMethod.POST)
     public String CreateNewTeam(HttpServletRequest request, HttpServletResponse response,
                                    @ModelAttribute("connectedUser" ) User user ,
                                    @RequestParam(name = "nom") String teamName,
@@ -163,6 +166,33 @@ public class TeamController {
 
     }
 
+    @RequestMapping(value = "/NewTeam",method = RequestMethod.GET)
+    public String NewTeam(@ModelAttribute("connectedUser") User user,Model model,
+                          @RequestParam(name = "search") String search) {
+
+        Team NewTeam = new Team();
+        List<User> users = userRepository.findAll();
+
+        model.addAttribute("search", search);
+        model.addAttribute("user", user);
+        model.addAttribute("users", users);
+        model.addAttribute("NewTeam", NewTeam);
+        return "Main/TeamPages/AddTeam";
+    }
+
+    @RequestMapping(value = "/NewTeam",method = RequestMethod.POST)
+    public String NewTeamP(@ModelAttribute("connectedUser") User user,@ModelAttribute("NewTeam") Team NewTeam ) {
+
+        if (NewTeam == null) {
+            return "redirect:/NewTeam?error=notfound";
+        }
+        NewTeam.setLeader(user);
+        NewTeam.setMembers(null);
+        NewTeam.setProjects(null);
+        teamrepository.save(NewTeam);
+
+        return "redirect:/team";
+    }
 
     @GetMapping("/edit-team")
     public String editTeamForm(@RequestParam("Team_id") Integer teamId, Model model,
@@ -178,6 +208,7 @@ public class TeamController {
         model.addAttribute("team", team);
         return "Main/TeamPages/EditTeam";
     }
+
     @RequestMapping(value="/update-team" , method = RequestMethod.GET)
     public String updateTeam(HttpServletRequest request, HttpServletResponse response,
                              @ModelAttribute("connectedUser") User user,

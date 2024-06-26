@@ -1,10 +1,213 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Webkit | Responsive Bootstrap 4 Admin Dashboard Template</title>
 
+    <!-- Favicon -->
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}" />
+    <link rel="stylesheet" th:href="@{/css/backend-plugin.min.css}">
+    <link rel="stylesheet" th:href="@{/css/backend.css}">
+    <link rel="stylesheet" th:href="@{/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/vendor/remixicon/fonts/remixicon.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" th:href="@{/vendor/tui-calendar/tui-calendar/dist/tui-calendar.css}">
+    <link rel="stylesheet" th:href="@{/vendor/tui-calendar/tui-date-picker/dist/tui-date-picker.css}">
+    <link rel="stylesheet" th:href="@{/vendor/tui-calendar/tui-time-picker/dist/tui-time-picker.css}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+<body class="model-open">
+<!-- loader Start -->
+<!--<div id="loading">-->
+<!--    <div id="loading-center">-->
+<!--    </div>-->
+<!--</div>-->
+
+<div class="modal-backdrop fade show"></div>
+<!-- loader END -->
+
+
+<!-- Wrapper End-->
+
+<!-- Modal list start -->
+<div class="modal fade  show" role="dialog" aria-modal="true" id="new-user-modal" style="display: block;">
+    <div class="modal-dialog  modal-dialog-centered " role="document">
+        <div class="modal-content">
+            <div class="modal-header d-block text-center pb-3 border-bottom">
+                <h3 class="modal-title" id="exampleModalCenterTitle02">New Team</h3>
+            </div>
+            <form th:action="@{/NewTeam}" method="POST" th:object="${NewTeam}">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group mb-3">
+                                <label for="exampleInputText2" class="h5">Name Team * </label>
+                                <input type="text" th:field="*{nom}" class="form-control" id="exampleInputText2" placeholder="Enter your team name">
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group mb-3">
+                                <label for="exampleInputText2" class="h5">Choose a Members</label>
+                                <select name="ss" class="selectpicker form-control" data-style="py-0">
+                                    <option>Members</option>
+                                    <option>Kianna Septimus</option>
+                                    <option>Jaxson Herwitz</option>
+                                    <option>Ryan Schleifer</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="d-flex flex-wrap align-items-center justify-content-center mt-2">
+                                <button  class="btn btn-primary mr-3" type="submit" >Save</button>
+                                <a class="btn btn-primary" th:href="@{team(search=${search})}">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Wrapper Start -->
+
+<div class="wrapper">
+
+    <!--   SideBar     -->
+    <div th:insert="~{Sections/sidebar :: sidebar}">  </div>
+
+    <!--   NavBar     -->
+    <div th:insert="~{Sections/navbar :: navbar(${user})}">  </div>
+
+
+    <div class="content-page">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-wrap align-items-center justify-content-between breadcrumb-content">
+                                <h5>Your Teams</h5>
+                                <div class="d-flex flex-wrap align-items-center justify-content-between">
+                                    <div class="dropdown status-dropdown mr-3">
+                                        <div class="dropdown-toggle" id="dropdownMenuButton03" data-toggle="dropdown">
+                                            <div class="btn bg-body">
+                                                <span class="h6">Status :</span><span th:text="${search}"></span><i class="ri-arrow-down-s-line ml-2 mr-0"></i>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton03">
+                                            <a class="dropdown-item" th:href="@{team(search=${'All Teams'})}"><i class="ri-mic-line mr-2"></i>All Teams</a>
+                                            <a class="dropdown-item" th:href="@{team(search=${'My Teams'})}"><i class="ri-attachment-line mr-2"></i>My Teams</a>
+                                            <a class="dropdown-item" th:href="@{team(search=${'Other Team'})}"><i class="ri-file-copy-line mr-2"></i>Other Team</a>
+                                        </div>
+                                    </div>
+                                    <div class="pl-3 border-left btn-new">
+                                        <a th:href="@{/NewTeam(search=${search})}" class="btn btn-primary" >New Team</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="grid" class="item-content animate__animated animate__fadeIn active" data-toggle-extra="tab-content">
+            <div class="row" >
+                <div class="col-lg-4 col-md-6" th:each="s,iterator:${TeamList}">
+                    <div class="card-transparent card-block card-stretch card-height">
+                        <div class="card-body text-center p-0">
+                            <div class="item" >
+                                <div class="odr-img">
+                                    <img th:src="${s.getLeader().getProfilePicture()}" class="img-fluid rounded-circle avatar-90 m-auto" alt="image">
+                                </div>
+                                <div class="odr-content rounded">
+                                    <h4 class="mb-2" th:text="${s.getLeader().getFirstName()+' '+s.getLeader().getLastName()}"></h4>
+                                    <p class="mb-3" th:text="${s.getNom()}"></p>
+                                    <div class="pt-3 border-top">
+                                        <a th:href="@{edit-team(Team_id=${s.id} , search=${search})}" class="btn bg-success-light mr-1">
+                                            <i class="ri-edit-box-line m-0"></i>
+                                        </a>
+                                        <a onclick="confirmerDelete(this.href);return false ;" th:href="@{DeleteTeam(Team_id=${s.id} , search=${search})}" class="btn bg-secondary-light">
+                                            <i class="ri-delete-bin-2-fill m-0"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page end  -->
+</div>
+
+
+<script>
+    function  confirmerDelete(url){
+        return Swal.fire({
+            title: "Etes vous sur que vous voulez supprimer ce team ?",
+            showCancelButton: true,
+            confirmButtonText: "Supprimer",
+            cancelButtonText: "annuler",
+            confirmButtonColor:"#dc3545"
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                window.open(url,'_self');
+            } else if (result.isDenied) {
+                Swal.fire("Changes are not saved", "", "info");
+            }
+        });
+    }
+</script>
+<script>
+    document.getElementById('form_1').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var form = document.getElementById('form_1');
+        var fd = new FormData(form);
+
+        var params = new URLSearchParams();
+        for (var pair of fd.entries()) {
+            params.append(pair[0], pair[1]);
+        }
+
+        fetch(form.action + '?' + params.toString(), {
+            method: 'GET'
+        })
+            .then(response => {
+                if (response.ok) {
+                    Swal.fire("Crée avec succès !", "", "success");
+
+                } else {
+                    Swal.fire("Erreur lors de la création", "", "error");
+                }
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                Swal.fire("Erreur lors de la création", "", "error");
+            });
+    });
+</script>
+<!-- Backend Bundle JavaScript -->
+<script th:src="@{/js/backend-bundle.min.js}"></script>
+
+<!-- Table Treeview JavaScript -->
+<script th:src="@{/js/table-treeview.js}"></script>
+
+<!-- Chart Custom JavaScript -->
+<script th:src="@{/js/customizer.js}"></script>
+
+<!-- Chart Custom JavaScript -->
+<script async th:src="@{/js/chart-custom.js}"></script>
+<!-- Chart Custom JavaScript -->
+<script async th:src="@{/js/slider.js}"></script>
+
+<!-- app JavaScript -->
+<script th:src="@{/js/app.js}"></script>
+
+<script th:src="@{/vendor/moment.min.js}"></script>
 </body>
 </html>

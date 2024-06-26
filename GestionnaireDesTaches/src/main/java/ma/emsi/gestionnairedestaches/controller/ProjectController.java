@@ -26,7 +26,7 @@ public class ProjectController {
     @Autowired UserRepository userRepository;
 
     @GetMapping(path="/project")
-    public String project(@RequestParam(name = "search" , defaultValue = "Other Projects") String search , @ModelAttribute("connectedUser" ) User user3 , Model model )
+    public String project(@RequestParam(name = "search" , defaultValue = "My Projects") String search , @ModelAttribute("connectedUser" ) User user3 , Model model )
     {
         System.out.println("\n%%%%%%% User 3 : "+user3);
         List<Project> OtherProjects = projectRepository.findProjectTeamByUserId(user3.getId());
@@ -64,7 +64,7 @@ public class ProjectController {
     }
 
     @RequestMapping(value = "/NewProject",method = RequestMethod.GET)
-    public String NewProject(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("connectedUser" ) User user , Model model){
+    public String NewProject(RedirectAttributes redirectAttributes ,@ModelAttribute("connectedUser" ) User user ,String search , Model model){
         System.out.println("NewProject Get");
 
         List<Team> Teams = teamRepository.findAll();
@@ -74,9 +74,11 @@ public class ProjectController {
         }
         System.out.println("NewProject Team");
 
+        System.out.println(search);
         Project NewProject = new Project();
         model.addAttribute("Project",NewProject);
         model.addAttribute("user",user);
+        model.addAttribute("search",search);
         model.addAttribute("ListTeams",Teams);
         System.out.println("return Main/NewProject");
         return "Main/ProjectPages/AddProject";
@@ -93,8 +95,6 @@ public class ProjectController {
                 return "redirect:/NewProject?error";
             }
             NewProject.setProjectOwner(user);
-            System.out.println("$$$$$$$$$$$NewProject Post Project : "+NewProject+" | Team : "+NewProject.getProjectTeam()+"\n");
-
             projectRepository.save(NewProject);
             return "redirect:/project";
 
