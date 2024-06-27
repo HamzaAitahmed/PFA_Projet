@@ -54,7 +54,7 @@
                                     </nav>
                                 </div>
                                 <div class="d-flex flex-wrap align-items-center justify-content-between">
-                                    <div class="pr-3 border-right btn-new">
+                                    <div   th:hidden="${user.id!=CurrentTeam.leader.id}"   class="pr-3 border-right btn-new">
                                         <form class="formGroup" method="POST" th:action="@{AddMember(Team_id=${CurrentTeam.id})}">
                                             <input type="search" autocomplete="off"  class="noArrow myInput" name="AddMemberId" placeholder="Nom User" list="AddMemberId"   >
                                             <datalist  id="AddMemberId" class="dropdown-content myDropdown">
@@ -84,7 +84,7 @@
                                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 481px;">Email</th>
                                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Phone No.: activate to sort column ascending" style="width: 193px;">date of birth</th>
                                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Phone No.: activate to sort column ascending" style="width: 193px;">Task Number</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Phone No.: activate to sort column ascending" style="width: 60px;"></th>
+                                                    <th   th:hidden="${user.id!=CurrentTeam.leader.id}"   class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Phone No.: activate to sort column ascending" style="width: 60px;"></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -96,7 +96,7 @@
                                                     <td th:text="${s.email}"></td>
                                                     <td th:text="${s.dateOfBirth!=null}?${s.dateOfBirth} : '00-00-0000'"></td>
                                                     <td th:text="${s.tasks.size()}" ></td>
-                                                    <td>
+                                                    <td   th:hidden="${user.id!=CurrentTeam.leader.id}"   >
 <!--                                                        <a th:href="@{editTeamMemeber(Team_id=${CurrentTeam.id} , Team_id=${s.id})}" class="btn bg-success-light mr-1"><i class="ri-edit-box-line m-0"></i></a>-->
                                                         <a th:href="@{DeleteMember(Team_id=${CurrentTeam.id}, Member_id=${s.id})}" class="btn bg-secondary-light "><i class="ri-delete-bin-2-fill m-0"></i></a>
                                                     </td>
@@ -109,7 +109,7 @@
                                                     <th rowspan="1" colspan="1">Email</th>
                                                     <th rowspan="1" colspan="1">date of birth</th>
                                                     <th rowspan="1" colspan="1">Task Number</th>
-                                                    <th rowspan="1" colspan="1"> </th>
+                                                    <th   th:hidden="${user.id!=CurrentTeam.leader.id}"   rowspan="1" colspan="1"> </th>
                                                 </tr>
                                             </tfoot>
                                         </table>

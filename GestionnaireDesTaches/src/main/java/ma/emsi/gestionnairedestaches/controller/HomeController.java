@@ -19,14 +19,14 @@ public class HomeController {
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public String index(HttpServletRequest request, RedirectAttributes redirectAttributes, HttpServletResponse response){
-        User user3 = userRepository.findUserByEmail("hamza@gmail.com");
-
-
-        System.out.println("\n / User : "+user3);
-
-        HttpSession session = request.getSession(true);
-        session.setAttribute("connectedUser",user3);
-        return "redirect:/team";
+//        User user3 = userRepository.findUserByEmail("hamza@gmail.com");
+//
+//
+//        System.out.println("\n / User : "+user3);
+//
+//        HttpSession session = request.getSession(true);
+//        session.setAttribute("connectedUser",user3);
+        return "redirect:/project";
     }
 
 

@@ -79,7 +79,7 @@
                                                 <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Profile: activate to sort column descending" style="width: 300px;">Nom</th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 300px;">ProjectOwner</th>
                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 900px;">Description</th>
-                                                <th rowspan="1" colspan="1" aria-label="" style="width: 60px;"></th>
+                                                <th  th:hidden="${user.id!=CurrentTeam.leader.id}"  rowspan="1" colspan="1" aria-label="" style="width: 60px;"></th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -87,7 +87,7 @@
                                                 <td th:text="${s.nom}"></td>
                                                 <td th:text="${s.projectOwner.username}" ></td>
                                                 <td th:text="${s.description!=null}?${s.description} : 'Aucun Description'"></td>
-                                                <td>
+                                                <td    th:hidden="${user.id!=CurrentTeam.leader.id}"   >
 <!--                                                    <a th:href="@{editTeamMemeber(Team_id=${CurrentTeam.id} , Team_id=${s.id})}" class="btn bg-success-light mr-1"><i class="ri-edit-box-line m-0"></i></a>-->
                                                     <a th:href="@{deleteTeamMemeber(Team_id=${CurrentTeam.id}, Team_id=${s.id})}" class="btn bg-secondary-light "><i class="ri-delete-bin-2-fill m-0"></i></a>
                                                 </td>
@@ -98,7 +98,7 @@
                                                 <th rowspan="1" colspan="1">Nom</th>
                                                 <th rowspan="1" colspan="1">Description</th>
                                                 <th rowspan="1" colspan="1">ProjectOwner</th>
-                                                <th rowspan="1" colspan="1"> </th>
+                                                <th   th:hidden="${user.id!=CurrentTeam.leader.id}"   rowspan="1" colspan="1"> </th>
                                             </tr>
                                             </tfoot>
                                         </table>

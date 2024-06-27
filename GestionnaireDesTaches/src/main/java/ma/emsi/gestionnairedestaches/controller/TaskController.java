@@ -32,8 +32,13 @@ public class TaskController {
         if(Project_id == -1)
         {
             List<Project> projects = projectRepository.findByProjectOwner(user.getId());
-            project = projects.get(0);
-            Project_id = project.getId();
+            if (projects.isEmpty())
+            {
+                project = null;
+            }else {
+                project = projects.get(0);
+                Project_id = project.getId();
+            }
         }else{
             project = projectRepository.findProjectById(Project_id);
         }
