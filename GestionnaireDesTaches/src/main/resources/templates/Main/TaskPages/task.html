@@ -37,7 +37,14 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-wrap align-items-center justify-content-between breadcrumb-content">
-                                    <h5  th:text="${CurrentProject.nom} + ' Tasks ####'" ></h5>
+                                    <div class="iq-header-title">
+                                        <nav aria-label="breadcrumb">
+                                            <ol class="breadcrumb iq-bg-primary mb-0">
+                                                <li class="breadcrumb-item"><a th:href="@{/project}" ><i class="ri-home-4-line mr-1 float-left"></i>Project</a></li>
+                                                <li class="breadcrumb-item"><a href="#" th:text="${CurrentProject.nom}"></a></li>
+                                            </ol>
+                                        </nav>
+                                    </div>
                                     <div class="d-flex flex-wrap align-items-center">
                                         <div class="dropdown dropdown-project mr-3">
                                             <div class="dropdown-toggle" id="dropdownMenuButton03" data-toggle="dropdown">
@@ -99,9 +106,8 @@
                                                             <label class="custom-control-label" th:for="${'customCheck'+iterator.index}"></label>
                                                         </div>
                                                         <div>
-                                                            <h5 class="mb-2" th:text="${s.nom}"></h5>
-                                                            <div class="media align-items-center">
-                                                                <div class="btn bg-body mr-3"><i class="ri-align-justify mr-2"></i><span th:text="${ListTaskDone.size()+'/'+(ListTaskDone.size()+ListTaskNotDone.size())}"></span></div>
+                                                            <h5 class="mb-2 mr-3 d-inline-block" th:text="${s.nom}"></h5>
+                                                            <div class="media align-items-center d-inline-flex">                                                                <div class="btn bg-body mr-3"><i class="ri-align-justify mr-2"></i><span th:text="${ListTaskDone.size()+'/'+(ListTaskDone.size()+ListTaskNotDone.size())}"></span></div>
 <!--                                                                <div class="btn bg-body"><i class="ri-survey-line mr-2"></i>6</div>-->
                                                             </div>
                                                         </div>

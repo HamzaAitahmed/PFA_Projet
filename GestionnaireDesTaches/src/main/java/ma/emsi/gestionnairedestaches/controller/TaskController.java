@@ -107,7 +107,7 @@ public class TaskController {
         System.out.println("NewTask Post : "+NewTask);
         try {
             if(NewTask == null){
-                return "redirect:/NewTask?Project_id="+Project_id+"&error";
+                return "redirect:/NewTask?Project_id="+Project_id+"&error=TaskIsNull";
             }
             taskRepository.save(NewTask);
             projectRepository.save(projectRepository.findProjectById(Project_id));
@@ -115,7 +115,7 @@ public class TaskController {
 
         } catch (Exception e){
             System.out.println("NewTask erro exception ");
-            return "redirect:/NewTask?Project_id="+Project_id+"&error";
+            return "redirect:/NewTask?Project_id="+Project_id+"&error=TaskAlreadyExist";
         }
 
     }
