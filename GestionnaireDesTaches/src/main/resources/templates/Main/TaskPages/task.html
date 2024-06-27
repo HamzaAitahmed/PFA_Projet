@@ -67,17 +67,17 @@
                                                             <label class="custom-control-label" th:for="${'customChecktask'+iterator.index}"></label>
                                                         </div>
                                                         <div>
-                                                            <h5 class="mb-2" th:text="${s.nom}"></h5>
-                                                            <div class="media align-items-center">
+                                                            <h5 class="mb-2 mr-3 d-inline-block" th:text="${s.nom}"></h5>
+                                                            <div class="media align-items-center d-inline-flex">
                                                                 <div class="btn bg-body mr-3"><i class="ri-align-justify mr-2"></i><span th:text="${ListTaskDone.size()+'/'+(ListTaskDone.size()+ListTaskNotDone.size())}"></span></div>
-                                                                <div class="btn bg-body"><i class="ri-survey-line mr-2"></i>3</div>
+<!--                                                                <div class="btn bg-body"><i class="ri-survey-line mr-2"></i>3</div>-->
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="media align-items-center mt-md-0 mt-3">
-                                                        <a th:href="@{TaskStatus(Project_id=${CurrentProject.id} , Task_id=${s.id})}" class="btn bg-primary-light mr-1">Done</a>
-                                                        <a th:href="@{EditTask(Project_id=${CurrentProject.id}   , Task_id=${s.id})}" class="btn bg-success-light mr-1" ><i class="ri-edit-box-line m-0"></i></a>
-                                                        <a  onclick="confirmerDelete(this.href);return false ;"  th:href="@{DeleteTask(Project_id=${CurrentProject.id} , Task_id=${s.id})}" class="btn bg-secondary-light "><i class="ri-delete-bin-2-fill m-0"></i></a>
+                                                        <a th:hidden="${user.id!=s.projectTask.projectOwner.id}" th:href="@{TaskStatus(Project_id=${CurrentProject.id} , Task_id=${s.id})}" class="btn bg-primary-light mr-1">Done</a>
+                                                        <a th:hidden="${user.id!=s.projectTask.projectOwner.id}" th:href="@{EditTask(Project_id=${CurrentProject.id}   , Task_id=${s.id})}" class="btn bg-success-light mr-1" ><i class="ri-edit-box-line m-0"></i></a>
+                                                        <a th:hidden="${user.id!=s.projectTask.projectOwner.id}" onclick="confirmerDelete(this.href);return false ;"  th:href="@{DeleteTask(Project_id=${CurrentProject.id} , Task_id=${s.id})}" class="btn bg-secondary-light "><i class="ri-delete-bin-2-fill m-0"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -102,7 +102,7 @@
                                                             <h5 class="mb-2" th:text="${s.nom}"></h5>
                                                             <div class="media align-items-center">
                                                                 <div class="btn bg-body mr-3"><i class="ri-align-justify mr-2"></i><span th:text="${ListTaskDone.size()+'/'+(ListTaskDone.size()+ListTaskNotDone.size())}"></span></div>
-                                                                <div class="btn bg-body"><i class="ri-survey-line mr-2"></i>3</div>
+<!--                                                                <div class="btn bg-body"><i class="ri-survey-line mr-2"></i>6</div>-->
                                                             </div>
                                                         </div>
                                                     </div>

@@ -72,18 +72,19 @@
                         <div class="card card-block card-stretch card-height">
                             <div class="card-body">
                                 <div class="d-flex align-items-center justify-content-between mb-4">
-                                    <div th:id="${iterator.index < 10} ? 'circle-progress-0'+${iterator.index} : 'circle-progress-'+${iterator.index} " class="circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="25" data-type="percent"></div>
+<!--                                    <div th:id="${iterator.index < 10} ? 'circle-progress-0'+${iterator.index} : 'circle-progress-'+${iterator.index} " class="circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="25" data-type="percent"></div>-->
+                                    <img style="height: 100px ; width: 100px" class="img-fluid avatar-40 rounded-circle" th:src="${s.projectOwner.profilePicture} " alt="">
                                     <a class="btn m-0 btn-white badge-warning text-primary " th:href="@{task(Project_id=${s.id})}">Tasks</a>
                                 </div>
                                 <h5 class="mb-1" th:text="${s.getNom()}"></h5>
                                 <p class="mb-3"  th:text="${s.getDescription()}"></p>
                                 <div class="d-flex align-items-center justify-content-between pt-3 border-top">
                                     <div class="iq-media-group"  >
-                                        <a href="#" class="iq-media projectowner">
-                                            <img  class="img-fluid avatar-40 rounded-circle" th:src="${s.projectOwner.profilePicture} " alt="">
-                                        </a>
+<!--                                        <a href="#" class="iq-media projectowner">-->
+<!--                                            <img  class="img-fluid avatar-40 rounded-circle" th:src="${s.projectOwner.profilePicture} " alt="">-->
+<!--                                        </a>-->
                                         <div class="d-inline-block" th:if="${s.projectTeam != null}" >
-                                            <a href="#" th:hidden="${s.projectOwner == s.projectTeam.leader}"  class="iq-media">
+                                            <a href="#" th:hidden="${s.projectOwner == s.projectTeam.leader}"  class="iq-media mr-3">
                                                 <img  class="img-fluid avatar-40 rounded-circle" th:src="${s.projectTeam.leader.profilePicture}" alt="">
                                             </a>
                                             <a href="#" th:each="x:${s.projectTeam.members}" th:hidden="${s.projectOwner == x || s.projectTeam.leader == x }"  class="iq-media">
@@ -92,8 +93,8 @@
                                         </div>
                                     </div>
                                     <div class="link-shadow">
-                                        <a class="btn btn-white text-danger " onclick="confirmerDelete(this.href);return false ;"  th:href="@{deleteProject(id=${s.id} , search=${search})}">Delete</a>
-                                        <a class="btn btn-white text-primary " th:href="@{EditProject(Project_id=${s.id} , search=${search})}">Edit</a>
+                                        <a th:hidden="${user.id!=s.projectOwner.id}"  class="btn bg-success-light mr-1" th:href="@{EditProject(Project_id=${s.id} , search=${search})}"><i class="ri-edit-box-line m-0"></i></a>
+                                        <a th:hidden="${user.id!=s.projectOwner.id}"  onclick="confirmerDelete(this.href);return false ;" class="btn bg-secondary-light" th:href="@{deleteProject(Project_id=${s.id} , search=${search})}" ><i class="ri-delete-bin-2-fill m-0"></i></a>
                                     </div>
                                 </div>
                             </div>

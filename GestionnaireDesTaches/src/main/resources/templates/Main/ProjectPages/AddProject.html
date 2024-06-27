@@ -33,7 +33,7 @@
                 <div class="modal-header d-block text-center pb-3 border-bttom">
                     <h3 class="modal-title" id="exampleModalCenterTitle01">New Project</h3>
                 </div>
-                <form th:action="@{NewProject}" method="post" th:object="${Project}">
+                <form th:action="@{NewProject(search=${search})}" method="post" th:object="${Project}">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-lg-12">
@@ -93,33 +93,17 @@
                                         <div class="dropdown status-dropdown mr-3">
                                             <div class="dropdown-toggle" id="dropdownMenuButton03" data-toggle="dropdown">
                                                 <div class="btn bg-body">
-                                                    <span class="h6">Status :</span> All Projects<i class="ri-arrow-down-s-line ml-2 mr-0"></i>
+                                                    <span class="h6">Status :</span><span th:text="${search}"></span><i class="ri-arrow-down-s-line ml-2 mr-0"></i>
                                                 </div>
                                             </div>
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton03">
-                                                <a class="dropdown-item" href="#"><i class="ri-mic-line mr-2"></i>All Projects</a>
-                                                <a class="dropdown-item" href="#"><i class="ri-attachment-line mr-2"></i>My Projects</a>
-                                                <a class="dropdown-item" href="#"><i class="ri-file-copy-line mr-2"></i>Other Projects</a>
-                                            </div>
-                                        </div>
-                                        <div class="list-grid-toggle d-flex align-items-center mr-3">
-                                            <div data-toggle-extra="tab" data-target-extra="#grid" class="active">
-                                                <div class="grid-icon mr-3">
-                                                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                        <rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                            <div data-toggle-extra="tab" data-target-extra="#list">
-                                                <div class="grid-icon">
-                                                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                        <line x1="21" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="21" y1="18" x2="3" y2="18"></line>
-                                                    </svg>
-                                                </div>
+                                                <a class="dropdown-item" th:href="@{project(search=${'All Projects'})}"><i class="ri-mic-line mr-2"></i>All Projects</a>
+                                                <a class="dropdown-item" th:href="@{project(search=${'My Projects'})}"><i class="ri-attachment-line mr-2"></i>My Projects</a>
+                                                <a class="dropdown-item" th:href="@{project(search=${'Other Projects'})}"><i class="ri-file-copy-line mr-2"></i>Other Projects</a>
                                             </div>
                                         </div>
                                         <div class="pl-3 border-left btn-new">
-                                            <a href="#" class="btn btn-primary" data-target="#new-project-modal" data-toggle="modal">New Project</a>
+                                            <a th:href="@{/NewProject(search=${search})}" class="btn btn-primary" >New Project</a>
                                         </div>
                                     </div>
                                 </div>
@@ -128,57 +112,34 @@
                     </div>
                 </div>
                 <div id="grid" class="item-content animate__animated animate__fadeIn active" data-toggle-extra="tab-content">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6">
+                    <div class="row" >
+                        <div class="col-lg-4 col-md-6" th:each="s,iterator:${PorjectList}">
                             <div class="card card-block card-stretch card-height">
                                 <div class="card-body">
                                     <div class="d-flex align-items-center justify-content-between mb-4">
-                                        <div id="circle-progress-01" class="circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="25" data-type="percent" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25"></div>
-                                        <i class="ri-star-fill m-0 text-warning"></i>
+                                        <!--                                    <div th:id="${iterator.index < 10} ? 'circle-progress-0'+${iterator.index} : 'circle-progress-'+${iterator.index} " class="circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="25" data-type="percent"></div>-->
+                                        <img style="height: 100px ; width: 100px" class="img-fluid avatar-40 rounded-circle" th:src="${s.projectOwner.profilePicture} " alt="">
+                                        <a class="btn m-0 btn-white badge-warning text-primary " th:href="@{task(Project_id=${s.id})}">Tasks</a>
                                     </div>
-                                    <h5 class="mb-1">Theme development</h5>
-                                    <p class="mb-3">Preparing framework of block-based WordPress Theme.</p>
+                                    <h5 class="mb-1" th:text="${s.getNom()}"></h5>
+                                    <p class="mb-3"  th:text="${s.getDescription()}"></p>
                                     <div class="d-flex align-items-center justify-content-between pt-3 border-top">
-                                        <div class="iq-media-group">
-                                            <a href="#" class="iq-media">
-                                                <img class="img-fluid avatar-40 rounded-circle" th:src="@{images/user/05.jpg}" alt="">
-                                            </a>
-                                            <a href="#" class="iq-media">
-                                                <img class="img-fluid avatar-40 rounded-circle" th:src="@{images/user/06.jpg}" alt="">
-                                            </a>
-                                        </div>
-                                        <a class="btn btn-white text-primary link-shadow">High</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="list" class="item-content animate__animated animate__fadeIn" data-toggle-extra="tab-content">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-sm-8">
-                                            <div class="d-flex align-items-center">
-                                                <div id="circle-progress-13" class="circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="25" data-type="percent" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25"></div>
-                                                <div class="ml-3">
-                                                    <h5 class="mb-1">Theme development</h5>
-                                                    <p class="mb-0">Preparing framework of block-based WordPress Theme.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                            <div class="iq-media-group">
-                                                <a href="#" class="iq-media">
-                                                    <img class="img-fluid avatar-40 rounded-circle" th:src="@{images/user/05.jpg}" alt="">
+                                        <div class="iq-media-group"  >
+                                            <!--                                        <a href="#" class="iq-media projectowner">-->
+                                            <!--                                            <img  class="img-fluid avatar-40 rounded-circle" th:src="${s.projectOwner.profilePicture} " alt="">-->
+                                            <!--                                        </a>-->
+                                            <div class="d-inline-block" th:if="${s.projectTeam != null}" >
+                                                <a href="#" th:hidden="${s.projectOwner == s.projectTeam.leader}"  class="iq-media mr-3">
+                                                    <img  class="img-fluid avatar-40 rounded-circle" th:src="${s.projectTeam.leader.profilePicture}" alt="">
                                                 </a>
-                                                <a href="#" class="iq-media">
-                                                    <img class="img-fluid avatar-40 rounded-circle" th:src="@{images/user/06.jpg}" alt="">
+                                                <a href="#" th:each="x:${s.projectTeam.members}" th:hidden="${s.projectOwner == x || s.projectTeam.leader == x }"  class="iq-media">
+                                                    <img  class="img-fluid avatar-40 rounded-circle" th:src="${x.profilePicture}" alt="">
                                                 </a>
                                             </div>
-                                            <a class="btn btn-white text-primary link-shadow">High</a>
+                                        </div>
+                                        <div class="link-shadow">
+                                            <a th:hidden="${user.id!=s.projectOwner.id}"  class="btn bg-success-light mr-1" th:href="@{EditProject(Project_id=${s.id} , search=${search})}"><i class="ri-edit-box-line m-0"></i></a>
+                                            <a th:hidden="${user.id!=s.projectOwner.id}"  onclick="confirmerDelete(this.href);return false ;" class="btn bg-secondary-light" th:href="@{deleteProject(Project_id=${s.id} , search=${search})}" ><i class="ri-delete-bin-2-fill m-0"></i></a>
                                         </div>
                                     </div>
                                 </div>
