@@ -67,6 +67,13 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
    ```bash
    ./mvnw clean install
    ```
+<span style="color:red;">&#9888;</span> Si vous avez des problem d'installation du Maven voici des liens comment l'installer dans windows
+
+**Windows** **10** : https://phoenixnap.com/kb/install-maven-windows
+**Windows** **11** : https://medium.com/@gauravshah97/how-to-install-maven-on-windows-39ff317e40cf
+
+<span style="color:red;">&#9888;</span> N'oubliez pas de redémarrer votre ordinateur apres l'installation.
+
 
 ---
 
