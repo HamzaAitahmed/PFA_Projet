@@ -9,7 +9,6 @@
 5. [Exécution](#exécution)
 6. [Structure du Projet](#structure-du-projet)
 7. [Contribuer](#contribuer)
-8. [Licence](#licence)
 
 ---
 
