@@ -115,8 +115,12 @@ Ou avec le Maven Wrapper :
 ### Accès à l'application
 Une fois l'application démarrée, ouvrez votre navigateur et accédez à l'adresse suivante :
 ```
-http://localhost:8085
+http://localhost:8085/login
 ```
+
+**Email    : ** hamza@gmail.com
+**Password : ** 123
+
 Vous verrez l'interface utilisateur du Gestionnaire de Tâches.
 - **Page index** 
 
