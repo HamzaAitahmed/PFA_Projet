@@ -87,7 +87,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
    - Dans le champ **Créer une base de données**, entrez le nom de la base de données, dans notre cas : `gestionnairedestaches`.
    - Cliquez sur **Créer**.
 
-*Warning** Si vous voulez choisir un autre nom, il faut aussi changer dans le fichier application.properties le nom `GestionnaireDesTaches` par `Nom De Votre BD`
+<span style="color:red;">&#9888; </span> Si vous voulez choisir un autre nom, il faut aussi changer dans le fichier application.properties le nom `GestionnaireDesTaches` par `Nom De Votre BD`
 
 ![image](https://github.com/user-attachments/assets/86eb37fb-60a5-4940-9811-f4cade71a430)
 
