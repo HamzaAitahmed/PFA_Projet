@@ -87,7 +87,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
    - Dans le champ **Créer une base de données**, entrez le nom de la base de données, dans notre cas : `gestionnairedestaches`.
    - Cliquez sur **Créer**.
 
-<span style="color:red;">&#9888; </span> Si vous voulez choisir un autre nom, il faut aussi changer dans le fichier application.properties le nom `GestionnaireDesTaches` par `Nom De Votre BD`
+<span style="color:red;">&#9888;</span> Si vous voulez choisir un autre nom pour votre BD, il faut aussi modifier le fichier **application.properties** le nom `GestionnaireDesTaches` par `NomDeVotreBD`
 
 ![image](https://github.com/user-attachments/assets/86eb37fb-60a5-4940-9811-f4cade71a430)
 
@@ -95,7 +95,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 2. **Importer le fichier SQL** :
    - Sélectionnez la base de données que vous venez de créer dans la liste à gauche.
    - Une fois dans cette base de données, allez à l'onglet **Importer**.
-   - Cliquez sur **Choisir un fichier** et sélectionnez le fichier `gestionnairedestachesVersionPFA.sql` sur votre ordinateur ( GestionnaireDesTaches\gestionnairedestachesVersionPFA.sql ).
+   - Cliquez sur **Choisir un fichier** et sélectionnez le fichier `gestionnairedestachesVersionPFA.sql` `GestionnaireDesTaches\gestionnairedestachesVersionPFA.sql` .
    - Cliquez sur **Exécuter** pour importer les tables et les données du fichier SQL dans votre base de données.
 
 ---
@@ -118,14 +118,22 @@ Une fois l'application démarrée, ouvrez votre navigateur et accédez à l'adre
 http://localhost:8085
 ```
 Vous verrez l'interface utilisateur du Gestionnaire de Tâches.
+- **Page index** 
 
 ![image](https://github.com/user-attachments/assets/e52ae765-b12e-43b9-a94f-79b6d7597e6d)
 
+- **Page Login**
+  
 ![image](https://github.com/user-attachments/assets/b74bf05e-9df5-4a4a-9bfa-4eeaf9a7e942)
+
+- **Page Acceuil** 
 
 ![image](https://github.com/user-attachments/assets/dd2fc22a-0c1f-4f93-a886-0c80c79029b9)
 
+- **Page Tasks**
+  
 ![image](https://github.com/user-attachments/assets/cf508dd3-0047-4740-a68a-0e81dbae46f8)
+
 
 ---
 
