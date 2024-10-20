@@ -84,11 +84,13 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 
 1. **Créer une nouvelle base de données** :
    - Dans phpMyAdmin, allez à l'onglet **Bases de données**.
-   - Dans le champ **Créer une base de données**, entrez le nom de la base de données, dans notre cas : `gestionnairedestaches`. Si vous voulez choisir un autre nom, il faut aussi changer dans le fichier application.properties ( GestionnaireDesTaches\src\main\resources\application.properties ) cette ligne ...localhost:3306/NomDeVotreBD?createDatabaseIfNotExist=true
+   - Dans le champ **Créer une base de données**, entrez le nom de la base de données, dans notre cas : `gestionnairedestaches`.
+   - Cliquez sur **Créer**.
+
+ Si vous voulez choisir un autre nom, il faut aussi changer dans le fichier application.properties ( GestionnaireDesTaches\src\main\resources\application.properties ) cette ligne ...localhost:3306/NomDeVotreBD?createDatabaseIfNotExist=true
 
 ![image](https://github.com/user-attachments/assets/86eb37fb-60a5-4940-9811-f4cade71a430)
 
-   - Cliquez sur **Créer**.
 
 2. **Importer le fichier SQL** :
    - Sélectionnez la base de données que vous venez de créer dans la liste à gauche.
