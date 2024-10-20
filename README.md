@@ -6,9 +6,10 @@
 2. [Fonctionnalités](#fonctionnalités)
 3. [Technologies Utilisées](#technologies-utilisées)
 4. [Installation](#installation)
-5. [Exécution](#exécution)
-6. [Structure du Projet](#structure-du-projet)
-7. [Contribuer](#contribuer)
+5. [Base De Données](#base-de-données)
+6. [Exécution](#exécution)
+7. [Structure du Projet](#structure-du-projet)
+8. [Contribuer](#contribuer)
 
 ---
 
@@ -69,6 +70,34 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 
 ---
 
+## Base De Données
+### Démarrer la base de données MySQL dans XAMPP
+
+1. **Lancer XAMPP** : Ouvrez le panneau de contrôle XAMPP et cliquez sur le bouton **Start** à côté de **MySQL** pour démarrer le serveur MySQL.
+
+![image](https://github.com/user-attachments/assets/c0a79d9c-e2e4-43a2-affc-ab96138b9b0a)
+
+
+2. **Accéder à phpMyAdmin** : Une fois MySQL démarré, cliquez sur le bouton **Start** à côté de **Apache**  ouvrez votre navigateur et allez à l'URL suivante : `http://localhost/phpmyadmin`. Cela vous redirigera vers l'interface de gestion de la base de données phpMyAdmin.
+
+### Importer la base de données dans phpMyAdmin
+
+1. **Créer une nouvelle base de données** :
+   - Dans phpMyAdmin, allez à l'onglet **Bases de données**.
+   - Dans le champ **Créer une base de données**, entrez le nom de la base de données, dans notre cas : `gestionnairedestaches`. Si vous voulez choisir un autre nom, il faut aussi changer dans le fichier application.properties ( GestionnaireDesTaches\src\main\resources\application.properties ) cette ligne ...localhost:3306/NomDeVotreBD?createDatabaseIfNotExist=true
+
+![image](https://github.com/user-attachments/assets/86eb37fb-60a5-4940-9811-f4cade71a430)
+
+   - Cliquez sur **Créer**.
+
+2. **Importer le fichier SQL** :
+   - Sélectionnez la base de données que vous venez de créer dans la liste à gauche.
+   - Une fois dans cette base de données, allez à l'onglet **Importer**.
+   - Cliquez sur **Choisir un fichier** et sélectionnez le fichier `gestionnairedestachesVersionPFA.sql` sur votre ordinateur ( GestionnaireDesTaches\gestionnairedestachesVersionPFA.sql ).
+   - Cliquez sur **Exécuter** pour importer les tables et les données du fichier SQL dans votre base de données.
+
+---
+
 ## Exécution
 ### Lancement de l'application
 Pour démarrer l'application en local, exécutez la commande suivante :
@@ -87,6 +116,14 @@ Une fois l'application démarrée, ouvrez votre navigateur et accédez à l'adre
 http://localhost:8085
 ```
 Vous verrez l'interface utilisateur du Gestionnaire de Tâches.
+
+![image](https://github.com/user-attachments/assets/e52ae765-b12e-43b9-a94f-79b6d7597e6d)
+
+![image](https://github.com/user-attachments/assets/b74bf05e-9df5-4a4a-9bfa-4eeaf9a7e942)
+
+![image](https://github.com/user-attachments/assets/dd2fc22a-0c1f-4f93-a886-0c80c79029b9)
+
+![image](https://github.com/user-attachments/assets/cf508dd3-0047-4740-a68a-0e81dbae46f8)
 
 ---
 
