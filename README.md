@@ -51,7 +51,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 ### Étapes d'installation
 1. Clonez le dépôt GitHub sur votre machine locale :
    ```bash
-   git clone https://github.com/votre-utilisateur/GestionnaireDesTaches.git
+   git clone https://github.com/HamzaAitahmed/GestionnaireDesTaches.git
    ```
 2. Accédez au répertoire du projet :
    ```bash
@@ -122,7 +122,7 @@ Les contributions sont les bienvenues ! Si vous souhaitez améliorer ce projet, 
 1. **Fork** le projet.
 2. Créez une nouvelle branche pour vos modifications :
    ```bash
-   git checkout -b ma-nouvelle-fonction
+   git checkout -b ma-nouvelle-branche 
    ```
 3. Faites vos modifications et **commit** :
    ```bash
@@ -130,6 +130,6 @@ Les contributions sont les bienvenues ! Si vous souhaitez améliorer ce projet, 
    ```
 4. Poussez vos changements sur GitHub :
    ```bash
-   git push origin ma-nouvelle-fonction
+   git push origin ma-nouvelle-branche
    ```
 5. Créez une **pull request** sur le dépôt original.
